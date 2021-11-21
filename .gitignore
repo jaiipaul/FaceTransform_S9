@@ -32,5 +32,5 @@
 *.app
 
 #compilation files
-./cpp/build
-./cpp/includes
+./cpp/build/*
+./cpp/includes/*
