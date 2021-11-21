@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+#compilation files
+./cpp/build
+./cpp/includes
