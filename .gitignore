@@ -32,5 +32,9 @@
 *.app
 
 #compilation files
-./cpp/build/*
-./cpp/includes/*
+cpp/build/
+cpp/build/CMakeFiles
+cpp/includes/
+
+*.log
+*.bin

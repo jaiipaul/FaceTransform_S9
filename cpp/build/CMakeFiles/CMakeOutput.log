@@ -9,7 +9,7 @@ The output was:
 Microsoft (R) Build Engine version 16.11.2+f32259642 pour .NET Framework
 Copyright (C) Microsoft Corporation. Tous droits réservés.
 
-La génération a démarré 21/11/2021 14:34:21.
+La génération a démarré 21/11/2021 14:38:55.
 Projet "D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cpp\build\CMakeFiles\3.22.0\CompilerIdC\CompilerIdC.vcxproj" sur le noud 1 (cibles par défaut).
 PrepareForBuild:
   Création du répertoire "Debug\".
@@ -35,7 +35,7 @@ La génération a réussi.
     0 Avertissement(s)
     0 Erreur(s)
 
-Temps écoulé 00:00:01.95
+Temps écoulé 00:00:01.72
 
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -54,7 +54,7 @@ The output was:
 Microsoft (R) Build Engine version 16.11.2+f32259642 pour .NET Framework
 Copyright (C) Microsoft Corporation. Tous droits réservés.
 
-La génération a démarré 21/11/2021 14:34:24.
+La génération a démarré 21/11/2021 14:38:57.
 Projet "D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cpp\build\CMakeFiles\3.22.0\CompilerIdCXX\CompilerIdCXX.vcxproj" sur le noud 1 (cibles par défaut).
 PrepareForBuild:
   Création du répertoire "Debug\".
@@ -80,7 +80,7 @@ La génération a réussi.
     0 Avertissement(s)
     0 Erreur(s)
 
-Temps écoulé 00:00:01.73
+Temps écoulé 00:00:01.48
 
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -92,45 +92,45 @@ The CXX compiler identification is MSVC, found in "D:/PAUL/ETUDES/ENSEIRB/3A/Fac
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: D:/PAUL/ETUDES/ENSEIRB/3A/FaceSwapS9/cpp/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_48ecf.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.11.2+f32259642 pour .NET Framework
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_6d923.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.11.2+f32259642 pour .NET Framework
 Copyright (C) Microsoft Corporation. Tous droits réservés.
 
   Compilateur d'optimisation Microsoft (R) C/C++ version 19.29.30137 pour x64
   Copyright (C) Microsoft Corporation. Tous droits réservés.
   CMakeCCompilerABI.c
-  cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_48ecf.dir\Debug\\" /Fd"cmTC_48ecf.dir\Debug\vc142.pdb" /external:W1 /Gd /TC /errorReport:queue "D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeCCompilerABI.c"
-  cmTC_48ecf.vcxproj -> D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cpp\build\CMakeFiles\CMakeTmp\Debug\cmTC_48ecf.exe
+  cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_6d923.dir\Debug\\" /Fd"cmTC_6d923.dir\Debug\vc142.pdb" /external:W1 /Gd /TC /errorReport:queue "D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeCCompilerABI.c"
+  cmTC_6d923.vcxproj -> D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cpp\build\CMakeFiles\CMakeTmp\Debug\cmTC_6d923.exe
 
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: D:/PAUL/ETUDES/ENSEIRB/3A/FaceSwapS9/cpp/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_f18ee.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.11.2+f32259642 pour .NET Framework
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_41c54.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.11.2+f32259642 pour .NET Framework
 Copyright (C) Microsoft Corporation. Tous droits réservés.
 
   Compilateur d'optimisation Microsoft (R) C/C++ version 19.29.30137 pour x64
   Copyright (C) Microsoft Corporation. Tous droits réservés.
   CMakeCXXCompilerABI.cpp
-  cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_f18ee.dir\Debug\\" /Fd"cmTC_f18ee.dir\Debug\vc142.pdb" /external:W1 /Gd /TP /errorReport:queue "D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeCXXCompilerABI.cpp"
-  cmTC_f18ee.vcxproj -> D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cpp\build\CMakeFiles\CMakeTmp\Debug\cmTC_f18ee.exe
+  cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_41c54.dir\Debug\\" /Fd"cmTC_41c54.dir\Debug\vc142.pdb" /external:W1 /Gd /TP /errorReport:queue "D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeCXXCompilerABI.cpp"
+  cmTC_41c54.vcxproj -> D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cpp\build\CMakeFiles\CMakeTmp\Debug\cmTC_41c54.exe
 
 
 
 Performing C++ SOURCE FILE Test HAS_MSVC_GL_LTCG succeeded with the following output:
 Change Dir: D:/PAUL/ETUDES/ENSEIRB/3A/FaceSwapS9/cpp/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_7262d.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.11.2+f32259642 pour .NET Framework
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/MSBuild.exe cmTC_0e150.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=16.0 /v:m && Microsoft (R) Build Engine version 16.11.2+f32259642 pour .NET Framework
 Copyright (C) Microsoft Corporation. Tous droits réservés.
 
   Compilateur d'optimisation Microsoft (R) C/C++ version 19.29.30137 pour x64
   Copyright (C) Microsoft Corporation. Tous droits réservés.
   src.cxx
-  cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /GL /D _MBCS /D WIN32 /D _WINDOWS /D HAS_MSVC_GL_LTCG /D "CMAKE_INTDIR=\"Debug\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /std:c++17 /Fo"cmTC_7262d.dir\Debug\\" /Fd"cmTC_7262d.dir\Debug\vc142.pdb" /external:W1 /Gd /TP /errorReport:queue D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cpp\build\CMakeFiles\CMakeTmp\src.cxx
-LINK : warning LNK4075: ' /INCREMENTAL' ignoré à cause de la spécification '/LTCG' [D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cpp\build\CMakeFiles\CMakeTmp\cmTC_7262d.vcxproj]
+  cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /GL /D _MBCS /D WIN32 /D _WINDOWS /D HAS_MSVC_GL_LTCG /D "CMAKE_INTDIR=\"Debug\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /std:c++17 /Fo"cmTC_0e150.dir\Debug\\" /Fd"cmTC_0e150.dir\Debug\vc142.pdb" /external:W1 /Gd /TP /errorReport:queue D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cpp\build\CMakeFiles\CMakeTmp\src.cxx
+LINK : warning LNK4075: ' /INCREMENTAL' ignoré à cause de la spécification '/LTCG' [D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cpp\build\CMakeFiles\CMakeTmp\cmTC_0e150.vcxproj]
   Génération de code en cours
   Fin de la génération du code
-  cmTC_7262d.vcxproj -> D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cpp\build\CMakeFiles\CMakeTmp\Debug\cmTC_7262d.exe
+  cmTC_0e150.vcxproj -> D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cpp\build\CMakeFiles\CMakeTmp\Debug\cmTC_0e150.exe
 
 
 Source file was:
