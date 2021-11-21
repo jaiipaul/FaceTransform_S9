@@ -5,4 +5,10 @@
     > pip install dlib
     > pip install openCV
 
-4) 
+Compilation librairie cpp/python
+4) aller dans le dossier cpp et creer un dossier build, puis lancer les config cmake :
+    > cd cpp && mkdir build && cd build
+    > cmake ..
+
+5) Dans build tous la solution pour la librairie cpp à été créée, pour compiler ouvrir la solution .sln dans visual studio 2019
+6) Generer
