@@ -35,6 +35,6 @@
 cpp/build/
 cpp/build/CMakeFiles
 cpp/includes/
-
+lib/
 *.log
 *.bin
