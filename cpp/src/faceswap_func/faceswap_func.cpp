@@ -9,3 +9,5 @@ void addition(int a, int b) {
 	res = a + b;
 	printf("addition : %d + %d = %d\n", a, b, res);
 }
+
+// Define functions here
