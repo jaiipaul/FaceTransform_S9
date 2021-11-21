@@ -1,0 +1,8 @@
+1) Installer VS Community 2019 et Python
+2) Ouvrir powershell et taper : cmake, si erreur 
+   Installer CMake ( https://cmake.org/download/ ) et ajouter le repertoire bin aux variables d'environnement
+3) Installer dlib et openCV :
+    > pip install dlib
+    > pip install openCV
+
+4) 
