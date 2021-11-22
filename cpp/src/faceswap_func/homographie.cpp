@@ -10,7 +10,7 @@ void create_A(int size, double *A, double *p, double *m)
         A[i*size+3]=m[i*2+1];
         A[i*size+5]=m[i*2+1]*p[i*2+1];
         A[i*size+6]=1;
-        A[2*i*size+1]=m[i*2]
+        A[2*i*size+1]=m[i*2];
         A[2*i*size+2]=m[i*2]*p[i*2];
         A[2*i*size+4]=m[i*2+1];
         A[2*i*size+5]=m[i*2+1]*p[i*2+1];
@@ -63,10 +63,10 @@ void Find_Homography(double * src, double *dst, double *h){
     free(A);    
 }
 
-void applique_homo(double * h, double *m, double *p)
+void ApplyPointHomography(double * h, double *m, double *p)
 {
         p[0]=(h[0]*m[0]+h[3]*m[1]+h[6])/(h[2]*m[0]+h[5]*m[1]+1);
-        p[1]=(h[1]*m[0]+h[4]*m[1]+h[7])/(h[2]*m[0]+h[5]*m[1]+1);    
+        p[1]=(h[1]*m[0]+h[4]*m[1]+h[7])/(h[2]*m[0]+h[5]*m[1]+1);
 }
 
 void CoefficientsGivens(int p,int q,double *c,double *s,double (*a)[50])

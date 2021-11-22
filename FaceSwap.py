@@ -13,10 +13,21 @@ detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
 
 ## FUNCTIONS -----------------------------------------------------------------------------##
+def img_array_to_list(array):
+    size = array.shape
+    list = []
+    for y in range(size[0]):
+        for x in range(size[1]):
+            for c in range(size[2]):
+                list.append(array[y,x,c])
+    return list
+
 ## FIND FACE IN THE IMAGE
 def get_faces(img):
     img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     faces = detector(img_gray)
+    print("Found ")
+    print(len(faces))
     return img_gray, faces
 ##----------------------------------------------------------------------------------------------##
 ## FIND FACE FEATURES AND LANDMARKS 
@@ -98,14 +109,14 @@ def crop_triangle(img, landmarks_point, triangle_index):
 
 ##-------------------------------------------------------------------------------------------------##
 ##FRACE SWAPPING ALGORITHM
-cap = cv2.VideoCapture(0) # ouvrir la caméra 
+cap = cv2.VideoCapture(0, cv2.CAP_ANY) # ouvrir la caméra 
 _, temp = cap.read()
 width = len(temp[1,:,1])
 height = len(temp[:,1,1])
 
 ## FIRST FACE TREATEMENT // THE ALGORITHM WILL PUT THIS FACE ON THE ONE CAPTURE BY THE CAMERA
 ## Find the face
-face_to_add = cv2.imread("./img/macron.jpg")
+face_to_add = cv2.imread("./img/willsmith.jpg")
 face_to_add_gray, faces = get_faces(face_to_add)
 mask = np.zeros_like(face_to_add_gray)
 ## Get landmarks/Face features and form triangle from these, delaunay triangulation
@@ -117,32 +128,34 @@ for face in faces:
 while cap.isOpened():    # tant que la caméa est ouverte  
     ##Find faces
     _, camera_img = cap.read()
+    
     camera_img_gray, camera_faces = get_faces(camera_img)
     camera_img_new_face = np.zeros_like(camera_img) 
 
-    for face in camera_faces:
-        landmarks_point2 = get_landmarks(camera_img_gray, face)
-    #triangulisation of the second face, from the first face
-        points2 = np.array(landmarks_point2, dtype=np.int32)
-        hull_camera = cv2.convexHull(points2)
+    if (0 < len(camera_faces)):
+        for face in camera_faces:
+            landmarks_point2 = get_landmarks(camera_img_gray, face)
+        #triangulisation of the second face, from the first face
+            points2 = np.array(landmarks_point2, dtype=np.int32)
+            hull_camera = cv2.convexHull(points2)
 
-        for triangle_index in indexes_triangles:
-            # Extract triangle on the first face
-            points_triangle1, cropped_triangle1, x1, y1, w1, h1 = crop_triangle(face_to_add, landmarks_point, triangle_index)
-            
-            #extract triangle formed by the same points on face captured by camera
-            points_triangle2, cropped_triangle2, x2, y2, w2, h2 = crop_triangle(camera_img, landmarks_point2, triangle_index)
-            
-            #warp triangles 
-            points_triangle1 = np.float32(points_triangle1)
-            points_triangle2 = np.float32(points_triangle2)
-            M = cv2.getAffineTransform(points_triangle1, points_triangle2)
-            warped_triangle = cv2.warpAffine(cropped_triangle1, M, (w2,h2))
-             
-            #reconstruct destination face  
-            triangle_area = camera_img_new_face[y2:y2+h2, x2:x2+w2]
-            triangle_area = cv2.add(triangle_area, warped_triangle)
-            camera_img_new_face[y2:y2+h2, x2:x2+w2] = triangle_area 
+            for triangle_index in indexes_triangles:
+                # Extract triangle on the first face
+                points_triangle1, cropped_triangle1, x1, y1, w1, h1 = crop_triangle(face_to_add, landmarks_point, triangle_index)
+                
+                #extract triangle formed by the same points on face captured by camera
+                points_triangle2, cropped_triangle2, x2, y2, w2, h2 = crop_triangle(camera_img, landmarks_point2, triangle_index)
+                
+                #warp triangles 
+                points_triangle1 = np.float32(points_triangle1)
+                points_triangle2 = np.float32(points_triangle2)
+                M = cv2.getAffineTransform(points_triangle1, points_triangle2)
+                warped_triangle = cv2.warpAffine(cropped_triangle1, M, (w2,h2))
+                
+                #reconstruct destination face  
+                triangle_area = camera_img_new_face[y2:y2+h2, x2:x2+w2]
+                triangle_area = cv2.add(triangle_area, warped_triangle)
+                camera_img_new_face[y2:y2+h2, x2:x2+w2] = triangle_area 
          
            
     
@@ -153,22 +166,25 @@ while cap.isOpened():    # tant que la caméa est ouverte
     #result = cv2.add(background, camera_img_new_face)
     #result2 = cv2.flip(result, 1)
 
-    Dst_face_mask = np.zeros_like(camera_img_gray)
-    Dst_head_mask = cv2.fillConvexPoly(Dst_face_mask, hull_camera, 255)
-    Dst_face_mask = cv2.bitwise_not(Dst_head_mask)
+            Dst_face_mask = np.zeros_like(camera_img_gray)
+            Dst_head_mask = cv2.fillConvexPoly(Dst_face_mask, hull_camera, 255)
+            Dst_face_mask = cv2.bitwise_not(Dst_head_mask)
     
     #maskage
-    img2Noface = cv2.bitwise_and(camera_img, camera_img, mask=Dst_face_mask)
-    imgOut = cv2.add(img2Noface, camera_img_new_face)
+            img2Noface = cv2.bitwise_and(camera_img, camera_img, mask=Dst_face_mask)
+            imgOut = cv2.add(img2Noface, camera_img_new_face)
     
-    (x, y, w, h) = cv2.boundingRect(hull_camera)
-    center_face2 = (int((x + x + w) / 2), int((y + y + h) / 2))
+            (x, y, w, h) = cv2.boundingRect(hull_camera)
+            center_face2 = (int((x + x + w) / 2), int((y + y + h) / 2))
     
     # Pour supprimer les lignes 
     # On copie le contenu de imgOut dans imgDst 
-    seamlessclone = cv2.seamlessClone(imgOut, camera_img, Dst_head_mask, center_face2, cv2.NORMAL_CLONE)
-    result = cv2.flip(seamlessclone, 1)
-    cv2.imshow("FaceSwap", result)
+        seamlessclone = cv2.seamlessClone(imgOut, camera_img, Dst_head_mask, center_face2, cv2.NORMAL_CLONE)
+        result = cv2.flip(seamlessclone, 1)
+        cv2.imshow("FaceSwap", result)
+    else:
+        result = cv2.flip(camera_img, 1)
+        cv2.imshow("FaceSwap", result)
     if cv2.waitKey(1) == ord('q'):
         cv2.destroyAllWindows()
         break      

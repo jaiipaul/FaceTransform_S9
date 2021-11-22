@@ -1,6 +1,11 @@
 #include <stdio.h>
+#include <iostream>
 #include "faceswap_func.h"
-#include "homographie.h"
+#include <pybind11/pybind11.h>
+#include <pybind11/stl.h>
+
+namespace py = pybind11;
+//#include "homographie.h"
 
 void hello() {
 	printf("Hello World !\n");
@@ -12,15 +17,27 @@ void addition(int a, int b) {
 	printf("addition : %d + %d = %d\n", a, b, res);
 }
 
-void fillTab(list tab , int size){
+void fillTab(py::list tab , int size){
     for(int i = 0; i < size; i++){
         tab[i] = i;
+    }
+}
+
+void loadImage(py::array_t<int> img, int width, int height) {
+    py::buffer_info imgBuff = img.request();
+    int* imgPtr = (int*)imgBuff.ptr;
+
+    for(size_t y = 0; y < height ; y++){
+        for(size_t x = 0; x < width; x++){
+            printf("| %d/%d/%d ", imgPtr[y*width + x*3 + 0], imgPtr[y*width + x*3 + 1], imgPtr[y*width + x*3 + 2]);
+        }
+        printf("\n");
     }
 }
 // Define functions here
 
 
-void FindAllHomography(int n_quadrangles, int** Quadrangles, int** landmarks_src, int** landmarks_dst, double ** H){
+/*void FindAllHomography(int n_quadrangles, int** Quadrangles, int** landmarks_src, int** landmarks_dst, double ** H){
     int * Q_coords_src, Q_coords_dst;
     Q_coords_src = (int*)calloc(8, sizeof(int));
     Q_coords_dst = (int*)calloc(8, sizeof(int));
@@ -57,16 +74,31 @@ void Find_rectangle(double *src,double *rect)
 
 }
 //TO FINISH
-int ApplyAllHomography(unsigned char * imgSrc, unsigned char * imgDst, int width, int height, int * imgLabel, int ** H){
+void ApplyAllHomography(unsigned char * imgSrc, unsigned char * imgDst, int width, int height, int * imgLabel, int ** H, double* XI, double* YI){
+    double* p;
+    p = (double*)calloc(2, sizeof(double));
     for(int y = 0; y < height; y++){
         for(int x = 0; x < width; x++){
             if (imgLabel[y*width+x] > -1){
-                ApplyPointHomography(imgSrc, imgDst, width, height, H[imgLabel[y*width+x]] );
+                ApplyPointHomography(H[imgLabel[y*width+x]], [(double)x, (double)y], p);
+                imgDst[y*width+x] = imgSrc[p[1]]
+                XI[y*width+x] = p[0];
+                YI[y*width+x] = p[1];
+            }else{
+                XI[y*width+x] = x;
+                YI[y*width+x] = y;
             }
         }
     }
 }
 
+void FaceSwap(){
+    //1) Determine all homographies
+
+    //2) Apply homographies and create interpolation grids
+
+    //3) Recreate new image
+}
 void CreateLabelledImage(int n_quadrangles, int** Quadrangles, int** landmarks, int heigth, int width, double* imgLabel) {
 	//init labelled image
     for(int i = 0; i < width*height; i++){
@@ -100,4 +132,4 @@ void CreateLabelledImage(int n_quadrangles, int** Quadrangles, int** landmarks, 
             }
         }
     }
-}
+}*/
