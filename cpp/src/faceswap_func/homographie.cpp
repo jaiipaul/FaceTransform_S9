@@ -53,19 +53,20 @@ void SystemeTriangulaireSuperieur(int n,double *A,double *y,double *x)
 
 void Find_Homography(double * src, double *dst, double *h){
     double* A =(double*)calloc(64,sizeof(double));
-    double* B =(double*)
+    double* B =(double*)calloc(8, sizeof(double));
+    for(int i = 0; i < 8; i++){
+        B[i] = dst[i];
+    }
     create_A(8,A,dst,src);
-    pivotdeGauss(8,A,dst);
-    SystemeTriangulaireSuperieur(8,A,dst,h);
+    pivotdeGauss(8,A,B);
+    SystemeTriangulaireSuperieur(8,A,B,h);
     free(A);    
 }
 
 void applique_homo(double * h, double *m, double *p)
 {
-    for(int i=0;i<4;i++){
-        p[i*2]=(h[0]*m[i*2]+h[3]*m[i*2+1]+h[6])/(h[2]*m[i*2]+h[5]*m[i*2+1]+1);
-        p[i*2+1]=(h[1]*m[i*2]+h[4]*m[i*2+1]+h[7])/(h[2]*m[i*2]+h[5]*m[i*2+1]+1);    
-    }
+        p[0]=(h[0]*m[0]+h[3]*m[1]+h[6])/(h[2]*m[0]+h[5]*m[1]+1);
+        p[1]=(h[1]*m[0]+h[4]*m[1]+h[7])/(h[2]*m[0]+h[5]*m[1]+1);    
 }
 
 void CoefficientsGivens(int p,int q,double *c,double *s,double (*a)[50])
