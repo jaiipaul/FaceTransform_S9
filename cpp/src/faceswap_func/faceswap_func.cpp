@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include "faceswap_func.h"
+
 
 void hello() {
 	printf("Hello World !\n");

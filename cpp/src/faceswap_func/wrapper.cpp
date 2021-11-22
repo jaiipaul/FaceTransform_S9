@@ -6,7 +6,6 @@ PYBIND11_MODULE (faceswap_func, module) {
 
 	module.def("hello", &hello);
 	module.def("addition", &addition);
-
 	// Define function using :
 	// module.def("__nom_fonction__", &__nom_fonction__)
 }

@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(0, "./lib/Debug")
+sys.path.insert(0, "./cpp/build/Debug")
 
 import faceswap_func as fs
 import dlib 

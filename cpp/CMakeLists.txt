@@ -19,8 +19,3 @@ target_include_directories (
     faceswap_func
     PRIVATE ${MODULE_SOURCE}
 )
-
-set_target_properties( faceswap_func
-  PROPERTIES
-  LIBRARY_OUTPUT_DIRECTORY "../../lib"
-)
