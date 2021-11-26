@@ -51,7 +51,7 @@ void SystemeTriangulaireSuperieur(int n,double *A,double *y,double *x)
     }
 }
 
-void Find_Homography(double * src, double *dst, double *h){
+void Find_Homography(double* src, double* dst, double *h){
     double* A =(double*)calloc(64,sizeof(double));
     double* B =(double*)calloc(8, sizeof(double));
     for(int i = 0; i < 8; i++){
@@ -60,7 +60,7 @@ void Find_Homography(double * src, double *dst, double *h){
     create_A(8,A,dst,src);
     pivotdeGauss(8,A,B);
     SystemeTriangulaireSuperieur(8,A,B,h);
-    free(A);    
+    free(A);     
 }
 
 void ApplyPointHomography(double * h, double *m, double *p)
@@ -69,83 +69,83 @@ void ApplyPointHomography(double * h, double *m, double *p)
         p[1]=(h[1]*m[0]+h[4]*m[1]+h[7])/(h[2]*m[0]+h[5]*m[1]+1);
 }
 
-void CoefficientsGivens(int p,int q,double *c,double *s,double (*a)[50])
-{
-    double norme;
-    norme=sqrt(pow(a[p][p],2)+pow(a[q][p],2));
-    if(norme==0)
-    {
-        *c=1;
-        *s=0;
-    }
-    else{
-
-        *c=a[p][p]/norme;
-        *s=a[q][p]/norme;
-    }
-}
-
-void Premultiplier(int n,int p,int q,double c,double s,double (*a)[50])
-{
-int j;
-double v,w;
-for(j=0;j<n;j++)
-{
-    v=a[p][j];
-    w=a[q][j];
-    a[p][j]=(c*v)+(s*w);
-    a[q][j]=(-s*v)+(c*w);
-}
-}
-
-void IterationGivens(int n,double (*a)[50],double (*u)[50])
-{
-    int p,q,i,j;
-    double c,s;
-    for(p=0;p<n-1;p++)
-        for(q=p+1;q<n;q++)
-    {
-     CoefficientsGivens(p,q,&c,&s,a);
-     Premultiplier(n,p,q,c,s,u);
-     Premultiplier(n,p,q,c,s,a);
-     printf("\np=%d,q=%d\n",p+1,q+1);
-      for(i=0;i<n;i++){printf("\n");
-        for(j=0;j<n;j++)printf("  %.2lf  ",a[i][j]);
-        }
-    }
-}
-void transposer(int n,double (*q)[50])
-{
-    double qt[50][50];
-    int i,j;
-    for(i=0;i<n;i++)
-        for(j=0;j<n;j++)qt[j][i]=q[i][j];
-
-     for(i=0;i<n;i++)
-        for(j=0;j<n;j++)q[i][j]=qt[i][j];
-
-}
-void DecompositionQRparGivens(int n,double (*a)[50],double (*q)[50],double (*r)[50])
-{
-    int i,j;
- for(i=0;i<n;i++)
- for(j=0;j<n;j++)r[i][j]=a[i][j];
- ///MatriceUnite
- for(i=0;i<n;i++)q[i][i]=1;
- IterationGivens(n,r,q);
- transposer(n,q);
-}
-void MatriceparVecteur(int n,double (*q)[50],double *b,double *y)
-{
-    double s=0;
-    int i,j;
-    for(i=0;i<n;i++)
-    {
-        for(j=0;j<n;j++){s+=q[i][j]*b[j];}
-        y[i]=s;
-        s=0;
-    }
-}
+//void CoefficientsGivens(int p,int q,double *c,double *s,double (*a)[50])
+//{
+//    double norme;
+//    norme=sqrt(pow(a[p][p],2)+pow(a[q][p],2));
+//    if(norme==0)
+//    {
+//        *c=1;
+//        *s=0;
+//    }
+//    else{
+//
+//        *c=a[p][p]/norme;
+//        *s=a[q][p]/norme;
+//    }
+//}
+//
+//void Premultiplier(int n,int p,int q,double c,double s,double (*a)[50])
+//{
+//int j;
+//double v,w;
+//for(j=0;j<n;j++)
+//{
+//    v=a[p][j];
+//    w=a[q][j];
+//    a[p][j]=(c*v)+(s*w);
+//    a[q][j]=(-s*v)+(c*w);
+//}
+//}
+//
+//void IterationGivens(int n,double (*a)[50],double (*u)[50])
+//{
+//    int p,q,i,j;
+//    double c,s;
+//    for(p=0;p<n-1;p++)
+//        for(q=p+1;q<n;q++)
+//    {
+//     CoefficientsGivens(p,q,&c,&s,a);
+//     Premultiplier(n,p,q,c,s,u);
+//     Premultiplier(n,p,q,c,s,a);
+//     printf("\np=%d,q=%d\n",p+1,q+1);
+//      for(i=0;i<n;i++){printf("\n");
+//        for(j=0;j<n;j++)printf("  %.2lf  ",a[i][j]);
+//        }
+//    }
+//}
+//void transposer(int n,double (*q)[50])
+//{
+//    double qt[50][50];
+//    int i,j;
+//    for(i=0;i<n;i++)
+//        for(j=0;j<n;j++)qt[j][i]=q[i][j];
+//
+//     for(i=0;i<n;i++)
+//        for(j=0;j<n;j++)q[i][j]=qt[i][j];
+//
+//}
+//void DecompositionQRparGivens(int n,double (*a)[50],double (*q)[50],double (*r)[50])
+//{
+//    int i,j;
+// for(i=0;i<n;i++)
+// for(j=0;j<n;j++)r[i][j]=a[i][j];
+// ///MatriceUnite
+// for(i=0;i<n;i++)q[i][i]=1;
+// IterationGivens(n,r,q);
+// transposer(n,q);
+//}
+//void MatriceparVecteur(int n,double (*q)[50],double *b,double *y)
+//{
+//    double s=0;
+//    int i,j;
+//    for(i=0;i<n;i++)
+//    {
+//        for(j=0;j<n;j++){s+=q[i][j]*b[j];}
+//        y[i]=s;
+//        s=0;
+//    }
+//}
 
 
 

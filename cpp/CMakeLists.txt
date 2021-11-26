@@ -11,6 +11,7 @@ add_subdirectory(${INCLUDES}/pybind11)
 # module
 pybind11_add_module (
     faceswap_func
+    ${MODULE_SOURCE}/homographie.cpp
     ${MODULE_SOURCE}/faceswap_func.cpp 
     ${MODULE_SOURCE}/wrapper.cpp
 )

@@ -111,12 +111,13 @@ def crop_triangle(img, landmarks_point, triangle_index):
 ##FRACE SWAPPING ALGORITHM
 cap = cv2.VideoCapture(0, cv2.CAP_ANY) # ouvrir la caméra 
 _, temp = cap.read()
-width = len(temp[1,:,1])
-height = len(temp[:,1,1])
+width_CAM = len(temp[1,:,1])
+height_CAM = len(temp[:,1,1])
 
 ## FIRST FACE TREATEMENT // THE ALGORITHM WILL PUT THIS FACE ON THE ONE CAPTURE BY THE CAMERA
 ## Find the face
-face_to_add = cv2.imread("./img/willsmith.jpg")
+face_to_add = cv2.imread("./img/singe.jpg")
+
 face_to_add_gray, faces = get_faces(face_to_add)
 mask = np.zeros_like(face_to_add_gray)
 ## Get landmarks/Face features and form triangle from these, delaunay triangulation

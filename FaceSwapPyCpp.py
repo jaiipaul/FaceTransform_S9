@@ -6,21 +6,10 @@ import dlib
 import cv2 
 import numpy as np 
 
-
 #Face detector
 detector = dlib.get_frontal_face_detector()
 #Landmarks model
 predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
-
-## FUNCTIONS -----------------------------------------------------------------------------##
-def img_array_to_list(array):
-    size = array.shape
-    list = []
-    for y in range(size[0]):
-        for x in range(size[1]):
-            for c in range(size[2]):
-                list.append(array[y,x,c])
-    return list
 
 ## FIND FACE IN THE IMAGE
 def get_faces(img):
@@ -38,145 +27,122 @@ def get_landmarks(img_gray, face):
         x = landmarks.part(n).x
         y = landmarks.part(n).y
         landmarks_point.append((x, y))
-    return landmarks_point
+    return np.array(landmarks_point)
 ##----------------------------------------------------------------------------------------------##
-def extract_index(nparray):
-    index = None 
-    for num in nparray[0]:
-        index = num
-        break
-    return index 
-##----------------------------------------------------------------------------------------------##
-## FORM TRIANGLE FROM A LANDMARKS DISTRIBUTION
-def find_triangles(landmarks_point):
-    points = np.array(landmarks_point, dtype=np.int32)
-    hull=cv2.convexHull(points)
-    cv2.fillConvexPoly(mask,hull,0)
-      
-    #face_image_1 = cv2.bitwise_and(face_to_add, face_to_add, mask=mask)
-    rect = cv2.boundingRect(hull)
-    (x,y,w,h) = rect
-    #Delaunay triangulation
-              
-    subdiv = cv2.Subdiv2D(rect)
-    subdiv.insert(landmarks_point)
-    
-    triangles = subdiv.getTriangleList()
-    triangles = np.array(triangles, dtype=np.int32)
-    indexes_triangles = []
-    print(len(triangles))
-    for t in triangles :
-        pt1 = (t[0], t[1])
-        pt2 = (t[2], t[3])
-        pt3 = (t[4], t[5])
-        
-        index_pt1 = np.where((points == pt1).all(axis=1))
-        index_pt1 = extract_index(index_pt1)
-        
-        index_pt2 = np.where((points == pt2).all(axis=1))
-        index_pt2 = extract_index(index_pt2)
-        
-        index_pt3 = np.where((points == pt3).all(axis=1))
-        index_pt3 = extract_index(index_pt3)
-        
-        
-        if index_pt1 is not None and index_pt2 is not None and index_pt3 is not None:
-            triangle = [index_pt1, index_pt2, index_pt3]
-            indexes_triangles.append(triangle)
-        
-    return indexes_triangles
-##----------------------------------------------------------------------------------------------##
-## Extract Triangle region
-def crop_triangle(img, landmarks_point, triangle_index):
-    tr_pt1 = landmarks_point[triangle_index[0]]
-    tr_pt2 = landmarks_point[triangle_index[1]]
-    tr_pt3 = landmarks_point[triangle_index[2]]
-    triangle = np.array([tr_pt1, tr_pt2, tr_pt3], np.int32)
-    
-    rect = cv2.boundingRect(triangle)
-    (x,y,w,h) = rect
-    
-    cropped_triangle = img[y:y+h, x:x+w]
-    cropped_mask = np.zeros((h,w), np.uint8)
-    points = np.array( [[tr_pt1[0]-x, tr_pt1[1]-y],
-                        [tr_pt2[0]-x, tr_pt2[1]-y],
-                        [tr_pt3[0]-x, tr_pt3[1]-y]])
-    
-    cv2.fillConvexPoly(cropped_mask,points, 255)
-    cropped_triangle = cv2.bitwise_and(cropped_triangle, cropped_triangle, mask=cropped_mask)
-    return points, cropped_triangle, x, y, w, h
-
+## SET QUADRANGLE BASED ON LANDMARKS INDEX
+def set_quadrangles():
+    q    =   np.zeros((57,4))
+    q[0] =   np.array([0,0,0,0])
+    q[1] =   np.array([8,9,57,56])
+    q[2] =   np.array([10,9,55,56])
+    q[3] =   np.array([10,11,55,64])
+    q[4] =   np.array([12,11,54,64])
+    q[5] =   np.array([12,35,54,13])
+    q[6] =   np.array([57,56,65,66])
+    q[7] =   np.array([55,56,65,64])
+    q[8] =   np.array([62,63,65,66])
+    q[9] =   np.array([64,63,65,53])
+    q[10] =  np.array([64,53,54,35])
+    q[11] =  np.array([63,53,52,35])
+    q[12] =  np.array([62,63,51,52])
+    q[13] =  np.array([34,35,51,52])
+    q[14] =  np.array([34,50,51,33])
+    q[15] =  np.array([34,30,35,33])
+    q[16] =  np.array([14,30,35,13])
+    q[17] =  np.array([14,30,15,29])
+    q[18] =  np.array([47,46,15,29])
+    q[19] =  np.array([45,46,15,16])
+    q[20] =  np.array([45,44,26,16])
+    q[21] =  np.array([47,46,45,44])
+    q[22] =  np.array([24,25,26,44])
+    q[23] =  np.array([24,23,43,44])
+    q[24] =  np.array([42,47,43,44])
+    q[25] =  np.array([42,22,43,23])
+    q[26] =  np.array([28,22,27,42])
+    q[27] =  np.array([28,29,47,42])
+    q[28] =  np.array([21,22,27,42])
+    q[29] =  np.array([21,22,20,23])
+    q[30] =  np.array([19,24,20,23])
+    q[31] =  np.array([21,38,20,39])
+    q[32] =  np.array([19,38,20,37])
+    q[33] =  np.array([17,18,19,37])
+    q[34] =  np.array([17,0,36,37])
+    q[35] =  np.array([1,0,36,41])
+    q[36] =  np.array([37,38,36,41])
+    q[37] =  np.array([38,39,40,41])
+    q[38] =  np.array([21,27,28,39])
+    q[39] =  np.array([1,2,40,41])
+    q[40] =  np.array([28,2,40,39])
+    q[41] =  np.array([2,3,29,28])
+    q[42] =  np.array([4,3,29,31])
+    q[43] =  np.array([4,5,48,31])
+    q[44] =  np.array([59,5,48,60])
+    q[45] =  np.array([6,5,59,58])
+    q[46] =  np.array([6,7,57,58])
+    q[47] =  np.array([8,7,57,56])
+    q[48] =  np.array([67,58,57,66])
+    q[49] =  np.array([67,66,61,62])
+    q[50] =  np.array([50,51,61,62])
+    q[51] =  np.array([30,32,33,50])
+    q[52] =  np.array([31,32,30,29])
+    q[53] =  np.array([31,32,49,61])
+    q[54] =  np.array([48,60,49,31])
+    q[55] =  np.array([49,60,67,61])
+    q[56] =  np.array([58,59,67,60])
+    return q
 
 ##-------------------------------------------------------------------------------------------------##
 ##FRACE SWAPPING ALGORITHM
 cap = cv2.VideoCapture(0, cv2.CAP_ANY) # ouvrir la caméra 
 _, temp = cap.read()
-width = len(temp[1,:,1])
-height = len(temp[:,1,1])
-
+width_CAM = np.int32(len(temp[1,:,1]))
+height_CAM = np.int32(len(temp[:,1,1]))
 
 ## FIRST FACE TREATEMENT // THE ALGORITHM WILL PUT THIS FACE ON THE ONE CAPTURE BY THE CAMERA
 ## Find the face
 face_to_add = cv2.imread("./img/willsmith.jpg")
-a = list(temp.flatten(order='K'))
-imgArray = np.array(a)
-#fs.loadImage(imgArray, width, height)
-
+width_FTA = np.int32(len(face_to_add[1,:,1]))
+height_FTA = np.int32(len(face_to_add[:,1,1]))
 face_to_add_gray, faces = get_faces(face_to_add)
 mask = np.zeros_like(face_to_add_gray)
-## Get landmarks/Face features and form triangle from these, delaunay triangulation
-for face in faces:
-        landmarks_point = get_landmarks(face_to_add_gray, face)
-        indexes_triangles = find_triangles(landmarks_point)     
 
+img_FTA = face_to_add.flatten(order='K')
+## Get landmarks/Face features
+for face in faces:
+        landmarks_FTA_arr = get_landmarks(face_to_add_gray, face)
+landmarks_FTA = np.int32(landmarks_FTA_arr.flatten(order='K'))
+## Set Quadrangles for homography
+Quadrangles_arr = set_quadrangles()
+Quadrangles = np.int32(Quadrangles_arr.flatten(order='K'))
 ## WEBCAM FACE TREATEMENT // PASTE THE FIRST FACE ON THE FACES CAPTURED BY THE CAMERA
-while cap.isOpened():    # tant que la caméa est ouverte  
+while cap.isOpened():   
     ##Find faces
-    _, camera_img = cap.read()
-    
-    camera_img_gray, camera_faces = get_faces(camera_img)
-    camera_img_new_face = np.zeros_like(camera_img) 
+    _, camera_img_arr = cap.read()
+    img_CAM = camera_img_arr.flatten(order='K')
+    camera_img_gray, camera_faces = get_faces(camera_img_arr)
+    camera_img_new_face = np.zeros_like(camera_img_arr) 
 
     if (0 < len(camera_faces)):
         for face in camera_faces:
-            landmarks_point2 = get_landmarks(camera_img_gray, face)
-        #triangulisation of the second face, from the first face
-            points2 = np.array(landmarks_point2, dtype=np.int32)
-            hull_camera = cv2.convexHull(points2)
+            landmarks_CAM_arr = get_landmarks(camera_img_gray, face)
+            landmarks_CAM = np.int32(landmarks_CAM_arr.flatten(order='K'))
+            points_CAM = np.array(landmarks_CAM_arr, dtype=np.int32)
+            hull_camera = cv2.convexHull(points_CAM)
 
-            for triangle_index in indexes_triangles:
-                # Extract triangle on the first face
-                points_triangle1, cropped_triangle1, x1, y1, w1, h1 = crop_triangle(face_to_add, landmarks_point, triangle_index)
-                
-                #extract triangle formed by the same points on face captured by camera
-                points_triangle2, cropped_triangle2, x2, y2, w2, h2 = crop_triangle(camera_img, landmarks_point2, triangle_index)
-                
-                #warp triangles 
-                points_triangle1 = np.float32(points_triangle1)
-                points_triangle2 = np.float32(points_triangle2)
-                M = cv2.getAffineTransform(points_triangle1, points_triangle2)
-                warped_triangle = cv2.warpAffine(cropped_triangle1, M, (w2,h2))
-                
-                #reconstruct destination face  
-                triangle_area = camera_img_new_face[y2:y2+h2, x2:x2+w2]
-                triangle_area = cv2.add(triangle_area, warped_triangle)
-                camera_img_new_face[y2:y2+h2, x2:x2+w2] = triangle_area 
-         
-           
-    
-    #face swapped (putting 1st face in the second )
-    #camera_img_new_face_gray = cv2.cvtColor(camera_img_new_face, cv2.COLOR_BGR2GRAY)
-    #_,background =  cv2.threshold(camera_img_new_face_gray, 1,255,cv2.THRESH_BINARY_INV)
-    #background = cv2.bitwise_and(camera_img, camera_img, mask = background )
-    #result = cv2.add(background, camera_img_new_face)
-    #result2 = cv2.flip(result, 1)
+            
+            n_quadrangles = np.int32(len(Quadrangles_arr))
+            img_Out = np.ndarray((height_CAM, width_CAM, 3), dtype=np.uint8)
+            img_Out_line = fs.FaceSwap(img_CAM, img_FTA, width_CAM, height_CAM, width_FTA, height_FTA, n_quadrangles, Quadrangles, landmarks_CAM, landmarks_FTA)
+            img_Out = np.uint8(np.reshape(img_Out_line, (height_CAM, width_CAM, 3)))
+            #fs.loadImage(img_CAM, width_CAM, height_CAM)
+
 
             Dst_face_mask = np.zeros_like(camera_img_gray)
             Dst_head_mask = cv2.fillConvexPoly(Dst_face_mask, hull_camera, 255)
             Dst_face_mask = cv2.bitwise_not(Dst_head_mask)
     
     #maskage
-            img2Noface = cv2.bitwise_and(camera_img, camera_img, mask=Dst_face_mask)
+            img2Noface = cv2.bitwise_and(camera_img_arr, camera_img_arr, mask=Dst_face_mask)
             imgOut = cv2.add(img2Noface, camera_img_new_face)
     
             (x, y, w, h) = cv2.boundingRect(hull_camera)
@@ -184,11 +150,11 @@ while cap.isOpened():    # tant que la caméa est ouverte
     
     # Pour supprimer les lignes 
     # On copie le contenu de imgOut dans imgDst 
-        seamlessclone = cv2.seamlessClone(imgOut, camera_img, Dst_head_mask, center_face2, cv2.NORMAL_CLONE)
+        seamlessclone = cv2.seamlessClone(imgOut, camera_img_arr, Dst_head_mask, center_face2, cv2.NORMAL_CLONE)
         result = cv2.flip(seamlessclone, 1)
-        cv2.imshow("FaceSwap", result)
+        cv2.imshow("FaceSwap", img_Out)
     else:
-        result = cv2.flip(camera_img, 1)
+        result = cv2.flip(camera_img_arr, 1)
         cv2.imshow("FaceSwap", result)
     if cv2.waitKey(1) == ord('q'):
         cv2.destroyAllWindows()
