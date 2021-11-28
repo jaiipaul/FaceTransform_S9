@@ -40,6 +40,7 @@ void loadImage(py::array_t<int> img, int width, int height) {
 
 
 void FindAllHomography(int n_quadrangles, int* Quadrangles, int* landmarks_src, int* landmarks_dst, double ** H){
+    printf("Find homographies\n");
     double * Q_coords_src, * Q_coords_dst;
     Q_coords_src = (double*)calloc(8, sizeof(double));
     Q_coords_dst = (double*)calloc(8, sizeof(double));
@@ -78,15 +79,16 @@ void Find_rectangle(double *src,double *rect)
 
 }
 //TO FINISH
-void ApplyAllHomography(int* imgSrc, int* imgDst, int width, int height, int * imgLabel, double ** H, double* XI, double* YI){
+void ApplyAllHomography(int* imgSrc, int* imgDst, int width, int height, int* imgLabel, double ** H, double* XI, double* YI){
+    printf("Apply homographies\n");
     double* m, *p;
     m = (double*)calloc(2, sizeof(double));
     p = (double*)calloc(2, sizeof(double));
     for(int y = 0; y < height; y++){
         for(int x = 0; x < width; x++){
-            if (imgLabel[y*width+x] > -1){
+            if (imgLabel[y*width+x] > 0){
                 m[0] = x; m[1] = y;
-                ApplyPointHomography(H[imgLabel[y*width+x]], m, p);
+                ApplyPointHomography(H[(int)imgLabel[y*width+x]-1], m, p);
                 
                 XI[y*width+x] = p[0];
                 YI[y*width+x] = p[1];
@@ -102,14 +104,24 @@ void ApplyAllHomography(int* imgSrc, int* imgDst, int width, int height, int * i
 
 void CreateLabelledImage(int n_quadrangles, int* Quadrangles, int* landmarks, int width, int height, int* imgLabel) {
 	//init labelled image
+    printf("Create label image\n");
     for(int i = 0; i < width*height; i++){
-        imgLabel[i] = -1; 
+        imgLabel[i] = 0; 
     }
 
-    double Sqr_coords[8] = { -1, 1, 1, 1, 1, -1, -1, -1 };
-    double* Sqr_coords_ptr;
-    Sqr_coords_ptr = &Sqr_coords[0];
-    double* Q_coords, * Q_box, *H, *m, *p;
+    double* Sqr_coords = (double*)calloc(8, sizeof(double));
+    Sqr_coords[0] = -1.0;
+    Sqr_coords[1] =  1.0;
+    Sqr_coords[2] =  1.0;
+    Sqr_coords[3] =  1.0;
+    Sqr_coords[4] =  1.0;
+    Sqr_coords[5] = -1.0;
+    Sqr_coords[6] = -1.0;
+    Sqr_coords[7] = -1.0;
+
+    printMat(Sqr_coords, 8, 1);
+    //printf("Sqr_coords_ptr = [ %f  %f  %f  %f  %f  %f  %f  %f]\n", Sqr_coords_ptr[0], Sqr_coords_ptr[1], Sqr_coords_ptr[2], Sqr_coords_ptr[3], Sqr_coords_ptr[4], Sqr_coords_ptr[5], Sqr_coords_ptr[6], Sqr_coords_ptr[7]);
+    double *Q_coords, *Q_box, *H, *m, *p;
     Q_coords = (double*)calloc(8, sizeof(double));
     Q_box    = (double*)calloc(4, sizeof(double));
     H        = (double*)calloc(9, sizeof(double));
@@ -119,31 +131,37 @@ void CreateLabelledImage(int n_quadrangles, int* Quadrangles, int* landmarks, in
     for(int i = 0; i < n_quadrangles; i++){
         for(int j = 0; j < 4; j++){
             //Q_coords = [ x0, y0, x1, y1, x2, y2, x3, y3]
-            Q_coords[i*4+ 2*j]   = (double)landmarks[Quadrangles[i*4 + j]];
-            Q_coords[i*4+ 2*j+1] = (double)landmarks[Quadrangles[i*4 + j]+1];
+            Q_coords[2*j]   = (double)landmarks[Quadrangles[i*4 + j]];
+            Q_coords[2*j+1] = (double)landmarks[Quadrangles[i*4 + j]+1];
         }
-        Find_Homography(Q_coords, Sqr_coords_ptr, H);
+        //printf("Q_coords[%d] = [ %f  %f  %f  %f  %f  %f  %f  %f]\n", i, Q_coords[0], Q_coords[1], Q_coords[2], Q_coords[3], Q_coords[4], Q_coords[5], Q_coords[6], Q_coords[7]);
+        Find_Homography(Q_coords, Sqr_coords, H);
+        //printf("H[%d] = [ %f  %f  %f ]\n        [ %f  %f  %f ]\n        [ %f  %f  %f ]\n", i, H[0], H[3], H[6], H[1], H[4], H[7], H[2], H[5], H[8]);
         Find_rectangle(Q_coords, Q_box);
         //Q_box[0] = x0 / Q_box[1] = y0 / Q_box[2] = width / Q_box[3] = height
         for(int y = Q_box[1]; y < Q_box[1]+Q_box[3]; y++){
             for(int x = Q_box[0]; x < Q_box[0]+Q_box[2]; x++){
                 m[0] = x; m[1] = y;
+                //printf("%f // %f\n", m[0], m[1]);
                 ApplyPointHomography(H, m, p);
-                if( abs(p[0]) < 1  && abs(p[1]) < 1){
-                    imgLabel[(y+(int)Q_box[1])*width+(x+(int)Q_box[0])] = i;
+                //printf("%f // %f\n", p[0], p[1]);
+                if( abs(p[0]) < 1.0  && abs(p[1]) < 1.0){
+                    
+                    imgLabel[(y+(int)Q_box[1])*width+(x+(int)Q_box[0])] = i+1;
                 }
             }
         }
     }
-    /*free(H);
+    free(H);
+    free(Sqr_coords);
     free(Q_coords);
     free(Q_box);
     free(m);
-    free(p);*/
+    free(p);
 }
 
 py::array_t<int> FaceSwap(py::array_t<int> img_CAM, py::array_t<int> img_FTA,
-              long width_CAM,long height_CAM, long width_FTA, long height_FTA,
+              int width_CAM,int height_CAM, int width_FTA, int height_FTA,
               int n_quadrangles, py::array_t<int> Quadrangles, 
               py::array_t<int> landmarks_CAM, py::array_t<int> landmarks_FTA){
     
@@ -155,12 +173,14 @@ py::array_t<int> FaceSwap(py::array_t<int> img_CAM, py::array_t<int> img_FTA,
     int* imgCAM_Ptr = (int*)imgCAM_Buff.ptr;
 
     //Define pointers for landmark points tab
+    //Landmarks = [x0, y0, x1, y1, ... , xn, yn]
     py::buffer_info landmarksFTA_Buff = landmarks_FTA.request();
     py::buffer_info landmarksCAM_Buff = landmarks_CAM.request();
     int* landmarksFTA_Ptr = (int*)landmarksFTA_Buff.ptr;
     int* landmarksCAM_Ptr = (int*)landmarksCAM_Buff.ptr;
 
     //Define pointer for quadrangle tab
+    //Quadrangles = [idx01, idx02, idx03, idx04, idx11, idx12, idx13, idx14, ... , idxn1, idxn2, idxn3, idxn4] 
     py::buffer_info Quadrangles_Buff = Quadrangles.request();
     int* Quadrangles_Ptr = (int*)Quadrangles_Buff.ptr;
 
@@ -171,43 +191,55 @@ py::array_t<int> FaceSwap(py::array_t<int> img_CAM, py::array_t<int> img_FTA,
     for(int i = 0; i < n_quadrangles; i++){
         H[i] = H[0] + (i*9);
     }
-    FindAllHomography(n_quadrangles, Quadrangles_Ptr, landmarksFTA_Ptr, landmarksCAM_Ptr, H);
+    //FindAllHomography(n_quadrangles, Quadrangles_Ptr, landmarksFTA_Ptr, landmarksCAM_Ptr, H);
     //2) Create Labelled image to know wich homographt to apply
     int* imgLabel;
     imgLabel = (int*)calloc(width_CAM*height_CAM, sizeof(int));
     CreateLabelledImage(n_quadrangles, Quadrangles_Ptr, landmarksCAM_Ptr, width_CAM, height_CAM, imgLabel);
+
+    /*
     //3) Apply homographies and create interpolation grids
     double *XI, *YI;
     XI = (double*)calloc((double)width_CAM*height_CAM, sizeof(double));
     YI = (double*)calloc((double)width_CAM*height_CAM, sizeof(double));
     ApplyAllHomography(imgFTA_Ptr, imgCAM_Ptr, width_CAM, height_CAM, imgLabel, H, XI, YI);
+    */
     //4) Recreate new image
-    auto imgOut = py::array_t<int>(width_CAM*height_CAM*3);
+    auto imgOut = py::array_t<int>(width_CAM*height_CAM);
     py::buffer_info imgOut_Buff = imgOut.request();
     int* imgOut_Ptr = (int*)(imgOut_Buff.ptr);
-
-    for(int y = 0; y < height_CAM; y++){
-        for(int x = 0; x < width_CAM; x++){
-            if(imgLabel[y*width_CAM+x] > -1){   
-                imgOut_Ptr[y * width_CAM + x * 3] = 1;// imgFTA_Ptr[(int)round(YI[y * width_CAM + x]) * width_FTA + (int)round(XI[y * width_CAM + x]) * 3];
-                imgOut_Ptr[y * width_CAM + x * 3 + 1] = 2;// imgFTA_Ptr[(int)round(YI[y * width_CAM + x]) * width_FTA + (int)round(XI[y * width_CAM + x]) * 3 + 1];
-                imgOut_Ptr[y * width_CAM + x * 3 + 2] = 3;// imgFTA_Ptr[(int)round(YI[y * width_CAM + x]) * width_FTA + (int)round(XI[y * width_CAM + x]) * 3 + 2];
+    /*
+    for(int y = 0; y < 480; y++){
+        for(int x = 0; x < 640; x++){
+            if(imgLabel[y*width_CAM+x] > -1){ 
+                
+                imgOut_Ptr[y * width_CAM + x * 3] = imgCAM_Ptr[y * width_CAM + x * 3];
+                imgOut_Ptr[y * width_CAM + x * 3 + 1] = imgCAM_Ptr[y * width_CAM + x * 3 + 1];
+                imgOut_Ptr[y * width_CAM + x * 3 + 2] = imgCAM_Ptr[y * width_CAM + x * 3 + 2];
+                printf("x : %d / y : %d \n", x, y);  
+                //imgOut_Ptr[y * width_CAM + x * 3] = 1;// imgFTA_Ptr[(int)round(YI[y * width_CAM + x]) * width_FTA + (int)round(XI[y * width_CAM + x]) * 3];
+                //imgOut_Ptr[y * width_CAM + x * 3 + 1] = 2;// imgFTA_Ptr[(int)round(YI[y * width_CAM + x]) * width_FTA + (int)round(XI[y * width_CAM + x]) * 3 + 1];
+                //imgOut_Ptr[y * width_CAM + x * 3 + 2] = 3;// imgFTA_Ptr[(int)round(YI[y * width_CAM + x]) * width_FTA + (int)round(XI[y * width_CAM + x]) * 3 + 2];
             }else{
                 imgOut_Ptr[y * width_CAM + x * 3]     = imgCAM_Ptr[y * width_CAM + x*3];
                 imgOut_Ptr[y * width_CAM + x * 3 + 1] = imgCAM_Ptr[y * width_CAM + x*3 + 1];
                 imgOut_Ptr[y * width_CAM + x * 3 + 2] = imgCAM_Ptr[y * width_CAM + x*3 + 2];
+                //printf("x : %d / y : %d \n", x, y);  
             }
         }
+    }*/
+    for (int i = 0; i < width_CAM * height_CAM; i++) {
+        imgOut_Ptr[i] = imgLabel[i];
     }
-    //imgOut = img_CAM;
+    
     printf("CPP done");
 
     //Liberation mémoire
     
     free(H[0]);
     free(H);
-    free(XI);
-    free(YI);
+    //free(XI);
+    //free(YI);
     free(imgLabel);
 
     return(imgOut);

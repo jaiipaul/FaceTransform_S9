@@ -16,7 +16,7 @@ void FindAllHomography(int n_quadrangles, int* Quadrangles, int* landmarks_src, 
 
 void Find_rectangle(double *src,double *rect);
 //TO FINISH
-void ApplyAllHomography(int* imgSrc, int* imgDst, int width, int height, int * imgLabel, double ** H, double* XI, double* YI);
+void ApplyAllHomography(int* imgSrc, int* imgDst, int width, int height, int* imgLabel, double ** H, double* XI, double* YI);
 
 void CreateLabelledImage(int n_quadrangles, int* Quadrangles, int* landmarks, int width, int heigth, int* imgLabel);
 

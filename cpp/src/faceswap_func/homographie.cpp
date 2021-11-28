@@ -2,20 +2,111 @@
 #include <stdlib.h>
 #include <math.h>
 
+void printMat(double* Mat, int col, int line) {
+    printf("Mat = \n");
+    for(int i = 0; i < line; i++) {
+        printf("[");
+        for(int j = 0; j < col; j++) {
+            printf("%f,", Mat[i * line + j]);
+        }
+        printf("]\n");
+    }
+}
+
+void comatrices(double* a, double* c, int i, int j, int dim)
+{
+    int l, k;
+    for (l = 0; l < dim; l++) for (k = 0; k < dim; k++)
+    {
+        if ((l < i) && (k < j)) c[      l*dim + k    ] = a[l*dim+k];
+        if ((l > i) && (k < j)) c[(l - 1)*dim + k    ] = a[l*dim+k];
+        if ((l < i) && (k > j)) c[      l*dim + k - 1] = a[l*dim+k];
+        if ((l > i) && (k > j)) c[(l - 1)*dim + k - 1] = a[l*dim+k];
+    }
+    //printf("Comatrice ok\n");
+}
+// calcul du determinant
+
+double det(double* a, int dim)
+{
+    int sous_dim, j;
+    sous_dim = dim - 1;
+    double* c, s;
+    c = (double*)calloc(dim * dim, sizeof(double));
+
+    if (dim == 1) return(a[0]);
+
+    s = 0;
+    for (j = 0; j < dim; j++)
+    {
+        //printf("%d calcul comatrice\n", j);
+        comatrices(a, c, sous_dim, j, dim);
+        //printMat(c, sous_dim, sous_dim);
+        double res = pow(-1, sous_dim + j) * a[sous_dim * dim + j] * det(c, sous_dim);
+        //printf("%f + %f = ", s, res);
+        s = s + res;
+        //printf("%f\n", s);
+    }
+    free(c);
+    return(s);
+    //printf("%f\n", s);
+}
+
+void cramer(double* a, double* b, double* x, int n)
+{   
+    printf("\n => CRAMER\n");
+    double *A, deter; 
+    int i, j, k;
+
+    A = (double*)calloc(n * n, sizeof(double));
+    //x = (double*)calloc(n, sizeof(double));
+
+    deter = det(a, n);
+    printf("%f", deter);
+    if (deter == 0)
+    {
+        printf("\n => Determinant nul, pas de solutions \n\n");
+    }
+
+    for (j = 0; j < n; j++)
+    {
+        for (k = 0; k < n; k++)
+        {
+            if (k == j) for (i = 0; i < n; i++) A[i*n+k] = b[i];
+            else for (i = 0; i < n; i++) A[i*n+k] = a[i*n+k];
+        }
+        x[j] = det(A, n) / deter;
+    }
+    printf("\n-------------- Cramer -------------\n");
+    printf("\n * Le determiant du systeme : %f \n", deter);
+    printf("\n * La resolution donne :\n\n");
+    for (i = 0; i < n; i++) printf(" X_%d = %f ;\n", i + 1, x[i]);
+    free(A);
+}
+
 void create_A(int size, double *A, double *p, double *m)
 {
+    printMat(p, 8, 1);
+    printMat(m, 8, 1);
     for(int i=0;i<4;i++){
-        A[i*size]=m[i*2];
-        A[i*size+2]=m[i*2]*p[i*2];
-        A[i*size+3]=m[i*2+1];
-        A[i*size+5]=m[i*2+1]*p[i*2+1];
-        A[i*size+6]=1;
-        A[2*i*size+1]=m[i*2];
-        A[2*i*size+2]=m[i*2]*p[i*2];
-        A[2*i*size+4]=m[i*2+1];
-        A[2*i*size+5]=m[i*2+1]*p[i*2+1];
-        A[2*i*size+7]=1;
+        A[2 * i * size    ] =  m[i * 2];
+        A[2 * i * size + 1] =  0;
+        A[2 * i * size + 2] = -m[i * 2] * p[i * 2];
+        A[2 * i * size + 3] =  m[i * 2 + 1];
+        A[2 * i * size + 4] =  0;
+        A[2 * i * size + 5] = -m[i * 2 + 1] * p[i * 2];
+        A[2 * i * size + 6] =  1;
+        A[2 * i * size + 7] =  0;
+        A[(2 * i + 1) * size    ] =  0;
+        A[(2 * i + 1) * size + 1] =  m[i * 2];
+        A[(2 * i + 1) * size + 2] = -m[i * 2] * p[i * 2 + 1];
+        A[(2 * i + 1) * size + 3] =  0;
+        A[(2 * i + 1) * size + 4] =  m[i * 2 + 1];
+        A[(2 * i + 1) * size + 5] = -m[i * 2 + 1] * p[i * 2 + 1];
+        A[(2 * i + 1) * size + 6] =  0;
+        A[(2 * i + 1) * size + 7] =  1;
     }
+    printMat(A, 8, 8);
 }
 
 
@@ -24,6 +115,7 @@ void pivotdeGauss(int size, double *A, double *b)
     for(int i=0;i<size-1;i++){
         for (int j=i+1;j<size;j++){
             double coeff=A[j*size+i]/A[i*size+i];
+            printf("%f / %f = %f\n", A[j * size + i], A[i * size + i], coeff);
             for (int k=0;k<size;k++){
                 A[j*size+k]=A[j*size+k]-A[i*size+k]*coeff;
             }
@@ -48,6 +140,7 @@ void SystemeTriangulaireSuperieur(int n,double *A,double *y,double *x)
             x[i]=(y[i]-R_X)/A[i*n+i];
             R_X=0;
         }
+        
     }
 }
 
@@ -55,16 +148,20 @@ void Find_Homography(double* src, double* dst, double *h){
     double* A =(double*)calloc(64,sizeof(double));
     double* B =(double*)calloc(8, sizeof(double));
     for(int i = 0; i < 8; i++){
-        B[i] = dst[i];
+        B[i] = src[i];
     }
-    create_A(8,A,dst,src);
-    pivotdeGauss(8,A,B);
-    SystemeTriangulaireSuperieur(8,A,B,h);
+    printMat(src, 8, 1);
+    printMat(dst, 8, 1);
+    create_A(8,A,src,dst);
+    cramer(A, B, h, 8);
+    //pivotdeGauss(8,A,B);
+    //SystemeTriangulaireSuperieur(8,A,B,h);
     free(A);     
 }
 
 void ApplyPointHomography(double * h, double *m, double *p)
 {
+    //printf("Apply point homography\n");
         p[0]=(h[0]*m[0]+h[3]*m[1]+h[6])/(h[2]*m[0]+h[5]*m[1]+1);
         p[1]=(h[1]*m[0]+h[4]*m[1]+h[7])/(h[2]*m[0]+h[5]*m[1]+1);
 }
