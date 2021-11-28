@@ -172,6 +172,7 @@ img_FTA = face_to_add.flatten(order='K')
 for face in faces:
         landmarks_FTA_arr = get_landmarks(face_to_add_gray, face)
 landmarks_FTA = np.int32(landmarks_FTA_arr.flatten(order='K'))
+
 ## Set Quadrangles for homography
 Quadrangles_arr = set_quadrangles()
 Quadrangles = np.int32(Quadrangles_arr.flatten(order='K'))
