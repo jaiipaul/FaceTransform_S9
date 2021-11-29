@@ -109,11 +109,26 @@ void create_A(int size, double *A, double *p, double *m)
     printMat(A, 8, 8);
 }
 
+void Permute(int size, double *A, int i)
+{
+    k=i+1
+    while (A[k*size+i]==0)
+        k=k+1;
+    for(int m=i;m<size;m++){
+        double c=A[i*size+m];
+        A[i*size+m]=A[k*size+m];
+        A[k*size+m]=c;
+    }
+}
+
 
 void pivotdeGauss(int size, double *A, double *b)
 {
     for(int i=0;i<size-1;i++){
         for (int j=i+1;j<size;j++){
+            if (A[i*size+i]==0){
+            Permute(size,A,i);
+            }
             double coeff=A[j*size+i]/A[i*size+i];
             printf("%f / %f = %f\n", A[j * size + i], A[i * size + i], coeff);
             for (int k=0;k<size;k++){
