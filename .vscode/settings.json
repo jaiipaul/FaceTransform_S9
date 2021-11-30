@@ -13,6 +13,9 @@
         "xtree": "cpp",
         "xutility": "cpp",
         "chrono": "cpp",
-        "cmath": "cpp"
+        "cmath": "cpp",
+        "xiosbase": "cpp",
+        "complex": "cpp",
+        "cstdlib": "cpp"
     }
 }

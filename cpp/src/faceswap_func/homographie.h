@@ -2,6 +2,7 @@
 #define _HOMOGRAPHIE_H_
 
 void printMat(double* Mat, int col, int line);
+void printMat(int* Mat, int col, int line);
 
 void comatrices(double* a, double* c, int i, int j, int n);
 double det(double* a, int dim);

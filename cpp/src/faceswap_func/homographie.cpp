@@ -12,6 +12,16 @@ void printMat(double* Mat, int col, int line) {
         printf("]\n");
     }
 }
+void printMat(int* Mat, int col, int line) {
+    printf("Mat = \n");
+    for (int i = 0; i < line; i++) {
+        printf("[");
+        for (int j = 0; j < col; j++) {
+            printf("%d,", Mat[i * line + j]);
+        }
+        printf("]\n");
+    }
+}
 
 void comatrices(double* a, double* c, int i, int j, int dim)
 {
@@ -86,8 +96,8 @@ void cramer(double* a, double* b, double* x, int n)
 
 void create_A(int size, double *A, double *p, double *m)
 {
-    printMat(p, 8, 1);
-    printMat(m, 8, 1);
+    //printMat(p, 8, 1);
+    //printMat(m, 8, 1);
     for(int i=0;i<4;i++){
         A[2 * i * size    ] =  m[i * 2];
         A[2 * i * size + 1] =  0;
@@ -106,19 +116,23 @@ void create_A(int size, double *A, double *p, double *m)
         A[(2 * i + 1) * size + 6] =  0;
         A[(2 * i + 1) * size + 7] =  1;
     }
-    printMat(A, 8, 8);
+    //printMat(A, 8, 8);
 }
 
-void Permute(int size, double *A, int i)
+void Permute(int size, double *A, double *b, int i)
 {
-    k=i+1
-    while (A[k*size+i]==0)
+    int k=i+1;
+    while(A[k*size+i]==0)
         k=k+1;
     for(int m=i;m<size;m++){
-        double c=A[i*size+m];
+        double cA=A[i*size+m];
         A[i*size+m]=A[k*size+m];
-        A[k*size+m]=c;
+        A[k*size+m]=cA;  
     }
+    double cb = b[i];
+    b[i] = b[k];
+    b[k] = cb;
+    //printMat(A, 8, 8);
 }
 
 
@@ -127,10 +141,10 @@ void pivotdeGauss(int size, double *A, double *b)
     for(int i=0;i<size-1;i++){
         for (int j=i+1;j<size;j++){
             if (A[i*size+i]==0){
-            Permute(size,A,i);
+            Permute(size,A, b, i);
             }
             double coeff=A[j*size+i]/A[i*size+i];
-            printf("%f / %f = %f\n", A[j * size + i], A[i * size + i], coeff);
+            //printf("%f / %f = %f\n", A[j * size + i], A[i * size + i], coeff);
             for (int k=0;k<size;k++){
                 A[j*size+k]=A[j*size+k]-A[i*size+k]*coeff;
             }
@@ -163,22 +177,24 @@ void Find_Homography(double* src, double* dst, double *h){
     double* A =(double*)calloc(64,sizeof(double));
     double* B =(double*)calloc(8, sizeof(double));
     for(int i = 0; i < 8; i++){
-        B[i] = src[i];
+        B[i] = dst[i];
     }
-    printMat(src, 8, 1);
-    printMat(dst, 8, 1);
-    create_A(8,A,src,dst);
-    cramer(A, B, h, 8);
-    //pivotdeGauss(8,A,B);
-    //SystemeTriangulaireSuperieur(8,A,B,h);
+    //printMat(src, 8, 1);
+    //printMat(dst, 8, 1);
+    create_A(8,A,dst,src);
+    //cramer(A, B, h, 8);
+    pivotdeGauss(8,A,B);
+    SystemeTriangulaireSuperieur(8,A,B,h);
+    h[8] = 1.0;
+    //printMat(h, 8, 1);
     free(A);     
 }
 
 void ApplyPointHomography(double * h, double *m, double *p)
 {
     //printf("Apply point homography\n");
-        p[0]=(h[0]*m[0]+h[3]*m[1]+h[6])/(h[2]*m[0]+h[5]*m[1]+1);
-        p[1]=(h[1]*m[0]+h[4]*m[1]+h[7])/(h[2]*m[0]+h[5]*m[1]+1);
+        p[0]=(h[0]*m[0]+h[3]*m[1]+h[6])/(h[2]*m[0]+h[5]*m[1]+h[8]);
+        p[1]=(h[1]*m[0]+h[4]*m[1]+h[7])/(h[2]*m[0]+h[5]*m[1]+h[8]);
 }
 
 //void CoefficientsGivens(int p,int q,double *c,double *s,double (*a)[50])
