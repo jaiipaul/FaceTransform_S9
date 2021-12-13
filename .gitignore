@@ -38,5 +38,5 @@ cpp/includes/
 lib/
 *.log
 *.bin
-.vscode
-__pycache__
+./.vscode/
+./__pycache__/

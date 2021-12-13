@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(0, "./cpp/build/Debug")
+sys.path.insert(0, "./cpp/build/Release")
 
 import faceswap_func as fs
 import dlib 
@@ -206,12 +206,12 @@ while cap.isOpened():
             #fs.loadImage(img_CAM, wid  th_CAM, height_CAM)
 
             #img_Out = camera_img_arr;
-            #for i in range(n_quadrangles):
-            #    for j in range(4):
-            #        point1 = (landmarks_CAM[2*Quadrangles_arr[i,j]], landmarks_CAM[2*Quadrangles_arr[i,j] + 1])
-            #        point2 = (landmarks_CAM[2*Quadrangles_arr[i,(j+1)%4]], landmarks_CAM[2*Quadrangles_arr[i,(j+1)%4] + 1])
-            #        
-            #        img_Out = cv2.line(img_Out, point1, point2, (0, 255, 0), 1)
+            for i in range(n_quadrangles):
+                for j in range(4):
+                    point1 = (landmarks_CAM[2*Quadrangles_arr[i,j]], landmarks_CAM[2*Quadrangles_arr[i,j] + 1])
+                    point2 = (landmarks_CAM[2*Quadrangles_arr[i,(j+1)%4]], landmarks_CAM[2*Quadrangles_arr[i,(j+1)%4] + 1])
+                    
+                    img_Out = cv2.line(img_Out, point1, point2, (0, 255, 0), 1)
 
         
         result = cv2.flip(img_Out, 1)

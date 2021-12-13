@@ -1,0 +1,10 @@
+^D:\PAUL\ETUDES\ENSEIRB\3A\FACESWAPS9\CUDA\BUILD\CMAKEFILES\1173E5744AC202CA677372A242EE2EE3\GENERATE.STAMP.RULE
+setlocal
+D:\LOGICIELS\DEV\CMake\bin\cmake.exe -SD:/PAUL/ETUDES/ENSEIRB/3A/FaceSwapS9/cuda -BD:/PAUL/ETUDES/ENSEIRB/3A/FaceSwapS9/cuda/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/PAUL/ETUDES/ENSEIRB/3A/FaceSwapS9/cuda/build/Faceswap_func_cuda.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

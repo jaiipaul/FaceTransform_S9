@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(0, "./cpp/build/Debug")
+sys.path.insert(0, "../cpp/build/Debug")
 import faceswap_func as fs
 import numpy as np
 import dlib 
@@ -30,8 +30,8 @@ def get_landmarks(img_gray, face):
 ##----------------------------------------------------------------------------------------------##
 
 ## Find the face
-face_to_add1 = cv2.imread("./img/macron.jpg")
-face_to_add2 = cv2.imread("./img/macron.jpg")
+face_to_add1 = cv2.imread("../img/macron.jpg")
+face_to_add2 = cv2.imread("../img/macron.jpg")
 
 face_to_add_gray1, faces1 = get_faces(face_to_add1)
 face_to_add_gray2, faces2 = get_faces(face_to_add1)

@@ -1,0 +1,1773 @@
+0
+H[0] =
+[-1.0122 -0.18113 289.38]
+[-0.885298 -0.180099 256.729]
+[-0.00361014 -0.000543471 1]
+--------o--------------------
+--------xx-------------------
+--------xxx------------------
+-------xxxxx-----------------
+-------xxxxxx----------------
+-------xxxxxxx---------------
+------xxxxxxxxxx-------------
+------xxxxxxxxxxx------------
+------xxxxxxxxxxxx-----------
+-----xxxxxxxxxxxxxx----------
+-----xxxxxxxxxxxxxxx---------
+----xxxxxxxxxxxxxxxxx--------
+----xxxxxxxxxxxxxxxxxxx------
+----xxxxxxxxxxxxxxxxxxxx-----
+---xxxxxxxxxxxxxxxxxxxxxx----
+---xxxxxxxxxxxxxxxxxxxxxxx---
+---xxxxxxxxxxxxxxxxxxxxxxxx--
+--xxxxxxxxxxxxxxxxxxxxxxxxxxo
+--xxxxxxxxxxxxxxxxxxxxxxxxx--
+--xxxxxxxxxxxxxxxxxxxxxxxx---
+-xxxxxxxxxxxxxxxxxxxxxxxxx---
+-xxxxxxxxxxxxxxxxxxxxxxx-----
+oxxxxxxxxxxxxxxxxxxxxxx------
+-xxxxxxxxxxxxxxxxxxxxx-------
+-xxxxxxxxxxxxxxxxxxxx--------
+-xxxxxxxxxxxxxxxxxxx---------
+-xxxxxxxxxxxxxxxxxxx---------
+-xxxxxxxxxxxxxxxxxx----------
+-xxxxxxxxxxxxxxxx------------
+-xxxxxxxxxxxxxxxx------------
+-xxxxxxxxxxxxxxx-------------
+-xxxxxxxxxxxxxx--------------
+-xxxxxxxxxxxx----------------
+--xxxxxxxxxx-----------------
+--xxxxxxxxx------------------
+--xxxxxxxx-------------------
+--xxxxxxxx-------------------
+--xxxxxx---------------------
+--xxxxx----------------------
+--xxxxx----------------------
+--xxxx-----------------------
+--xx-------------------------
+--x--------------------------
+--o--------------------------
+
+1
+H[1] =
+[-0.525567 -0.945406 382.785]
+[-0.251749 -0.917955 299.263]
+[-0.00110946 -0.00282309 1]
+--------------------------o---------
+-------------------------xxxx-------
+------------------------xxxxxxxx----
+-----------------------xxxxxxxxxxxxo
+----------------------xxxxxxxxxxxxx-
+---------------------xxxxxxxxxxxxx--
+--------------------xxxxxxxxxxxxx---
+-------------------xxxxxxxxxxxxxx---
+------------------xxxxxxxxxxxxxx----
+-----------------xxxxxxxxxxxxxx-----
+----------------xxxxxxxxxxxxxx------
+---------------xxxxxxxxxxxxxxx------
+--------------xxxxxxxxxxxxxxx-------
+-------------xxxxxxxxxxxxxxx--------
+------------xxxxxxxxxxxxxxxx--------
+-----------xxxxxxxxxxxxxxxx---------
+----------xxxxxxxxxxxxxxxx----------
+----------xxxxxxxxxxxxxxx-----------
+--------xxxxxxxxxxxxxxxxx-----------
+-------xxxxxxxxxxxxxxxxx------------
+------xxxxxxxxxxxxxxxxx-------------
+-----xxxxxxxxxxxxxxxxxx-------------
+----xxxxxxxxxxxxxxxxxx--------------
+---xxxxxxxxxxxxxxxxxx---------------
+--xxxxxxxxxxxxxxxxxx----------------
+-xxxxxxxxxxxxxxxxxxx----------------
+oxxxxxxxxxxxxxxxxxx-----------------
+-xxxxxxxxxxxxxxxxx------------------
+-xxxxxxxxxxxxxxxx-------------------
+-xxxxxxxxxxxxxxxx-------------------
+-xxxxxxxxxxxxxxx--------------------
+-xxxxxxxxxxxxxx---------------------
+--xxxxxxxxxxxxx---------------------
+--xxxxxxxxxxxx----------------------
+--xxxxxxxxxxx-----------------------
+--xxxxxxxxxx------------------------
+--xxxxxxxxxx------------------------
+---xxxxxxxx-------------------------
+---xxxxxxx--------------------------
+---xxxxxxx--------------------------
+---xxxxxx---------------------------
+---xxxxx----------------------------
+----xxx-----------------------------
+----xxx-----------------------------
+----xx------------------------------
+----x-------------------------------
+----o-------------------------------
+
+2
+H[2] =
+[-1.49288 0.0249199 346.702]
+[-1.3009 0.16171 248.601]
+[-0.00517508 0.000691556 1]
+-------------------------------o-----------------
+-------------------------------x-----------------
+------------------------------xx-----------------
+-----------------------------xxx-----------------
+-----------------------------xxx-----------------
+----------------------------xxxxx----------------
+---------------------------xxxxxx----------------
+--------------------------xxxxxxx----------------
+--------------------------xxxxxxx----------------
+-------------------------xxxxxxxxx---------------
+------------------------xxxxxxxxxx---------------
+------------------------xxxxxxxxxx---------------
+-----------------------xxxxxxxxxxx---------------
+----------------------xxxxxxxxxxxxx--------------
+---------------------xxxxxxxxxxxxxx--------------
+---------------------xxxxxxxxxxxxxx--------------
+--------------------xxxxxxxxxxxxxxx--------------
+-------------------xxxxxxxxxxxxxxxx--------------
+-------------------xxxxxxxxxxxxxxxxx-------------
+------------------xxxxxxxxxxxxxxxxxx-------------
+-----------------xxxxxxxxxxxxxxxxxxx-------------
+----------------xxxxxxxxxxxxxxxxxxxx-------------
+----------------xxxxxxxxxxxxxxxxxxxxx------------
+---------------xxxxxxxxxxxxxxxxxxxxxx------------
+--------------xxxxxxxxxxxxxxxxxxxxxxx------------
+-------------xxxxxxxxxxxxxxxxxxxxxxxx------------
+-------------xxxxxxxxxxxxxxxxxxxxxxxxx-----------
+------------xxxxxxxxxxxxxxxxxxxxxxxxxx-----------
+-----------xxxxxxxxxxxxxxxxxxxxxxxxxxx-----------
+-----------xxxxxxxxxxxxxxxxxxxxxxxxxxx-----------
+----------xxxxxxxxxxxxxxxxxxxxxxxxxxxx-----------
+---------xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx----------
+--------xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx----------
+--------xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx----------
+-------xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx----------
+------xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx---------
+------xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx---------
+-----xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx---------
+----xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx---------
+---xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--------
+---xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--------
+--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--------
+-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--------
+oxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-------
+-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-------
+-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-------
+-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-------
+-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-------
+-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx------
+-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx------
+--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx------
+--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx------
+--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-----
+--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-----
+--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-----
+--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-----
+---xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx----
+---xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx----
+---xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx----
+---xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx----
+---xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx----
+---xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx---
+---oxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx---
+--------xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx---
+------------xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx---
+----------------xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--
+--------------------xxxxxxxxxxxxxxxxxxxxxxxxxxx--
+------------------------xxxxxxxxxxxxxxxxxxxxxxx--
+----------------------------xxxxxxxxxxxxxxxxxxx--
+--------------------------------xxxxxxxxxxxxxxxx-
+------------------------------------xxxxxxxxxxxx-
+----------------------------------------xxxxxxxx-
+--------------------------------------------xxxx-
+------------------------------------------------o
+
+3
+H[3] =
+[4.91214 -4.26016 293.449]
+[8.13561 -7.00036 450.119]
+[0.0232615 -0.0192356 1]
+o---------------------------------------------
+----------------------------------------------
+-x--------------------------------------------
+-x--------------------------------------------
+--x-------------------------------------------
+--xx------------------------------------------
+--xx------------------------------------------
+---xx-----------------------------------------
+---xx-----------------------------------------
+---xxx----------------------------------------
+----xxx---------------------------------------
+----xxx--------------------------------------o
+----xxxx--------------------------------------
+----xxxxx-------------------------------------
+-----xxxx-------------------------------------
+-----xxxxx------------------------------------
+-----xxxxx------------------------------------
+------xxxxx-----------------------------------
+------xxxxxx----------------------------------
+------xxxxxx----------------------------------
+------oxxxxxx---------------------------------
+-------xxxxxx---------------------------------
+--------xxxxxx--------------------------------
+---------xxxxxx-------------------------------
+---------xxxxxx-------------------------------
+----------xxxxxx------------------------------
+-----------xxxxxx-----------------------------
+------------xxxxx-----------------------------
+------------xxxxxx----------------------------
+-------------xxxxx----------------------------
+--------------xxxxx---------------------------
+---------------xxxxx--------------------------
+---------------xxxxx--------------------------
+----------------xxxxx-------------------------
+-----------------xxxxx------------------------
+-----------------oxxxx------------------------
+
+4
+H[4] =
+[-0.11724 -2.23111 734.804]
+[0.954883 -2.30191 418.571]
+[0.00202734 -0.00542039 1]
+----------------------------o----------
+---------------------------xxx---------
+--------------------------xxxxxx-------
+-------------------------xxxxxxxxx-----
+------------------------xxxxxxxxxxx----
+-----------------------xxxxxxxxxxxxxx--
+---------------------xxxxxxxxxxxxxxxxxo
+--------------------xxxxxxxxxxxxxxxxxx-
+-------------------xxxxxxxxxxxxxxxxxx--
+------------------xxxxxxxxxxxxxxxxxx---
+-----------------xxxxxxxxxxxxxxxxxx----
+----------------xxxxxxxxxxxxxxxxxxx----
+---------------xxxxxxxxxxxxxxxxxxx-----
+-------------xxxxxxxxxxxxxxxxxxxx------
+------------xxxxxxxxxxxxxxxxxxxx-------
+-----------xxxxxxxxxxxxxxxxxxxxx-------
+----------xxxxxxxxxxxxxxxxxxxxx--------
+---------xxxxxxxxxxxxxxxxxxxxx---------
+--------xxxxxxxxxxxxxxxxxxxxx----------
+------xxxxxxxxxxxxxxxxxxxxxxx----------
+-----xxxxxxxxxxxxxxxxxxxxxxx-----------
+----xxxxxxxxxxxxxxxxxxxxxxx------------
+---xxxxxxxxxxxxxxxxxxxxxxx-------------
+--xxxxxxxxxxxxxxxxxxxxxxx--------------
+oxxxxxxxxxxxxxxxxxxxxxxxx--------------
+--xxxxxxxxxxxxxxxxxxxxxx---------------
+---xxxxxxxxxxxxxxxxxxxx----------------
+----xxxxxxxxxxxxxxxxxx-----------------
+-----xxxxxxxxxxxxxxxxx-----------------
+-------xxxxxxxxxxxxxx------------------
+--------xxxxxxxxxxxx-------------------
+---------xxxxxxxxxx--------------------
+-----------xxxxxxxx--------------------
+------------xxxxxx---------------------
+-------------xxxx----------------------
+--------------xx-----------------------
+---------------o-----------------------
+
+5
+H[5] =
+[-1.5009 4.60724 -761.444]
+[-6.10337 6.09109 199.033]
+[-0.0146633 0.0135725 1]
+---------xxxxxxxxxxxxxxo---------
+---------xxxxxxxxxxxxxxx---------
+--------xxxxxxxxxxxxxxxx---------
+--------xxxxxxxxxxxxxxxx--------o
+--------xxxxxxxxxxxxxxxx---------
+--------xxxxxxxxxxxxxxxx---------
+-------xxxxxxxxxxxxxxxxx---------
+-------xxxxxxxxxxxxxxxxx---------
+-------xxxxxxxxxxxxxxxxx---------
+------xxxxxxxxxxxxxxxxxx---------
+------xxxxxxxxxxxxxxxxx----------
+------xxxxxxxxxxxxxxxxx----------
+------xxxxxxxxxxxxxxxxx----------
+-----xxxxxxxxxxxxxxxxxx----------
+-----xxxxxxxxxxxxxxxxxx----------
+-----xxxxxxxxxxxxxxxxxx----------
+----xxxxxxxxxxxxxxxxxxx----------
+----xxxxxxxxxxxxxxxxxxx----------
+----xxxxxxxxxxxxxxxxxxx----------
+----xxxxxxxxxxxxxxxxxxx----------
+---xxxxxxxxxxxxxxxxxxx-----------
+---xxxxxxxxxxxxxxxxxxx-----------
+---xxxxxxxxxxxxxxxxxxx-----------
+--xxxxxxxxxxxxxxxxxxxx-----------
+--xxxxxxxxxxxxxxxxxxxx-----------
+--xxxxxxxxxxxxxxxxxxxx-----------
+--xxxxxxxxxxxxxxxxxxxx-----------
+-xxxxxxxxxxxxxxxxxxxxx-----------
+-xxxxxxxxxxxxxxxxxxxxx-----------
+-xxxxxxxxxxxxxxxxxxxxx-----------
+oxxxxxxxxxxxxxxxxxxxx------------
+---xxxxxxxxxxxxxxxxxx------------
+-----xxxxxxxxxxxxxxxx------------
+-------xxxxxxxxxxxxxx------------
+---------xxxxxxxxxxxx------------
+------------xxxxxxxxx------------
+--------------xxxxxxx------------
+----------------xxxxx------------
+------------------xxx------------
+--------------------o------------
+
+6
+H[6] =
+[-0.0266528 -0.264832 206.552]
+[-0.427028 -0.0916368 288.45]
+[-0.0010171 -0.000967871 1]
+----xxxxxxxxoxxxxxxxxoxx
+----xxxxxxxxxxxxxxxxxxxx
+----xxxxxxxxxxxxxxxxxxxx
+----xxxxxxxxxxxxxxxxxxxx
+----xxxxxxxxxxxxxxxxxxxx
+----xxxxxxxxxxxxxxxxxxxx
+----xxxxxxxxxxxxxxxxxxxx
+----xxxxxxxxxxxxxxxxxxxx
+---xxxxxxxxxxxxxxxxxxxxx
+---xxxxxxxxxxxxxxxxxxxxx
+---xxxxxxxxxxxxxxxxxxxxx
+---xxxxxxxxxxxxxxxxxxxxx
+---xxxxxxxxxxxxxxxxxxxxx
+---xxxxxxxxxxxxxxxxxxxxx
+---xxxxxxxxxxxxxxxxxxxxx
+---xxxxxxxxxxxxxxxxxxxxx
+---xxxxxxxxxxxxxxxxxxxxx
+--xxxxxxxxxxxxxxxxxxxxxx
+--xxxxxxxxxxxxxxxxxxxxxx
+--xxxxxxxxxxxxxxxxxxxxxx
+--xxxxxxxxxxxxxxxxxxxxxx
+--xxxxxxxxxxxxxxxxxxxxxx
+--xxxxxxxxxxxxxxxxxxxxxx
+--xxxxxxxxxxxxxxxxxxxxxx
+--xxxxxxxxxxxxxxxxxxxxxx
+--xxxxxxxxxxxxxxxxxxxxxx
+--xxxxxxxxxxxxxxxxxxxxxx
+-xxxxxxxxxxxxxxxxxxxxxxx
+-xxxxxxxxxxxxxxxxxxxxxxx
+-xxxxxxxxxxxxxxxxxxxxxxx
+-xxxxxxxxxxxxxxxxxxxxxxx
+-xxxxxxxxxxxxxxxxxxxxxxx
+-xxxxxxxxxxxxxxxxxxxxxxx
+-xxxxxxxxxxxxxxxxxxxxxxx
+-xxxxxxxxxxxxxxxxxxxxxxx
+-xxxxxxxxxxxxxxxxxxxxxxx
+oxxxxxxxxxxxxxxxxxxxxxxx
+------------xxxxxxxxxxxx
+-----------------------o
+
+7
+H[7] =
+[-0.240807 -0.93365 385.324]
+[-0.0675257 -1.22949 432.119]
+[-0.000134783 -0.00290467 1]
+----------o---------------
+oxxxxxxxxxx---------------
+-xxxxxxxxxx---------------
+-xxxxxxxxxxx--------------
+-xxxxxxxxxxx--------------
+-xxxxxxxxxxxx-------------
+-xxxxxxxxxxxx-------------
+-xxxxxxxxxxxxx------------
+-xxxxxxxxxxxxx------------
+-xxxxxxxxxxxxx------------
+-xxxxxxxxxxxxxx-----------
+-xxxxxxxxxxxxxx-----------
+-xxxxxxxxxxxxxxx----------
+-xxxxxxxxxxxxxxx----------
+-xxxxxxxxxxxxxxxx---------
+-xxxxxxxxxxxxxxxx---------
+-xxxxxxxxxxxxxxxx---------
+-xxxxxxxxxxxxxxxxx--------
+-xxxxxxxxxxxxxxxxx--------
+-xxxxxxxxxxxxxxxxxx-------
+--xxxxxxxxxxxxxxxxx-------
+--xxxxxxxxxxxxxxxxxx------
+--xxxxxxxxxxxxxxxxxx------
+--xxxxxxxxxxxxxxxxxx------
+--xxxxxxxxxxxxxxxxxxx-----
+--xxxxxxxxxxxxxxxxxxx-----
+--xxxxxxxxxxxxxxxxxxxx----
+--xxxxxxxxxxxxxxxxxxxx----
+--xxxxxxxxxxxxxxxxxxxxx---
+--xxxxxxxxxxxxxxxxxxxxx---
+--xxxxxxxxxxxxxxxxxxxxx---
+--xxxxxxxxxxxxxxxxxxxxxx--
+--xxxxxxxxxxxxxxxxxxxxxx--
+--xxxxxxxxxxxxxxxxxxxxxxx-
+--xxxxxxxxxxxxxxxxxxxxxxx-
+--xxxxxxxxxxxxxxxxxxxxxxxo
+--xxxxxxxxxxxxxxxxxx------
+--xxxxxxxxxxxx------------
+--xxxxxx------------------
+--o-----------------------
+
+8
+H[8] =
+[-0.352711 -0.826881 381.497]
+[-0.159314 -1.17383 438.555]
+[-0.000292039 -0.00279437 1]
+----------o-----------------------
+-------xxxx-----------------------
+----xxxxxxxx----------------------
+oxxxxxxxxxxxx---------------------
+-xxxxxxxxxxxxx--------------------
+-xxxxxxxxxxxxxx-------------------
+--xxxxxxxxxxxxx-------------------
+--xxxxxxxxxxxxxx------------------
+---xxxxxxxxxxxxxx-----------------
+---xxxxxxxxxxxxxxx----------------
+---xxxxxxxxxxxxxxxx---------------
+----xxxxxxxxxxxxxxxx--------------
+----xxxxxxxxxxxxxxxx--------------
+-----xxxxxxxxxxxxxxxx-------------
+-----xxxxxxxxxxxxxxxxx------------
+------xxxxxxxxxxxxxxxxx-----------
+------xxxxxxxxxxxxxxxxxx----------
+------xxxxxxxxxxxxxxxxxx----------
+-------xxxxxxxxxxxxxxxxxx---------
+-------xxxxxxxxxxxxxxxxxxx--------
+--------xxxxxxxxxxxxxxxxxxx-------
+--------xxxxxxxxxxxxxxxxxxxx------
+---------xxxxxxxxxxxxxxxxxxxx-----
+---------xxxxxxxxxxxxxxxxxxxx-----
+---------xxxxxxxxxxxxxxxxxxxxx----
+----------xxxxxxxxxxxxxxxxxxxxx---
+----------xxxxxxxxxxxxxxxxxxxxxx--
+-----------xxxxxxxxxxxxxxxxxxxxxx-
+-----------xxxxxxxxxxxxxxxxxxxxxxo
+------------xxxxxxxxxxxxxxxxxxxx--
+------------xxxxxxxxxxxxxxxxxx----
+-------------xxxxxxxxxxxxxxx------
+-------------xxxxxxxxxxxxx--------
+-------------xxxxxxxxxxx----------
+--------------xxxxxxxxx-----------
+--------------xxxxxxx-------------
+---------------xxxx---------------
+---------------xx-----------------
+---------------o------------------
+
+9
+H[9] =
+[-0.478675 -0.727642 363.283]
+[-0.283327 -1.21781 468.746]
+[-0.000424564 -0.00290006 1]
+-----------o-------------------------
+----------xxx------------------------
+--------xxxxxx-----------------------
+-------xxxxxxxx----------------------
+-----xxxxxxxxxxx---------------------
+----xxxxxxxxxxxxx--------------------
+--xxxxxxxxxxxxxxxxx------------------
+oxxxxxxxxxxxxxxxxxxx-----------------
+-xxxxxxxxxxxxxxxxxxxx----------------
+--xxxxxxxxxxxxxxxxxxxx---------------
+---xxxxxxxxxxxxxxxxxxxx--------------
+----xxxxxxxxxxxxxxxxxxxxx------------
+-----xxxxxxxxxxxxxxxxxxxxx-----------
+-----xxxxxxxxxxxxxxxxxxxxxx----------
+------xxxxxxxxxxxxxxxxxxxxxx---------
+-------xxxxxxxxxxxxxxxxxxxxxx--------
+--------xxxxxxxxxxxxxxxxxxxxxxx------
+---------xxxxxxxxxxxxxxxxxxxxxxx-----
+----------xxxxxxxxxxxxxxxxxxxxxxx----
+----------xxxxxxxxxxxxxxxxxxxxxxxx---
+-----------xxxxxxxxxxxxxxxxxxxxxxxx--
+------------xxxxxxxxxxxxxxxxxxxxxxxxo
+-------------xxxxxxxxxxxxxxxxxxxxxxx-
+--------------xxxxxxxxxxxxxxxxxxxxx--
+--------------xxxxxxxxxxxxxxxxxxxx---
+---------------xxxxxxxxxxxxxxxxxx----
+----------------xxxxxxxxxxxxxxxx-----
+-----------------xxxxxxxxxxxxxx------
+------------------xxxxxxxxxxxx-------
+-------------------xxxxxxxxxx--------
+-------------------xxxxxxxxx---------
+--------------------xxxxxxx----------
+---------------------xxxxx-----------
+----------------------xxx------------
+-----------------------x-------------
+-----------------------o-------------
+
+10
+H[10] =
+[-0.663283 -0.269639 356.544]
+[-0.614855 -0.222172 320.823]
+[-0.00189048 -0.000724886 1]
+---------------------------------------o
+-------------------------------------xx-
+-----------------------------------xxxx-
+---------------------------------xxxxxx-
+------------------------------xxxxxxxxx-
+----------------------------xxxxxxxxxxx-
+--------------------------xxxxxxxxxxxx--
+-----------------------xxxxxxxxxxxxxxx--
+---------------------xxxxxxxxxxxxxxxxx--
+-------------------xxxxxxxxxxxxxxxxxxx--
+-----------------xxxxxxxxxxxxxxxxxxxxx--
+--------------xxxxxxxxxxxxxxxxxxxxxxx---
+------------xxxxxxxxxxxxxxxxxxxxxxxxx---
+----------xxxxxxxxxxxxxxxxxxxxxxxxxxx---
+-------xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx---
+-----xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx---
+---xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx----
+oxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx----
+--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx----
+---xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx----
+----xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxo----
+-----xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-----
+------xxxxxxxxxxxxxxxxxxxxxxxxxxxx------
+--------xxxxxxxxxxxxxxxxxxxxxxxxxx------
+---------xxxxxxxxxxxxxxxxxxxxxxxx-------
+----------xxxxxxxxxxxxxxxxxxxxxxx-------
+-----------xxxxxxxxxxxxxxxxxxxxx--------
+------------xxxxxxxxxxxxxxxxxxxx--------
+--------------xxxxxxxxxxxxxxxxx---------
+---------------xxxxxxxxxxxxxxx----------
+----------------xxxxxxxxxxxxxx----------
+-----------------xxxxxxxxxxxx-----------
+------------------xxxxxxxxxxx-----------
+--------------------xxxxxxxx------------
+---------------------xxxxxxx------------
+----------------------xxxxx-------------
+-----------------------xxxx-------------
+------------------------xx--------------
+-------------------------o--------------
+
+11
+H[11] =
+[-0.831147 -0.154601 390.479]
+[-0.549619 -0.0604908 247.995]
+[-0.00225045 -0.000241024 1]
+------o-----------------------------------
+------x-----------------------------------
+------xx----------------------------------
+------xxx---------------------------------
+------xxxx--------------------------------
+------xxxxx-------------------------------
+------xxxxxx------------------------------
+------xxxxxxx-----------------------------
+------xxxxxxxx----------------------------
+------xxxxxxxxx---------------------------
+------xxxxxxxxxx--------------------------
+------xxxxxxxxxxx-------------------------
+------xxxxxxxxxxxx------------------------
+-----xxxxxxxxxxxxxx-----------------------
+-----xxxxxxxxxxxxxxx----------------------
+-----xxxxxxxxxxxxxxxx---------------------
+-----xxxxxxxxxxxxxxxxx--------------------
+-----xxxxxxxxxxxxxxxxxx-------------------
+-----xxxxxxxxxxxxxxxxxxx------------------
+-----xxxxxxxxxxxxxxxxxxx------------------
+-----xxxxxxxxxxxxxxxxxxxx-----------------
+-----xxxxxxxxxxxxxxxxxxxxx----------------
+-----xxxxxxxxxxxxxxxxxxxxxx---------------
+-----xxxxxxxxxxxxxxxxxxxxxxx--------------
+-----xxxxxxxxxxxxxxxxxxxxxxxx-------------
+----xxxxxxxxxxxxxxxxxxxxxxxxxx------------
+----xxxxxxxxxxxxxxxxxxxxxxxxxxx-----------
+----xxxxxxxxxxxxxxxxxxxxxxxxxxxx----------
+----xxxxxxxxxxxxxxxxxxxxxxxxxxxxx---------
+----xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--------
+----xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-------
+----xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx------
+----xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-----
+----xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx----
+----xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx---
+----xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--
+----xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-
+---xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxo
+---xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-
+---xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-
+---xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-
+---xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-
+---xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-
+---xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-
+---xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-
+---xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-
+---xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-
+---xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-
+---xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--
+---xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--
+--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--
+--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--
+--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--
+--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--
+--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--
+--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--
+--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--
+--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxo--
+--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-----
+--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-------
+--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx---------
+--xxxxxxxxxxxxxxxxxxxxxxxxxxxx------------
+-xxxxxxxxxxxxxxxxxxxxxxxxxxx--------------
+-xxxxxxxxxxxxxxxxxxxxxxxxx----------------
+-xxxxxxxxxxxxxxxxxxxxxx-------------------
+-xxxxxxxxxxxxxxxxxxxx---------------------
+-xxxxxxxxxxxxxxxxxx-----------------------
+-xxxxxxxxxxxxxxxx-------------------------
+-xxxxxxxxxxxxx----------------------------
+-xxxxxxxxxxx------------------------------
+-xxxxxxxxx--------------------------------
+-xxxxxx-----------------------------------
+-xxxx-------------------------------------
+-xx---------------------------------------
+o-----------------------------------------
+
+12
+H[12] =
+[-0.942064 -0.482164 407.718]
+[-0.674518 -0.84783 431.37]
+[-0.00126092 -0.00264674 1]
+--------o-----------------------------
+--------------------------------------
+--------------------------------------
+------------x-------------------------
+o-----------xx------------------------
+------------xxx-----------------------
+-----------xxxxxx---------------------
+-----------xxxxxxx--------------------
+----------xxxxxxxxx-------------------
+----------xxxxxxxxxxx-----------------
+---------xxxxxxxxxxxxx----------------
+---------xxxxxxxxxxxxxx---------------
+---------xxxxxxxxxxxxxxx--------------
+--------xxxxxxxxxxxxxxxxxx------------
+---------xxxxxxxxxxxxxxxxxx-----------
+----------xxxxxxxxxxxxxxxxxx----------
+-----------xxxxxxxxxxxxxxxxxxx--------
+------------xxxxxxxxxxxxxxxxxxx-------
+-------------xxxxxxxxxxxxxxxxxxx------
+--------------xxxxxxxxxxxxxxxxxxxx----
+---------------xxxxxxxxxxxxxxxxxxxx---
+----------------xxxxxxxxxxxxxxxxxxxx--
+-----------------xxxxxxxxxxxxxxxxxxxxo
+------------------xxxxxxxxxxxxxxxxxxx-
+-------------------xxxxxxxxxxxxxxxxxx-
+--------------------xxxxxxxxxxxxxxxxx-
+---------------------xxxxxxxxxxxxxxxx-
+----------------------xxxxxxxxxxxxxxx-
+-----------------------xxxxxxxxxxxxxx-
+------------------------xxxxxxxxxxxxx-
+-------------------------xxxxxxxxxxxx-
+--------------------------xxxxxxxxxxx-
+---------------------------xxxxxxxxx--
+----------------------------xxxxxxxx--
+-----------------------------xxxxxxx--
+------------------------------xxxxxx--
+-------------------------------xxxxx--
+--------------------------------xxxx--
+---------------------------------xxx--
+----------------------------------xx--
+-----------------------------------x--
+-----------------------------------o--
+
+13
+H[13] =
+[-1.16482 0.432875 369.14]
+[-0.763239 0.401427 211.561]
+[-0.00328707 0.00135303 1]
+-----------------o-------------
+----------------xx-------------
+---------------xxxx------------
+--------------xxxxxx-----------
+-------------xxxxxxx-----------
+-------------xxxxxxxx----------
+------------xxxxxxxxxx---------
+----------xxxxxxxxxxxxx--------
+---------xxxxxxxxxxxxxx--------
+--------xxxxxxxxxxxxxxxx-------
+-------xxxxxxxxxxxxxxxxxx------
+------xxxxxxxxxxxxxxxxxxx------
+------xxxxxxxxxxxxxxxxxxxx-----
+-----xxxxxxxxxxxxxxxxxxxxxx----
+---xxxxxxxxxxxxxxxxxxxxxxxxx---
+--xxxxxxxxxxxxxxxxxxxxxxxxxx---
+-xxxxxxxxxxxxxxxxxxxxxxxxxxxx--
+oxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-
+--xxxxxxxxxxxxxxxxxxxxxxxxxxxxo
+---xxxxxxxxxxxxxxxxxxxxxxxxxxx-
+----xxxxxxxxxxxxxxxxxxxxxxxxxx-
+------xxxxxxxxxxxxxxxxxxxxxxxx-
+-------xxxxxxxxxxxxxxxxxxxxxxx-
+--------xxxxxxxxxxxxxxxxxxxxxx-
+----------xxxxxxxxxxxxxxxxxxxx-
+-----------xxxxxxxxxxxxxxxxxxx-
+------------xxxxxxxxxxxxxxxxxx-
+--------------xxxxxxxxxxxxxxxx-
+---------------xxxxxxxxxxxxxxx-
+----------------xxxxxxxxxxxxxx-
+------------------xxxxxxxxxxxx-
+-------------------xxxxxxxxxxx-
+--------------------xxxxxxxxxx-
+----------------------xxxxxxxx-
+-----------------------xxxxxxx-
+------------------------xxxxxx-
+--------------------------xxxx-
+---------------------------xxx-
+----------------------------xx-
+-----------------------------o-
+
+14
+H[14] =
+[-0.428492 -1.09432 477.216]
+[-0.124068 -0.730099 258.526]
+[-0.000682369 -0.00252676 1]
+-----------------o---------
+-----------------x---------
+----------------xxx--------
+---------------xxxxx-------
+---------------xxxxxx------
+--------------xxxxxxxx-----
+-------------xxxxxxxxxx----
+-------------xxxxxxxxxxx---
+------------xxxxxxxxxxxxx--
+-----------xxxxxxxxxxxxxxx-
+----------xxxxxxxxxxxxxxxxo
+----------xxxxxxxxxxxxxxxx-
+---------xxxxxxxxxxxxxxx---
+--------xxxxxxxxxxxxxxxx---
+--------xxxxxxxxxxxxxxx----
+-------xxxxxxxxxxxxxxx-----
+------xxxxxxxxxxxxxxx------
+-----xxxxxxxxxxxxxxx-------
+-----xxxxxxxxxxxxxx--------
+----xxxxxxxxxxxxx----------
+---xxxxxxxxxxxxxx----------
+---xxxxxxxxxxxx------------
+--xxxxxxxxxxxx-------------
+-xxxxxxxxxxxx--------------
+oxxxxxxxxxxxx--------------
+----xxxxxxxx---------------
+------xxxxx----------------
+---------o-----------------
+
+15
+H[15] =
+[0.00160819 -1.43621 342.402]
+[-0.0119295 -0.993225 241.496]
+[-1.95151e-05 -0.00415605 1]
+---------------o----------------
+oxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxo
+-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-
+--xxxxxxxxxxxxxxxxxxxxxxxxxxxx--
+--xxxxxxxxxxxxxxxxxxxxxxxxxxx---
+---xxxxxxxxxxxxxxxxxxxxxxxxxx---
+---xxxxxxxxxxxxxxxxxxxxxxxxx----
+----xxxxxxxxxxxxxxxxxxxxxxx-----
+-----xxxxxxxxxxxxxxxxxxxxxx-----
+-----xxxxxxxxxxxxxxxxxxxxx------
+------xxxxxxxxxxxxxxxxxxx-------
+------xxxxxxxxxxxxxxxxxx--------
+-------xxxxxxxxxxxxxxxxx--------
+-------xxxxxxxxxxxxxxxx---------
+--------xxxxxxxxxxxxxx----------
+---------xxxxxxxxxxxxx----------
+---------xxxxxxxxxxxx-----------
+----------xxxxxxxxxx------------
+----------xxxxxxxxx-------------
+-----------xxxxxxxx-------------
+------------xxxxxx--------------
+------------xxxxx---------------
+-------------xxxx---------------
+-------------xxx----------------
+--------------x-----------------
+--------------o-----------------
+
+16
+H[16] =
+[0.312511 -1.72817 373.688]
+[0.368831 -1.53105 293.236]
+[0.00153042 -0.00553501 1]
+--------------o--------------
+-------------xx--------------
+-----------xxxxx-------------
+---------xxxxxxx-------------
+-------xxxxxxxxxx------------
+------xxxxxxxxxxx------------
+----xxxxxxxxxxxxxx-----------
+--xxxxxxxxxxxxxxxxx----------
+oxxxxxxxxxxxxxxxxxx----------
+--xxxxxxxxxxxxxxxxxx---------
+---xxxxxxxxxxxxxxxxx---------
+----xxxxxxxxxxxxxxxxx--------
+-----xxxxxxxxxxxxxxxx--------
+------xxxxxxxxxxxxxxxx-------
+-------xxxxxxxxxxxxxxxx------
+--------xxxxxxxxxxxxxxx------
+---------xxxxxxxxxxxxxxx-----
+-----------xxxxxxxxxxxxx-----
+------------xxxxxxxxxxxxx----
+-------------xxxxxxxxxxxxx---
+--------------xxxxxxxxxxxx---
+---------------xxxxxxxxxxxx--
+----------------xxxxxxxxxxx--
+-----------------xxxxxxxxxxx-
+------------------o---------o
+
+17
+H[17] =
+[-0.248207 -0.855716 324.452]
+[-0.193544 -0.776999 282.01]
+[-0.000626808 -0.00281953 1]
+-----------o------------------
+-----------xx-----------------
+----------xxxx----------------
+----------xxxxx---------------
+---------xxxxxxx--------------
+--------xxxxxxxxx-------------
+--------xxxxxxxxxx------------
+-------xxxxxxxxxxxx-----------
+------xxxxxxxxxxxxxx----------
+------xxxxxxxxxxxxxxxx--------
+-----xxxxxxxxxxxxxxxxxx-------
+----xxxxxxxxxxxxxxxxxxxx------
+----xxxxxxxxxxxxxxxxxxxxx-----
+---xxxxxxxxxxxxxxxxxxxxxxx----
+--xxxxxxxxxxxxxxxxxxxxxxxxx---
+--xxxxxxxxxxxxxxxxxxxxxxxxxx--
+-xxxxxxxxxxxxxxxxxxxxxxxxxxxxo
+oxxxxxxxxxxxxxxxxxxxxxxxxxx---
+-----xxxxxxxxxxxxxxxxxxxx-----
+----------xxxxxxxxxxxxx-------
+---------------xxxxxxx--------
+-------------------o----------
+
+18
+H[18] =
+[0.137525 -1.44955 360.935]
+[0.203273 -1.18477 268.046]
+[0.000644182 -0.00428462 1]
+------------------o--------------
+------------------x--------------
+-----------------xxx-------------
+----------------xxxxx------------
+---------------xxxxxxx-----------
+--------------xxxxxxxxx----------
+-------------xxxxxxxxxx----------
+------------xxxxxxxxxxxx---------
+-----------xxxxxxxxxxxxxx--------
+----------xxxxxxxxxxxxxxxx-------
+---------xxxxxxxxxxxxxxxxxx------
+-------xxxxxxxxxxxxxxxxxxxxx-----
+-------xxxxxxxxxxxxxxxxxxxxx-----
+------xxxxxxxxxxxxxxxxxxxxxxx----
+----xxxxxxxxxxxxxxxxxxxxxxxxxx---
+----xxxxxxxxxxxxxxxxxxxxxxxxxxx--
+---xxxxxxxxxxxxxxxxxxxxxxxxxxxxx-
+--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxo
+oxxxxxxxxxxxxxxxxxxxxxxxxxxx-----
+---xxxxxxxxxxxxxxxxxxxxx---------
+------xxxxxxxxxxxxxx-------------
+---------xxxxxxx-----------------
+-----------o---------------------
+
+19
+H[19] =
+[-0.379187 -0.92349 371.837]
+[-0.185854 -0.776823 274.691]
+[-0.000761697 -0.00271261 1]
+--------------o---------------
+--------------xxxx------------
+-------------xxxxxxxx---------
+-------------xxxxxxxxxxx------
+------------xxxxxxxxxxxxxxx---
+-----------xxxxxxxxxxxxxxxxxxo
+-----------xxxxxxxxxxxxxxxxx--
+----------xxxxxxxxxxxxxxxxx---
+----------xxxxxxxxxxxxxxxx----
+---------xxxxxxxxxxxxxxxx-----
+--------xxxxxxxxxxxxxxxx------
+--------xxxxxxxxxxxxxxx-------
+-------xxxxxxxxxxxxxxx--------
+-------xxxxxxxxxxxxxx---------
+------xxxxxxxxxxxxxx----------
+-----xxxxxxxxxxxxxx-----------
+-----xxxxxxxxxxxxx------------
+----xxxxxxxxxxxxx-------------
+----xxxxxxxxxxxx--------------
+---xxxxxxxxxxxx---------------
+--xxxxxxxxxxxx----------------
+--xxxxxxxxxxx-----------------
+-xxxxxxxxxxx------------------
+o-xxxx-xx-xo------------------
+
+20
+H[20] =
+[0.0215137 -1.08141 252.822]
+[-0.0114102 -1.00204 242.993]
+[1.14618e-05 -0.00418653 1]
+----------------o----------------
+--------xxxxxxxxxxxxxxxx---------
+oxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxo
+-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-
+--xxxxxxxxxxxxxxxxxxxxxxxxxxxxx--
+---xxxxxxxxxxxxxxxxxxxxxxxxxxxx--
+----xxxxxxxxxxxxxxxxxxxxxxxxxx---
+----xxxxxxxxxxxxxxxxxxxxxxxxx----
+-----xxxxxxxxxxxxxxxxxxxxxxxx----
+------xxxxxxxxxxxxxxxxxxxxxx-----
+-------xxxxxxxxxxxxxxxxxxxxx-----
+--------xxxxxxxxxxxxxxxxxxx------
+--------xxxxxxxxxxxxxxxxxx-------
+---------xxxxxxxxxxxxxxxxx-------
+----------xxxxxxxxxxxxxxx--------
+-----------xxxxxxxxxxxxxx--------
+-----------xxxxxxxxxxxxx---------
+------------xxxxxxxxxxx----------
+-------------xxxxxxxxxx----------
+--------------xxxxxxxx-----------
+---------------xxxxxxx-----------
+---------------xxxxxx------------
+----------------xxxx-------------
+-----------------xxx-------------
+------------------x--------------
+------------------o--------------
+
+21
+H[21] =
+[-0.366806 -0.514224 267.879]
+[-0.217321 -0.835235 311.095]
+[-0.000501277 -0.00280008 1]
+----------o------------------
+----------x------------------
+---------xxx-----------------
+--------xxxxx----------------
+-------xxxxxxx---------------
+------xxxxxxxx---------------
+-----xxxxxxxxxx--------------
+----xxxxxxxxxxxx-------------
+---xxxxxxxxxxxxxx------------
+--xxxxxxxxxxxxxxxx-----------
+-xxxxxxxxxxxxxxxxx-----------
+oxxxxxxxxxxxxxxxxxx----------
+--xxxxxxxxxxxxxxxxxx---------
+---xxxxxxxxxxxxxxxxxx--------
+----xxxxxxxxxxxxxxxxx--------
+-----xxxxxxxxxxxxxxxxx-------
+------xxxxxxxxxxxxxxxxx------
+--------xxxxxxxxxxxxxxxx-----
+---------xxxxxxxxxxxxxxxx----
+----------xxxxxxxxxxxxxxx----
+-----------xxxxxxxxxxxxxxx---
+------------xxxxxxxxxxxxxxx--
+-------------xxxxxxxxxxxxxxx-
+---------------xxxxxxxxxxxxxo
+----------------xxxxxxxxxxx--
+-----------------xxxxxxxx----
+------------------xxxxxx-----
+-------------------xxx-------
+--------------------o--------
+
+22
+H[22] =
+[-1.47488 0.133487 502.918]
+[-0.673162 -0.450851 456.515]
+[-0.00184002 -0.000257704 1]
+-----------o---------------
+oxxxxxxxxxxx---------------
+-xxxxxxxxxxx---------------
+-xxxxxxxxxxx---------------
+-xxxxxxxxxxx---------------
+-xxxxxxxxxxxx--------------
+--xxxxxxxxxxx--------------
+--xxxxxxxxxxx--------------
+--xxxxxxxxxxx--------------
+--xxxxxxxxxxx--------------
+---xxxxxxxxxxx-------------
+---xxxxxxxxxxx-------------
+---xxxxxxxxxxx-------------
+---xxxxxxxxxxx-------------
+----xxxxxxxxxxx------------
+----xxxxxxxxxxx------------
+----xxxxxxxxxxx------------
+----xxxxxxxxxxx------------
+----xxxxxxxxxxx------------
+-----xxxxxxxxxxx-----------
+-----xxxxxxxxxxx-----------
+-----xxxxxxxxxxx-----------
+-----xxxxxxxxxxx-----------
+------xxxxxxxxxx-----------
+------xxxxxxxxxxx----------
+------xxxxxxxxxxx----------
+------xxxxxxxxxxx----------
+-------xxxxxxxxxx----------
+-------xxxxxxxxxxx---------
+-------xxxxxxxxxxx---------
+-------xxxxxxxxxxx---------
+-------xxxxxxxxxxx---------
+--------xxxxxxxxxx---------
+--------xxxxxxxxxxx--------
+--------xxxxxxxxxxx--------
+--------xxxxxxxxxxx--------
+---------xxxxxxxxxx--------
+---------xxxxxxxxxx--------
+---------xxxxxxxxxxx-------
+---------xxxxxxxxxxx-------
+----------xxxxxxxxxx-------
+----------xxxxxxxxxx-------
+----------xxxxxxxxxx-------
+----------xxxxxxxxxxx------
+-----------xxxxxxxxxx------
+-----------xxxxxxxxxx------
+-----------xxxxxxxxxx------
+-----------xxxxxxxxxxx-----
+-----------xxxxxxxxxxx-----
+------------xxxxxxxxxx-----
+------------xxxxxxxxxx-----
+------------xxxxxxxxxx-----
+------------xxxxxxxxxxx----
+-------------xxxxxxxxxx----
+-------------xxxxxxxxxx----
+-------------xxxxxxxxxx----
+-------------xxxxxxxxxxx---
+--------------xxxxxxxxxx---
+--------------xxxxxxxxxx---
+--------------xxxxxxxxxx---
+--------------xxxxxxxxxx---
+--------------xxxxxxxxxxx--
+---------------xxxxxxxxxx--
+---------------xxxxxxxxxx--
+---------------xxxxxxxxxx--
+---------------xxxxxxxxxx--
+----------------xxxxxxxxxx-
+----------------xxxxxxxxxx-
+----------------xxxxxxxxxx-
+----------------xxxxxxxxxx-
+-----------------xxxxxxxxxo
+-----------------xxxxxxx---
+-----------------xxxxx-----
+-----------------xxx-------
+-----------------o---------
+
+23
+H[23] =
+[-1.07361 0.0625892 307.743]
+[-1.19921 0.0661516 344.868]
+[-0.00348399 0.000199285 1]
+----------o-----
+-------xxxx-----
+----xxxxxxx-----
+oxxxxxxxxxx-----
+-xxxxxxxxxx-----
+-xxxxxxxxxx-----
+-xxxxxxxxxx-----
+-xxxxxxxxxx-----
+--xxxxxxxxx-----
+--xxxxxxxxx-----
+--xxxxxxxxx-----
+--xxxxxxxxx-----
+--xxxxxxxxx-----
+---xxxxxxxxx----
+---xxxxxxxxx----
+---xxxxxxxxx----
+---xxxxxxxxx----
+----xxxxxxxx----
+----xxxxxxxx----
+----xxxxxxxx----
+----xxxxxxxx----
+----xxxxxxxx----
+-----xxxxxxx----
+-----xxxxxxx----
+-----xxxxxxx----
+-----xxxxxxx----
+-----xxxxxxxx---
+------xxxxxxx---
+------xxxxxxx---
+------xxxxxxx---
+------xxxxxxx---
+-------xxxxxx---
+-------xxxxxx---
+-------xxxxxx---
+-------xxxxxx---
+-------xxxxxx---
+--------xxxxx---
+--------xxxxx---
+--------xxxxx---
+--------xxxxxx--
+--------xxxxxx--
+---------xxxxx--
+---------xxxxx--
+---------xxxxx--
+---------xxxxx--
+----------xxxx--
+----------xxxx--
+----------xxxx--
+----------xxxx--
+----------xxxx--
+-----------xxx--
+-----------xxx--
+-----------xxxo-
+-----------xxxx-
+-----------xxxx-
+------------xxx-
+------------xxx-
+------------xxx-
+------------xxx-
+-------------xx-
+-------------xx-
+-------------xx-
+-------------xx-
+-------------xx-
+--------------x-
+--------------x-
+--------------x-
+--------------x-
+--------------x-
+----------------
+----------------
+----------------
+----------------
+---------------o
+
+24
+H[24] =
+[0.531635 -0.917801 -246.943]
+[-1.01292 0.0421917 49.2989]
+[-0.0029275 -0.0030307 1]
+--------ox-xxxxxxxo
+--------xxxxxxxxxx-
+--------xxxxxxxxxx-
+--------xxxxxxxxxx-
+--------xxxxxxxxxx-
+--------xxxxxxxxxx-
+--------xxxxxxxxxx-
+--------xxxxxxxxxx-
+--------xxxxxxxxxx-
+-------xxxxxxxxxxx-
+-------xxxxxxxxxxx-
+-------xxxxxxxxxxx-
+-------xxxxxxxxxxx-
+-------xxxxxxxxxx--
+-------xxxxxxxxxx--
+-------xxxxxxxxxx--
+-------xxxxxxxxxx--
+-------xxxxxxxxxx--
+------xxxxxxxxxxx--
+------xxxxxxxxxxx--
+------xxxxxxxxxxx--
+------xxxxxxxxxxx--
+------xxxxxxxxxxx--
+------xxxxxxxxxxx--
+------xxxxxxxxxxx--
+------xxxxxxxxxx---
+------xxxxxxxxxx---
+-----xxxxxxxxxxx---
+-----xxxxxxxxxxx---
+-----xxxxxxxxxxx---
+-----xxxxxxxxxxx---
+-----xxxxxxxxxxx---
+-----xxxxxxxxxxx---
+-----xxxxxxxxxxx---
+-----xxxxxxxxxxx---
+-----xxxxxxxxxxx---
+----xxxxxxxxxxxx---
+----xxxxxxxxxxx----
+----xxxxxxxxxxx----
+----xxxxxxxxxxx----
+----xxxxxxxxxxx----
+----xxxxxxxxxxx----
+----xxxxxxxxxxx----
+----xxxxxxxxxxx----
+----xxxxxxxxxxx----
+---xxxxxxxxxxxx----
+---xxxxxxxxxxxx----
+---xxxxxxxxxxxx----
+---xxxxxxxxxxxx----
+---xxxxxxxxxxxx----
+---xxxxxxxxxxx-----
+---xxxxxxxxxxx-----
+---xxxxxxxxxxx-----
+---xxxxxxxxxxx-----
+--xxxxxxxxxxxx-----
+--xxxxxxxxxxxx-----
+--xxxxxxxxxxxx-----
+--xxxxxxxxxxxx-----
+--xxxxxxxxxxxx-----
+--xxxxxxxxxxxx-----
+--xxxxxxxxxxxx-----
+--xxxxxxxxxxxx-----
+--xxxxxxxxxxx------
+-xxxxxxxxxxxx------
+-xxxxxxxxxxxx------
+-xxxxxxxxxxxx------
+-xxxxxxxxxxxx------
+-xxxxxxxxxxxx------
+-xxxxxxxxxxxx------
+-xxxxxxxxxxxx------
+-xxxxxxxxxxxx------
+oxxxxxxxxxxxx------
+----xxxxxxxxx------
+--------xxxxx------
+------------o------
+
+25
+H[25] =
+[-1.05274 0.0774174 326.256]
+[-1.1033 0.101678 337.247]
+[-0.00320195 0.000215795 1]
+-o-----------
+-xxxxxx------
+-xxxxxxxxxxxo
+-xxxxxxxxxxx-
+-xxxxxxxxxxx-
+-xxxxxxxxxxx-
+-xxxxxxxxxxx-
+-xxxxxxxxxxx-
+-xxxxxxxxxxx-
+-xxxxxxxxxxx-
+-xxxxxxxxxxx-
+-xxxxxxxxxx--
+-xxxxxxxxxx--
+-xxxxxxxxxx--
+-xxxxxxxxxx--
+-xxxxxxxxxx--
+-xxxxxxxxxx--
+-xxxxxxxxxx--
+-xxxxxxxxxx--
+-xxxxxxxxxx--
+-xxxxxxxxx---
+-xxxxxxxxx---
+-xxxxxxxxx---
+-xxxxxxxxx---
+-xxxxxxxxx---
+-xxxxxxxxx---
+-xxxxxxxxx---
+-xxxxxxxxx---
+-xxxxxxxxx---
+-xxxxxxxx----
+-xxxxxxxx----
+-xxxxxxxx----
+-xxxxxxxx----
+-xxxxxxxx----
+-xxxxxxxx----
+-xxxxxxxx----
+-xxxxxxxx----
+-xxxxxxxx----
+-xxxxxxx-----
+-xxxxxxx-----
+-xxxxxxx-----
+-xxxxxxx-----
+-xxxxxxx-----
+-xxxxxxx-----
+-xxxxxxx-----
+-xxxxxxx-----
+-xxxxxxx-----
+-xxxxxx------
+-xxxxxx------
+-xxxxxx------
+-xxxxxx------
+oxxxxxx------
+-xxxxxx------
+-xxxxxx------
+-xxxxxx------
+-xxxxxx------
+-xxxxx-------
+--xxxx-------
+--xxxx-------
+--xxxx-------
+--xxxx-------
+--xxxx-------
+--xxxx-------
+---xxx-------
+---xxx-------
+---xx--------
+---xx--------
+---xx--------
+----x--------
+----x--------
+----x--------
+----x--------
+----x--------
+----o--------
+
+26
+H[26] =
+[0.187877 -1.13626 265.529]
+[0.210431 -1.22433 282.967]
+[0.000806226 -0.00438649 1]
+--------o------------
+-------xxx-----------
+-----xxxxxxx---------
+----xxxxxxxxxx-------
+--xxxxxxxxxxxxx------
+oxxxxxxxxxxxxxxxx----
+----xxxxxxxxxxxxxxx--
+-------xxxxxxxxxxxxxo
+---------o-----------
+
+27
+H[27] =
+[0.33894 -1.5517 309.431]
+[0.265595 -1.28207 258.828]
+[0.000969324 -0.00488648 1]
+oxx-x--xxxxo-----------
+--xxxxxxxxxxxx---------
+----xxxxxxxxxxxxx------
+------xxxxxxxxxxxxxx---
+-------xxxxxxxxxxxxxxxo
+---------xxxxxxxxxx----
+-----------xxxxx-------
+------------o----------
+
+28
+H[28] =
+[-0.171246 -0.965006 307.119]
+[-0.175109 -0.773389 259.845]
+[-0.000643782 -0.00301198 1]
+----------ox-x------o
+--------xxxxxxxxxxx--
+------xxxxxxxxxxxx---
+----xxxxxxxxxxxxx----
+--xxxxxxxxxxxxx------
+oxxxxxxxxxxxxx-------
+------xxxxxxx--------
+-----------o---------
+
+29
+H[29] =
+[-0.281461 -0.876983 346.057]
+[-0.217561 -0.723104 279.473]
+[-0.000760704 -0.00260813 1]
+---------o---------
+--------xxxx-------
+-------xxxxxxxx----
+------xxxxxxxxxxxxo
+----xxxxxxxxxxxxx--
+---xxxxxxxxxxxx----
+--xxxxxxxxxxx------
+oxxxxxxxxxo--------
+
+30
+H[30] =
+[0.068543 -1.45343 352.415]
+[0.0377583 -1.01491 246.446]
+[4.62906e-05 -0.00396689 1]
+---------------------o-------------------
+-----------------xxxxxxxxx---------------
+-------------xxxxxxxxxxxxxxxxxx----------
+---------xxxxxxxxxxxxxxxxxxxxxxxxxxx-----
+-----xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxo
+oxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx--
+--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx----
+----xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-----
+------xxxxxxxxxxxxxxxxxxxxxxxxxxxx-------
+--------xxxxxxxxxxxxxxxxxxxxxxxxx--------
+----------xxxxxxxxxxxxxxxxxxxxx----------
+------------xxxxxxxxxxxxxxxxx------------
+--------------xxxxxxxxxxxxxx-------------
+----------------xxxxxxxxxx---------------
+------------------xxxxxxx----------------
+--------------------xxx------------------
+---------------------o-------------------
+
+31
+H[31] =
+[-1.05604 0.0599683 331.567]
+[-0.976724 -0.0354321 333.545]
+[-0.00317481 0.000178378 1]
+o----------------------
+-x---------------------
+-xxx-------------------
+-xxxxx-----------------
+-xxxxxxx---------------
+-xxxxxxxxx-------------
+-xxxxxxxxxxx-----------
+-xxxxxxxxxxxxx---------
+-xxxxxxxxxxxxxxx-------
+-xxxxxxxxxxxxxxxxx-----
+-xxxxxxxxxxxxxxxxxxx---
+-xxxxxxxxxxxxxxxxxxxxo-
+-xxxxxxxxxxxxxxxxxxxxx-
+-xxxxxxxxxxxxxxxxxxxxx-
+--xxxxxxxxxxxxxxxxxxxx-
+--xxxxxxxxxxxxxxxxxxxx-
+--xxxxxxxxxxxxxxxxxxxx-
+--xxxxxxxxxxxxxxxxxxxx-
+--xxxxxxxxxxxxxxxxxxxx-
+--xxxxxxxxxxxxxxxxxxxx-
+--xxxxxxxxxxxxxxxxxxxx-
+--xxxxxxxxxxxxxxxxxxxx-
+--xxxxxxxxxxxxxxxxxxxx-
+--xxxxxxxxxxxxxxxxxxxx-
+--xxxxxxxxxxxxxxxxxxxx-
+--xxxxxxxxxxxxxxxxxxxx-
+--xxxxxxxxxxxxxxxxxxxx-
+---xxxxxxxxxxxxxxxxxxxo
+---xxxxxxxxxxxxxxxxxxx-
+---xxxxxxxxxxxxxxxxxx--
+---xxxxxxxxxxxxxxxxx---
+---xxxxxxxxxxxxxxxxx---
+---xxxxxxxxxxxxxxxx----
+---xxxxxxxxxxxxxxx-----
+---xxxxxxxxxxxxxx------
+---xxxxxxxxxxxxxx------
+---xxxxxxxxxxxxx-------
+---xxxxxxxxxxxx--------
+---xxxxxxxxxxxx--------
+---xxxxxxxxxxx---------
+----xxxxxxxxx----------
+----xxxxxxxx-----------
+----xxxxxxxx-----------
+----xxxxxxx------------
+----xxxxxx-------------
+----xxxxxx-------------
+----xxxxx--------------
+----xxxx---------------
+----xxx----------------
+----xxx----------------
+----xx-----------------
+----x------------------
+----o------------------
+
+32
+H[32] =
+[-0.565184 -0.410584 317.637]
+[-0.611361 -0.474191 352.383]
+[-0.00172479 -0.00134618 1]
+------------------o
+------------------x
+-----------------xx
+----------------xxx
+----------------xxx
+---------------xxxx
+--------------xxxxx
+-------------xxxxxx
+-------------xxxxxx
+------------xxxxxxx
+-----------xxxxxxxx
+-----------xxxxxxxx
+----------xxxxxxxxx
+---------xxxxxxxxxx
+--------xxxxxxxxxxx
+--------xxxxxxxxxxx
+-------xxxxxxxxxxxo
+------xxxxxxxxxxxx-
+------xxxxxxxxxxx--
+-----xxxxxxxxxxx---
+----xxxxxxxxxxx----
+---xxxxxxxxxxxx----
+---xxxxxxxxxxx-----
+--xxxxxxxxxxx------
+-xxxxxxxxxxx-------
+oxxxxxxxxxxx-------
+----xxxxxxx--------
+-------xxx---------
+---------o---------
+
+33
+H[33] =
+[-0.0673337 -0.883278 315.155]
+[-0.0669102 -0.948706 336.278]
+[-0.000158806 -0.0028585 1]
+---------o---------
+---------x---------
+--------xxx--------
+-------xxxxx-------
+-------xxxxxx------
+------xxxxxxxx-----
+-----xxxxxxxxx-----
+----xxxxxxxxxxx----
+----xxxxxxxxxxxx---
+---xxxxxxxxxxxxxx--
+--xxxxxxxxxxxxxxxx-
+-xxxxxxxxxxxxxxxxxo
+oxxxxxxxxxxxxxx----
+-----xxxxxxxx------
+---------o---------
+
+34
+H[34] =
+[-1.5347 0.492519 351.083]
+[-1.48427 0.366233 380.221]
+[-0.0044733 0.00154035 1]
+o-----------
+-xx---------
+-xxxxxx-----
+-xxxxxxxxo--
+-xxxxxxxxx--
+-xxxxxxxxx--
+-xxxxxxxxx--
+-xxxxxxxxx--
+-xxxxxxxxx--
+-xxxxxxxxx--
+-xxxxxxxxx--
+-xxxxxxxxxx-
+-xxxxxxxxxx-
+-xxxxxxxxxx-
+-xxxxxxxxxx-
+-xxxxxxxxxx-
+-xxxxxxxxxx-
+-xxxxxxxxxx-
+-xxxxxxxxxxo
+-xxxxxxx----
+-xxxx-------
+-o----------
+
+35
+H[35] =
+[-1.09478 0.109158 312.428]
+[-1.06977 0.186131 283.213]
+[-0.00348579 0.000337316 1]
+-------------------o
+------------------x-
+----------------xxx-
+---------------xxxx-
+-------------xxxxxx-
+------------xxxxxxx-
+----------xxxxxxxxx-
+--------xxxxxxxxxxx-
+-------xxxxxxxxxxxx-
+-----xxxxxxxxxxxxxx-
+----xxxxxxxxxxxxxxx-
+--xxxxxxxxxxxxxxxxx-
+oxxxxxxxxxxxxxxxxxx-
+-xxxxxxxxxxxxxxxxxx-
+-xxxxxxxxxxxxxxxxxx-
+-xxxxxxxxxxxxxxxxxx-
+-xxxxxxxxxxxxxxxxxx-
+-xxxxxxxxxxxxxxxxxx-
+-xxxxxxxxxxxxxxxxxx-
+-xxxxxxxxxxxxxxxxxx-
+-xxxxxxxxxxxxxxxxxx-
+-xxxxxxxxxxxxxxxxxx-
+-xxxxxxxxxxxxxxxxxx-
+-xxxxxxxxxxxxxxxxxx-
+-xxxxxxxxxxxxxxxxxx-
+-xxxxxxxxxxxxxxxxxx-
+-xxxxxxxxxxxxxxxxxx-
+-xxxxxxxxxxxxxxxxxx-
+-oxxxxxxxxxxxxxxxxx-
+--xxxxxxxxxxxxxxxxx-
+---xxxxxxxxxxxxxxxx-
+----xxxxxxxxxxxxxxx-
+----xxxxxxxxxxxxxxx-
+-----xxxxxxxxxxxxxx-
+------xxxxxxxxxxxxx-
+-------xxxxxxxxxxxx-
+-------xxxxxxxxxxxx-
+--------xxxxxxxxxxx-
+---------xxxxxxxxxx-
+----------xxxxxxxxx-
+----------xxxxxxxxx-
+-----------xxxxxxxx-
+------------xxxxxxx-
+-------------xxxxxx-
+-------------xxxxxx-
+--------------xxxxx-
+---------------xxxx-
+----------------xxx-
+----------------xxx-
+-----------------xx-
+------------------x-
+------------------o-
+
+36
+H[36] =
+[-13.6038 12.5756 229.086]
+[-12.8404 13.3333 -245.877]
+[-0.0449472 0.0410256 1]
+o-----------------
+------------------
+xx----------------
+xxx---------------
+xxx---------------
+-xxx--------------
+xxxxx-------------
+xxxxxx------------
+-xxxxx------------
+-xxxxxx-----------
+xxxxxxxx----------
+-xxxxxxxx---------
+-xxxxxxxx---------
+-xxxxxxxxx--------
+xxxxxxxxxxx-------
+-xxxxxxxxxxx------
+oxxxxxxxxxxx------
+-xxxxxxxxxxxx-----
+--xxxxxxxxxxxx----
+---xxxxxxxxxxxx---
+----xxxxxxxxxxx---
+-----xxxxxxxxxxx--
+-----xxxxxxxxxxxx-
+------xxxxxxxxxxxo
+-------xxxxxxxx---
+--------xxxxx-----
+---------xx-------
+---------o--------
+
+37
+H[37] =
+[0.217391 0.652174 38.8696]
+[-1.95652 0.130435 932.174]
+[1.65026e-16 -5.34828e-16 1]
+---------o-
+------xxxx-
+---xxxxxxx-
+oxxxxxxxxx-
+-xxxxxxxxx-
+-xxxxxxxxx-
+-xxxxxxxxx-
+-xxxxxxxxx-
+-xxxxxxxxx-
+-xxxxxxxxx-
+-xxxxxxxxx-
+-xxxxxxxxx-
+-xxxxxxxxx-
+-xxxxxxxxx-
+-xxxxxxxxx-
+-xxxxxxxxxo
+-xxxxxxx---
+-xxxx------
+-o---------
+
+38
+H[38] =
+[-0.837129 -0.16005 313.583]
+[-0.891993 -0.0722087 303.297]
+[-0.00271844 -0.000446266 1]
+--------o----
+-------xx----
+----xxxxx----
+---xxxxxx----
+oxxxxxxxx----
+-xxxxxxxx----
+-xxxxxxxxx---
+-xxxxxxxxx---
+-xxxxxxxxx---
+-xxxxxxxxx---
+-xxxxxxxxx---
+-xxxxxxxxx---
+-xxxxxxxxxx--
+-xxxxxxxxxx--
+-xxxxxxxxxx--
+-xxxxxxxxxx--
+-xxxxxxxxxx--
+-xxxxxxxxxxx-
+-xxxxxxxxxxx-
+-oxxxxxxxxxx-
+-----xxxxxxx-
+---------xxx-
+------------o
+
+39
+H[39] =
+[0.418205 -0.777615 250.286]
+[-0.290621 -1.01336 561.54]
+[0.00150785 -0.00326842 1]
+o----------
+-xxxx------
+-xxxxxxxxo-
+-xxxxxxxxx-
+-xxxxxxxxx-
+-xxxxxxxxx-
+-xxxxxxxxx-
+-xxxxxxxxx-
+--xxxxxxxx-
+--xxxxxxxx-
+--xxxxxxxx-
+--xxxxxxxx-
+--xxxxxxxx-
+--xxxxxxxx-
+--xxxxxxxx-
+--oxxxxxxx-
+------xxxx-
+----------o
+
+40
+H[40] =
+[-0.221821 -1.2862 518.201]
+[-0.0622434 -1.03301 383.07]
+[-0.000109487 -0.00273718 1]
+-------------------o
+----------------x---
+-------------x------
+---------oxx--------
+-------xxx----------
+-----xx-------------
+---xo---------------
+o-------------------
+
+41
+H[41] =
+[-nan(ind) -nan(ind) -nan(ind)]
+[-nan(ind) -nan(ind) -nan(ind)]
+[-nan(ind) -nan(ind) 1]
+---------------o
+----------------
+----------------
+----------------
+----------------
+----------------
+o--------------o
+
+42
+H[42] =
+[-7.44887 6.02265 528.979]
+[-7.04701 5.4976 597.233]
+[-0.0209334 0.0185312 1]
+o---------
+-xxxx-----
+-xxxxxxxo-
+-xxxxxxxx-
+-xxxxxxxx-
+-xxxxxxxx-
+oxxxxxxxx-
+---------o
+
+43
+H[43] =
+[13.7301 -13.9141 826.564]
+[15.6973 -16.9571 1255.53]
+[0.0470348 -0.0429448 1]
+---------o
+------xxx-
+----xxxxx-
+oxxxxxxxx-
+-xxxxxxxx-
+-xxxxxxxx-
+-xxxxxxxx-
+-xxxxxxxxo
+-o--------
+
+44
+H[44] =
+[0.366019 -1.39158 351.531]
+[0.355308 -1.34799 340.271]
+[0.00104502 -0.00396238 1]
+oxxxxxxxxxxxxxxxxxxxxxxx
+----xxxxxxxxxxxxxxxxxxxx
+--------xxxxxxxxxxxxxxxx
+-----------oxxxxxxxxxxxx
+---------------xxxxxxxxx
+-------------------xxxxx
+--x---x----------xxo---o
+
+45
+H[45] =
+[-0.437291 -0.544632 334.034]
+[-0.447903 -0.562941 343.929]
+[-0.00131736 -0.00162231 1]
+o-------------------
+--------------------
+--------------------
+--------------------
+--------------------
+--------------------
+-ox---xxxxxxxxx-xxxo
+oxxxxxxxxxxxxxxxxxxx
+
+46
+H[46] =
+[-nan(ind) -nan(ind) -nan(ind)]
+[-nan(ind) -nan(ind) -nan(ind)]
+[-nan(ind) -nan(ind) 1]
+o---------
+---------o
+
+47
+H[47] =
+[-nan(ind) -nan(ind) -nan(ind)]
+[-nan(ind) -nan(ind) -nan(ind)]

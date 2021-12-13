@@ -8,6 +8,7 @@ void comatrices(double* a, double* c, int i, int j, int n);
 double det(double* a, int dim);
 void cramer(double* a, double* b, double* x, int n);
 
+void Permute(int size, double *A, double *b, int i);
 void create_A(int size, double *A, double *p, double *m);
 
 void pivotdeGauss(int size, double *A, double *b);

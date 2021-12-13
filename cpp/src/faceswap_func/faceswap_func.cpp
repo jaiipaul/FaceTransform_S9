@@ -86,14 +86,14 @@ void Find_rectangle(double *src,double *rect)
 //TO FINISH
 void ApplyAllHomography(int* imgSrc, int* imgDst, int width, int height, int* imgLabel, double ** H, double* XI, double* YI){
     //printf("Apply homographies\n");
-    std::fstream XIfile;
-    XIfile.open("XI.txt", std::fstream::out);
-    std::fstream YIfile;
-    YIfile.open("YI.txt", std::fstream::out);
+    //std::fstream XIfile;
+    //XIfile.open("XI.txt", std::fstream::out);
+    //std::fstream YIfile;
+    //YIfile.open("YI.txt", std::fstream::out);
 
-    if(!(XIfile.is_open()) || !(YIfile.is_open())){
+    /*if(!(XIfile.is_open()) || !(YIfile.is_open())){
         std::cout << "Error opening file" << std::endl;
-    }
+    }*/
     
     double* m, *p;
     m = (double*)calloc(2, sizeof(double));
@@ -118,8 +118,8 @@ void ApplyAllHomography(int* imgSrc, int* imgDst, int width, int height, int* im
     }
     free(m);
     free(p);
-    XIfile.close();
-    YIfile.close();
+    //XIfile.close();
+    //YIfile.close();
 }
 
 void CreateLabelledImage(int n_quadrangles, int* Quadrangles, int* landmarks, int width, int height, int* imgLabel) {
@@ -128,8 +128,8 @@ void CreateLabelledImage(int n_quadrangles, int* Quadrangles, int* landmarks, in
     for(int i = 0; i < width*height; i++){
         imgLabel[i] = 0; 
     }
-    //std::fstream LabelFile;
-    //LabelFile.open("label.txt", std::fstream::out);
+    std::fstream LabelFile;
+    LabelFile.open("./tests/label.txt", std::fstream::out);
 
     double* Sqr_coords = (double*)calloc(8, sizeof(double));
     Sqr_coords[0] =  -1.0;
@@ -163,29 +163,33 @@ void CreateLabelledImage(int n_quadrangles, int* Quadrangles, int* landmarks, in
         
         //printMat(Q_box, 4, 1);
         //Q_box[0] = x0 / Q_box[1] = y0 / Q_box[2] = width / Q_box[3] = height
-        //LabelFile << i << std::endl;
-        for(int y = Q_box[5]; y < Q_box[3]; y++){
-            for(int x = Q_box[0]; x < Q_box[2]; x++){
+        LabelFile << i << std::endl;
+        LabelFile << "H[" << i << "] =" << std::endl;
+        LabelFile << "["<< H[0]<<" "<< H[3]<<" "<< H[6] << "]" << std::endl;       
+        LabelFile << "["<< H[1]<<" "<< H[4]<<" "<< H[7] << "]" << std::endl;      
+        LabelFile << "["<< H[2]<<" "<< H[5]<<" "<< H[8] << "]" << std::endl;   
+        for(int y = Q_box[5]; y < Q_box[3]+1; y++){
+            for(int x = Q_box[0]; x < Q_box[2]+1; x++){
                 m[0] = x; m[1] = y;
                 //printf("m = %f // %f\n", m[0], m[1]);
                 ApplyPointHomography(H, m, p);
                 //printf("p = %f // %f\n", p[0], p[1]);
-                /*if( (x == Q_coords[0] && y == Q_coords[1]) || (x == Q_coords[2] && y == Q_coords[3]) || (x == Q_coords[4] && y == Q_coords[5]) || (x == Q_coords[6] && y == Q_coords[7])){
+                if( (x == Q_coords[0] && y == Q_coords[1]) || (x == Q_coords[2] && y == Q_coords[3]) || (x == Q_coords[4] && y == Q_coords[5]) || (x == Q_coords[6] && y == Q_coords[7])){
                     LabelFile << "o";
                 }
-                else */
+                else
                 if(p[0] >= Q_box[0] && p[0] <= Q_box[2] && p[1] >= Q_box[5] && p[1] <= Q_box[3]){
                     //printf("in %d", i+1);
                     imgLabel[y*width+x] = i+1;
-                    //LabelFile << "x";
-                }/*else{
+                    LabelFile << "x";
+                }else{
                     LabelFile << "-";
-                }*/
+                }
                 
             }
-            //LabelFile << std::endl;
+            LabelFile << std::endl;
         }
-        //LabelFile << std::endl;
+        LabelFile << std::endl;
     }
     
     free(H);
@@ -194,7 +198,7 @@ void CreateLabelledImage(int n_quadrangles, int* Quadrangles, int* landmarks, in
     free(Q_box);
     free(m);
     free(p);
-    //LabelFile.close();
+    LabelFile.close();
 }
 
 py::array_t<int> FaceSwap(py::array_t<int> img_CAM, py::array_t<int> img_FTA,
@@ -225,15 +229,15 @@ py::array_t<int> FaceSwap(py::array_t<int> img_CAM, py::array_t<int> img_FTA,
     //1) Determine all homographies
     double** H;
     H = (double**)calloc(n_quadrangles, sizeof(double*));
-    H[0] = (double*)calloc(9*n_quadrangles, sizeof(double));
+    H[0] = (double*)calloc((long)9*n_quadrangles, sizeof(double));
     for(int i = 0; i < n_quadrangles; i++){
         H[i] = H[0] + (i*9);
     }
-
+        
     FindAllHomography(n_quadrangles, Quadrangles_Ptr, landmarksFTA_Ptr, landmarksCAM_Ptr, H);
     //2) Create Labelled image to know wich homographt to apply
     int* imgLabel;
-    imgLabel = (int*)calloc(width_CAM*height_CAM, sizeof(int));
+    imgLabel = (int*)calloc((long)width_CAM*height_CAM, sizeof(int));
     CreateLabelledImage(n_quadrangles, Quadrangles_Ptr, landmarksCAM_Ptr, width_CAM, height_CAM, imgLabel);
 
     

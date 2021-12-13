@@ -16,6 +16,7 @@
         "cmath": "cpp",
         "xiosbase": "cpp",
         "complex": "cpp",
-        "cstdlib": "cpp"
+        "cstdlib": "cpp",
+        "ostream": "cpp"
     }
 }

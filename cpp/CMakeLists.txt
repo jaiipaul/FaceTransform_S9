@@ -5,6 +5,8 @@ set(CMAKE_CXX_STANDARD 17)
 set(MODULE_SOURCE "${PROJECT_SOURCE_DIR}/src/faceswap_func")
 set(INCLUDES "${PROJECT_SOURCE_DIR}/includes")
 
+set(LIB_DIR "../../lib")
+SET(LIBRARY_OUTPUT_PATH ${LIB_DIR}/cpp)
 # pybind11
 add_subdirectory(${INCLUDES}/pybind11)
 

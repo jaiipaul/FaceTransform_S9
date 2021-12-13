@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\src\faceswap_func_cuda\pybind_cuda.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\src\faceswap_func_cuda\wrapper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="..\src\faceswap_func_cuda\pybind_cuda.cu">
+      <Filter>Source Files</Filter>
+    </CudaCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{CCBA8BF7-99B5-3F63-B9AF-7D5AD29361CE}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
