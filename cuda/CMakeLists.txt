@@ -40,25 +40,28 @@ set(MODULE_SOURCE "${PROJECT_SOURCE_DIR}/src/faceswap_func_cuda")
 set(INCLUDES "${PROJECT_SOURCE_DIR}/includes")
 
 set(LIB_DIR "../../lib")
-#SET(LIBRARY_OUTPUT_PATH ${LIB_DIR}/cuda)
+SET(LIBRARY_OUTPUT_PATH ${LIB_DIR}/cuda)
 # pybind11
 add_subdirectory(${INCLUDES}/pybind11)
 
 # cuda library
-cuda_add_library (
-    cuda_lib SHARED
+add_library (
+    cuda_lib
     ${MODULE_SOURCE}/pybind_cuda.cu
 )
-target_link_libraries(cuda_lib
-  cudart)
+target_link_libraries(cuda_lib cudart)
 target_include_directories (
     cuda_lib
     PRIVATE ${MODULE_SOURCE}
 )
 
+set_target_properties( cuda_lib
+                       PROPERTIES CUDA_SEPARABLE_COMPILATION OFF
+                                  CUDA_ARCHITECTURES "70;")
+
 pybind11_add_module (
     faceswap_func_cuda
-    ${MODULE_SOURCE}/pybind_cuda.cpp
+    ${MODULE_SOURCE}/faceswap_func_cuda.cpp
     ${MODULE_SOURCE}/wrapper.cpp
 )
 target_link_libraries(faceswap_func_cuda PRIVATE cuda_lib)
@@ -67,6 +70,4 @@ target_include_directories (
     PRIVATE ${MODULE_SOURCE}
 )
 
-set_target_properties( faceswap_func_cuda
-                       PROPERTIES CUDA_SEPARABLE_COMPILATION ON
-                                  CUDA_ARCHITECTURES "70;")
+

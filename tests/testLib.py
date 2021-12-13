@@ -1,6 +1,6 @@
 import sys
 sys.path.insert(0, "../cpp/build/Release")
-import faceswap_func as fs
+import faceswap_func_cuda as fs
 import matplotlib.pyplot as plt
 import numpy as np
 import dlib 
@@ -167,6 +167,8 @@ cv2.imwrite("FSD.jpg", faceswapped2_arr)
 face_to_add_gray1, faces1 = get_faces(face_to_add1_arr)
 faceswapped2_gray2, faces2 = get_faces(faceswapped2_arr)
 
+FTA = face_to_add_gray1.flatten(order='C')
+fs.CUDA_Sqr(FTA)
 width_FTA = np.int32(len(face_to_add1_arr[1,:,1]))
 height_FTA = np.int32(len(face_to_add1_arr[:,1,1]))
 

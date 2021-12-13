@@ -35,6 +35,7 @@
 cpp/build/
 cpp/build/CMakeFiles
 
+# cuda build files
 cuda/build/
 cuda/build/CMakeFiles
 
@@ -43,5 +44,5 @@ lib/cuda
 
 *.log
 *.bin
-./.vscode/
-./__pycache__/
+.vscode/
+__pycache__/
