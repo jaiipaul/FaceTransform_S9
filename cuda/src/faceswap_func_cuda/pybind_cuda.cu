@@ -4,8 +4,7 @@
 
 #include "pybind_cuda.cuh"
 
-__global__ void gpu_square(int* v, int size)
-{
+__global__ void gpu_square(int* v, int size){
     int id = blockIdx.x*blockDim.x+threadIdx.x;
     if ( id < size ) v[id] = v[id]*v[id];
 }
@@ -24,4 +23,5 @@ void gpu_square_main(int * v_in, int size, int * v_out)
     cudaMemcpy(v_out, v_in_cuda, size*sizeof(int), cudaMemcpyDeviceToHost);
     cudaFree(v_in_cuda);
 }
+
 

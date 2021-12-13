@@ -1,5 +1,5 @@
 #include <pybind11/pybind11.h>
-#include "pybind_cuda.cuh"
+#include "pybind_cuda.h"
 
 using namespace pybind11;
 

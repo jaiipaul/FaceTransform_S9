@@ -60,25 +60,25 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\lib\cuda\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">faceswap_func_cuda.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">faceswap_func_cuda.cp39-win_amd64</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.pyd</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\lib\cuda\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">faceswap_func_cuda.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">faceswap_func_cuda.cp39-win_amd64</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.pyd</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\lib\cuda\MinSizeRel\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\MinSizeRel\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">faceswap_func_cuda.dir\MinSizeRel\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">faceswap_func_cuda.cp39-win_amd64</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.pyd</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\lib\cuda\RelWithDebInfo\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\RelWithDebInfo\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">faceswap_func_cuda.dir\RelWithDebInfo\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">faceswap_func_cuda.cp39-win_amd64</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.pyd</TargetExt>
@@ -87,7 +87,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\src\faceswap_func_cuda;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\includes\pybind11\include;D:\DEV\Python39\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\LOGICIELS\DEV\CUDA\GPU_Dev\include;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\src\faceswap_func_cuda;D:\DEV\Python39\include;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\includes\pybind11\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /bigobj</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -105,22 +105,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\";faceswap_func_cuda_EXPORTS</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\src\faceswap_func_cuda;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\includes\pybind11\include;D:\DEV\Python39\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\LOGICIELS\DEV\CUDA\GPU_Dev\include;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\src\faceswap_func_cuda;D:\DEV\Python39\include;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\includes\pybind11\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
-    <CudaCompile>
-      <Include>D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\src\faceswap_func_cuda;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\includes\pybind11\include;D:\DEV\Python39\include;%(Include)</Include>
-      <Defines>%(Defines);CMAKE_INTDIR="Debug";faceswap_func_cuda_EXPORTS</Defines>
-      <AdditionalOptions>%(AdditionalOptions) /bigobj -std=c++17</AdditionalOptions>
-      <CodeGeneration>compute_30,sm_30;compute_50,compute_50;compute_50,sm_50</CodeGeneration>
-      <CompileOut>$(IntDir)%(Filename).obj</CompileOut>
-      <CudaRuntime>Static</CudaRuntime>
-      <GPUDebugInfo>false</GPUDebugInfo>
-      <Runtime>MDd</Runtime>
-      <TargetMachinePlatform>64</TargetMachinePlatform>
-      <UseHostInclude>false</UseHostInclude>
-    </CudaCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\src\faceswap_func_cuda;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\includes\pybind11\include;D:\DEV\Python39\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\LOGICIELS\DEV\CUDA\GPU_Dev\include;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\src\faceswap_func_cuda;D:\DEV\Python39\include;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\includes\pybind11\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -128,13 +116,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>D:\DEV\Python39\libs\python39.lib;cudadevrt.lib;cudart_static.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>Debug\cuda_lib.lib;D:\DEV\Python39\libs\python39.lib;D:\LOGICIELS\DEV\CUDA\GPU_Dev\lib\x64\cudart_static.lib;cudart.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/PAUL/ETUDES/ENSEIRB/3A/FaceSwapS9/lib/cuda/Debug/faceswap_func_cuda.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/PAUL/ETUDES/ENSEIRB/3A/FaceSwapS9/lib/cuda/Debug/faceswap_func_cuda.pdb</ProgramDataBaseFile>
+      <ImportLibrary>D:/PAUL/ETUDES/ENSEIRB/3A/FaceSwapS9/cuda/build/Debug/faceswap_func_cuda.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/PAUL/ETUDES/ENSEIRB/3A/FaceSwapS9/cuda/build/Debug/faceswap_func_cuda.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -147,7 +135,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\src\faceswap_func_cuda;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\includes\pybind11\include;D:\DEV\Python39\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\LOGICIELS\DEV\CUDA\GPU_Dev\include;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\src\faceswap_func_cuda;D:\DEV\Python39\include;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\includes\pybind11\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /bigobj</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -167,22 +155,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\";faceswap_func_cuda_EXPORTS</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\src\faceswap_func_cuda;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\includes\pybind11\include;D:\DEV\Python39\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\LOGICIELS\DEV\CUDA\GPU_Dev\include;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\src\faceswap_func_cuda;D:\DEV\Python39\include;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\includes\pybind11\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
-    <CudaCompile>
-      <Include>D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\src\faceswap_func_cuda;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\includes\pybind11\include;D:\DEV\Python39\include;%(Include)</Include>
-      <Defines>%(Defines);CMAKE_INTDIR="Release";faceswap_func_cuda_EXPORTS</Defines>
-      <AdditionalOptions>%(AdditionalOptions) /bigobj -std=c++17</AdditionalOptions>
-      <CodeGeneration>compute_30,sm_30;compute_50,compute_50;compute_50,sm_50</CodeGeneration>
-      <CompileOut>$(IntDir)%(Filename).obj</CompileOut>
-      <CudaRuntime>Static</CudaRuntime>
-      <GPUDebugInfo>false</GPUDebugInfo>
-      <Runtime>MD</Runtime>
-      <TargetMachinePlatform>64</TargetMachinePlatform>
-      <UseHostInclude>false</UseHostInclude>
-    </CudaCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\src\faceswap_func_cuda;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\includes\pybind11\include;D:\DEV\Python39\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\LOGICIELS\DEV\CUDA\GPU_Dev\include;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\src\faceswap_func_cuda;D:\DEV\Python39\include;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\includes\pybind11\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -190,27 +166,27 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>D:\DEV\Python39\libs\python39.lib;cudadevrt.lib;cudart_static.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>Release\cuda_lib.lib;D:\DEV\Python39\libs\python39.lib;D:\LOGICIELS\DEV\CUDA\GPU_Dev\lib\x64\cudart_static.lib;cudart.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/PAUL/ETUDES/ENSEIRB/3A/FaceSwapS9/lib/cuda/Release/faceswap_func_cuda.lib</ImportLibrary>
+      <ImportLibrary>D:/PAUL/ETUDES/ENSEIRB/3A/FaceSwapS9/cuda/build/Release/faceswap_func_cuda.lib</ImportLibrary>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
-      <ProgramDataBaseFile>D:/PAUL/ETUDES/ENSEIRB/3A/FaceSwapS9/lib/cuda/Release/faceswap_func_cuda.pdb</ProgramDataBaseFile>
+      <ProgramDataBaseFile>D:/PAUL/ETUDES/ENSEIRB/3A/FaceSwapS9/cuda/build/Release/faceswap_func_cuda.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
     </ProjectReference>
     <CudaLink>
-      <AdditionalOptions>-forward-unknown-to-host-compiler -Wno-deprecated-gpu-targets -Xcompiler=-LTCG</AdditionalOptions>
+      <AdditionalOptions>-forward-unknown-to-host-compiler -Wno-deprecated-gpu-targets </AdditionalOptions>
       <PerformDeviceLink>false</PerformDeviceLink>
     </CudaLink>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\src\faceswap_func_cuda;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\includes\pybind11\include;D:\DEV\Python39\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\LOGICIELS\DEV\CUDA\GPU_Dev\include;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\src\faceswap_func_cuda;D:\DEV\Python39\include;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\includes\pybind11\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /bigobj</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -230,22 +206,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\";faceswap_func_cuda_EXPORTS</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\src\faceswap_func_cuda;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\includes\pybind11\include;D:\DEV\Python39\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\LOGICIELS\DEV\CUDA\GPU_Dev\include;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\src\faceswap_func_cuda;D:\DEV\Python39\include;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\includes\pybind11\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
-    <CudaCompile>
-      <Include>D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\src\faceswap_func_cuda;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\includes\pybind11\include;D:\DEV\Python39\include;%(Include)</Include>
-      <Defines>%(Defines);CMAKE_INTDIR="MinSizeRel";faceswap_func_cuda_EXPORTS</Defines>
-      <AdditionalOptions>%(AdditionalOptions) /bigobj -std=c++17</AdditionalOptions>
-      <CodeGeneration>compute_30,sm_30;compute_50,compute_50;compute_50,sm_50</CodeGeneration>
-      <CompileOut>$(IntDir)%(Filename).obj</CompileOut>
-      <CudaRuntime>Static</CudaRuntime>
-      <GPUDebugInfo>false</GPUDebugInfo>
-      <Runtime>MD</Runtime>
-      <TargetMachinePlatform>64</TargetMachinePlatform>
-      <UseHostInclude>false</UseHostInclude>
-    </CudaCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\src\faceswap_func_cuda;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\includes\pybind11\include;D:\DEV\Python39\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\LOGICIELS\DEV\CUDA\GPU_Dev\include;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\src\faceswap_func_cuda;D:\DEV\Python39\include;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\includes\pybind11\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -253,27 +217,27 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>D:\DEV\Python39\libs\python39.lib;cudadevrt.lib;cudart_static.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>MinSizeRel\cuda_lib.lib;D:\DEV\Python39\libs\python39.lib;D:\LOGICIELS\DEV\CUDA\GPU_Dev\lib\x64\cudart_static.lib;cudart.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/PAUL/ETUDES/ENSEIRB/3A/FaceSwapS9/lib/cuda/MinSizeRel/faceswap_func_cuda.lib</ImportLibrary>
+      <ImportLibrary>D:/PAUL/ETUDES/ENSEIRB/3A/FaceSwapS9/cuda/build/MinSizeRel/faceswap_func_cuda.lib</ImportLibrary>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
-      <ProgramDataBaseFile>D:/PAUL/ETUDES/ENSEIRB/3A/FaceSwapS9/lib/cuda/MinSizeRel/faceswap_func_cuda.pdb</ProgramDataBaseFile>
+      <ProgramDataBaseFile>D:/PAUL/ETUDES/ENSEIRB/3A/FaceSwapS9/cuda/build/MinSizeRel/faceswap_func_cuda.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
     </ProjectReference>
     <CudaLink>
-      <AdditionalOptions>-forward-unknown-to-host-compiler -Wno-deprecated-gpu-targets -Xcompiler=-LTCG</AdditionalOptions>
+      <AdditionalOptions>-forward-unknown-to-host-compiler -Wno-deprecated-gpu-targets </AdditionalOptions>
       <PerformDeviceLink>false</PerformDeviceLink>
     </CudaLink>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\src\faceswap_func_cuda;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\includes\pybind11\include;D:\DEV\Python39\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\LOGICIELS\DEV\CUDA\GPU_Dev\include;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\src\faceswap_func_cuda;D:\DEV\Python39\include;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\includes\pybind11\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /bigobj</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -291,22 +255,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\";faceswap_func_cuda_EXPORTS</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\src\faceswap_func_cuda;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\includes\pybind11\include;D:\DEV\Python39\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\LOGICIELS\DEV\CUDA\GPU_Dev\include;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\src\faceswap_func_cuda;D:\DEV\Python39\include;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\includes\pybind11\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
-    <CudaCompile>
-      <Include>D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\src\faceswap_func_cuda;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\includes\pybind11\include;D:\DEV\Python39\include;%(Include)</Include>
-      <Defines>%(Defines);CMAKE_INTDIR="RelWithDebInfo";faceswap_func_cuda_EXPORTS</Defines>
-      <AdditionalOptions>%(AdditionalOptions) /bigobj -std=c++17</AdditionalOptions>
-      <CodeGeneration>compute_30,sm_30;compute_50,compute_50;compute_50,sm_50</CodeGeneration>
-      <CompileOut>$(IntDir)%(Filename).obj</CompileOut>
-      <CudaRuntime>Static</CudaRuntime>
-      <GPUDebugInfo>false</GPUDebugInfo>
-      <Runtime>MD</Runtime>
-      <TargetMachinePlatform>64</TargetMachinePlatform>
-      <UseHostInclude>false</UseHostInclude>
-    </CudaCompile>
     <Midl>
-      <AdditionalIncludeDirectories>D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\src\faceswap_func_cuda;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\includes\pybind11\include;D:\DEV\Python39\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\LOGICIELS\DEV\CUDA\GPU_Dev\include;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\src\faceswap_func_cuda;D:\DEV\Python39\include;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\includes\pybind11\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -314,13 +266,13 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>D:\DEV\Python39\libs\python39.lib;cudadevrt.lib;cudart_static.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>RelWithDebInfo\cuda_lib.lib;D:\DEV\Python39\libs\python39.lib;D:\LOGICIELS\DEV\CUDA\GPU_Dev\lib\x64\cudart_static.lib;cudart.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>D:/PAUL/ETUDES/ENSEIRB/3A/FaceSwapS9/lib/cuda/RelWithDebInfo/faceswap_func_cuda.lib</ImportLibrary>
-      <ProgramDataBaseFile>D:/PAUL/ETUDES/ENSEIRB/3A/FaceSwapS9/lib/cuda/RelWithDebInfo/faceswap_func_cuda.pdb</ProgramDataBaseFile>
+      <ImportLibrary>D:/PAUL/ETUDES/ENSEIRB/3A/FaceSwapS9/cuda/build/RelWithDebInfo/faceswap_func_cuda.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/PAUL/ETUDES/ENSEIRB/3A/FaceSwapS9/cuda/build/RelWithDebInfo/faceswap_func_cuda.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -344,7 +296,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeCUDAInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeCXXInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeCommonLanguageInclude.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeGenericSystem.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeInitializeConfigs.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeLanguageInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeRCInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInitialize.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Compiler\MSVC-CXX.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Compiler\NVIDIA-CUDA.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC-CXX.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\Windows-NVIDIA-CUDA.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\Windows.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\WindowsPaths.cmake;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\3.22.0\CMakeCUDACompiler.cmake;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\3.22.0\CMakeCXXCompiler.cmake;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\3.22.0\CMakeRCCompiler.cmake;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\3.22.0\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeCUDAInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeCXXInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeCommonLanguageInclude.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeFindFrameworks.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeGenericSystem.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeInitializeConfigs.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeLanguageInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeRCInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInitialize.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Compiler\MSVC-CXX.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Compiler\NVIDIA-CUDA.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\FindCUDA.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\FindCUDA\run_nvcc.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\FindCUDA\select_compute_arch.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\FindPackageHandleStandardArgs.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\FindPackageMessage.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\FindPython\Support.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\FindPython3.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\FindPythonInterp.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\FindPythonLibs.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC-CXX.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\Windows-NVIDIA-CUDA.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\Windows.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\WindowsPaths.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\SelectLibraryConfigurations.cmake;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\3.22.0\CMakeCUDACompiler.cmake;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\3.22.0\CMakeCXXCompiler.cmake;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\3.22.0\CMakeRCCompiler.cmake;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\3.22.0\CMakeSystem.cmake;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\cuda_lib.dir\src\faceswap_func_cuda\cuda_lib_generated_pybind_cuda.cu.obj.cmake.pre-gen;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\cuda_lib.dir\src\faceswap_func_cuda\cuda_lib_generated_pybind_cuda.cu.obj.depend;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/PAUL/ETUDES/ENSEIRB/3A/FaceSwapS9/cuda/CMakeLists.txt</Message>
@@ -357,7 +309,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeCUDAInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeCXXInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeCommonLanguageInclude.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeGenericSystem.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeInitializeConfigs.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeLanguageInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeRCInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInitialize.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Compiler\MSVC-CXX.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Compiler\NVIDIA-CUDA.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC-CXX.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\Windows-NVIDIA-CUDA.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\Windows.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\WindowsPaths.cmake;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\3.22.0\CMakeCUDACompiler.cmake;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\3.22.0\CMakeCXXCompiler.cmake;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\3.22.0\CMakeRCCompiler.cmake;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\3.22.0\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeCUDAInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeCXXInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeCommonLanguageInclude.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeFindFrameworks.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeGenericSystem.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeInitializeConfigs.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeLanguageInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeRCInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInitialize.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Compiler\MSVC-CXX.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Compiler\NVIDIA-CUDA.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\FindCUDA.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\FindCUDA\run_nvcc.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\FindCUDA\select_compute_arch.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\FindPackageHandleStandardArgs.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\FindPackageMessage.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\FindPython\Support.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\FindPython3.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\FindPythonInterp.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\FindPythonLibs.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC-CXX.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\Windows-NVIDIA-CUDA.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\Windows.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\WindowsPaths.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\SelectLibraryConfigurations.cmake;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\3.22.0\CMakeCUDACompiler.cmake;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\3.22.0\CMakeCXXCompiler.cmake;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\3.22.0\CMakeRCCompiler.cmake;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\3.22.0\CMakeSystem.cmake;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\cuda_lib.dir\src\faceswap_func_cuda\cuda_lib_generated_pybind_cuda.cu.obj.cmake.pre-gen;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\cuda_lib.dir\src\faceswap_func_cuda\cuda_lib_generated_pybind_cuda.cu.obj.depend;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule D:/PAUL/ETUDES/ENSEIRB/3A/FaceSwapS9/cuda/CMakeLists.txt</Message>
@@ -370,7 +322,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeCUDAInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeCXXInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeCommonLanguageInclude.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeGenericSystem.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeInitializeConfigs.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeLanguageInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeRCInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInitialize.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Compiler\MSVC-CXX.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Compiler\NVIDIA-CUDA.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC-CXX.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\Windows-NVIDIA-CUDA.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\Windows.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\WindowsPaths.cmake;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\3.22.0\CMakeCUDACompiler.cmake;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\3.22.0\CMakeCXXCompiler.cmake;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\3.22.0\CMakeRCCompiler.cmake;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\3.22.0\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeCUDAInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeCXXInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeCommonLanguageInclude.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeFindFrameworks.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeGenericSystem.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeInitializeConfigs.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeLanguageInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeRCInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInitialize.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Compiler\MSVC-CXX.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Compiler\NVIDIA-CUDA.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\FindCUDA.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\FindCUDA\run_nvcc.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\FindCUDA\select_compute_arch.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\FindPackageHandleStandardArgs.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\FindPackageMessage.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\FindPython\Support.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\FindPython3.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\FindPythonInterp.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\FindPythonLibs.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC-CXX.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\Windows-NVIDIA-CUDA.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\Windows.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\WindowsPaths.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\SelectLibraryConfigurations.cmake;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\3.22.0\CMakeCUDACompiler.cmake;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\3.22.0\CMakeCXXCompiler.cmake;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\3.22.0\CMakeRCCompiler.cmake;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\3.22.0\CMakeSystem.cmake;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\cuda_lib.dir\src\faceswap_func_cuda\cuda_lib_generated_pybind_cuda.cu.obj.cmake.pre-gen;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\cuda_lib.dir\src\faceswap_func_cuda\cuda_lib_generated_pybind_cuda.cu.obj.depend;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/PAUL/ETUDES/ENSEIRB/3A/FaceSwapS9/cuda/CMakeLists.txt</Message>
@@ -383,18 +335,13 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeCUDAInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeCXXInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeCommonLanguageInclude.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeGenericSystem.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeInitializeConfigs.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeLanguageInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeRCInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInitialize.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Compiler\MSVC-CXX.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Compiler\NVIDIA-CUDA.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC-CXX.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\Windows-NVIDIA-CUDA.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\Windows.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\WindowsPaths.cmake;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\3.22.0\CMakeCUDACompiler.cmake;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\3.22.0\CMakeCXXCompiler.cmake;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\3.22.0\CMakeRCCompiler.cmake;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\3.22.0\CMakeSystem.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeCUDAInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeCXXInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeCommonLanguageInclude.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeFindFrameworks.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeGenericSystem.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeInitializeConfigs.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeLanguageInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeRCInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInformation.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\CMakeSystemSpecificInitialize.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Compiler\MSVC-CXX.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Compiler\NVIDIA-CUDA.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\FindCUDA.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\FindCUDA\run_nvcc.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\FindCUDA\select_compute_arch.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\FindPackageHandleStandardArgs.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\FindPackageMessage.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\FindPython\Support.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\FindPython3.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\FindPythonInterp.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\FindPythonLibs.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC-CXX.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\Windows-MSVC.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\Windows-NVIDIA-CUDA.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\Windows.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\Platform\WindowsPaths.cmake;D:\LOGICIELS\DEV\CMake\share\cmake-3.22\Modules\SelectLibraryConfigurations.cmake;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\3.22.0\CMakeCUDACompiler.cmake;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\3.22.0\CMakeCXXCompiler.cmake;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\3.22.0\CMakeRCCompiler.cmake;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\3.22.0\CMakeSystem.cmake;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\cuda_lib.dir\src\faceswap_func_cuda\cuda_lib_generated_pybind_cuda.cu.obj.cmake.pre-gen;D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\cuda_lib.dir\src\faceswap_func_cuda\cuda_lib_generated_pybind_cuda.cu.obj.depend;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CudaCompile Include="..\src\faceswap_func_cuda\pybind_cuda.cu">
-      <CompileOut>$(IntDir)/src/faceswap_func_cuda/pybind_cuda.cu.obj</CompileOut>
-    </CudaCompile>
-    <ClCompile Include="D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\src\faceswap_func_cuda\pybind_cuda.cpp">
-      <ObjectFileName>$(IntDir)/src/faceswap_func_cuda/pybind_cuda.cpp.obj</ObjectFileName>
-    </ClCompile>
+    <ClCompile Include="D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\src\faceswap_func_cuda\pybind_cuda.cpp" />
     <ClCompile Include="D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\src\faceswap_func_cuda\wrapper.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -403,6 +350,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\build\cuda_lib.vcxproj">
+      <Project>{BA1BB922-7871-34F6-867A-DCC106AE4650}</Project>
+      <Name>cuda_lib</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

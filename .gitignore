@@ -34,8 +34,13 @@
 #compilation files
 cpp/build/
 cpp/build/CMakeFiles
-cpp/includes/
-lib/
+
+cuda/build/
+cuda/build/CMakeFiles
+
+lib/cpp
+lib/cuda
+
 *.log
 *.bin
 ./.vscode/

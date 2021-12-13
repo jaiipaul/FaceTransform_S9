@@ -9,11 +9,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CudaCompile Include="..\src\faceswap_func_cuda\pybind_cuda.cu">
-      <Filter>Source Files</Filter>
-    </CudaCompile>
-  </ItemGroup>
-  <ItemGroup>
     <CustomBuild Include="D:\PAUL\ETUDES\ENSEIRB\3A\FaceSwapS9\cuda\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
