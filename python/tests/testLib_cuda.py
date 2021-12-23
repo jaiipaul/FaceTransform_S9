@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(0, "../lib/cuda/Release")
+sys.path.insert(0, "../../lib/cuda/Release")
 import faceswap_func_cuda as fs
 import matplotlib.pyplot as plt
 import numpy as np
