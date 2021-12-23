@@ -36,7 +36,7 @@ cpp/build/
 cpp/build/CMakeFiles
 
 # cuda build files
-cuda/build/
+cuda/build
 cuda/build/CMakeFiles
 
 lib/cpp

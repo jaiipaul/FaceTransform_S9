@@ -1,13 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 project("Faceswap_func_cuda" LANGUAGES CXX CUDA)
 find_package(CUDA REQUIRED)
-find_package(PythonInterp 3.6 REQUIRED)
-find_package(PythonLibs 3.6 REQUIRED)
-find_package(Python3 COMPONENTS Interpreter Development)
 
-set(CMAKE_CXX_STANDARD 17)
-
-# need to be at least 30 or __shfl_down in reduce wont compile
 IF (CUDA_VERSION VERSION_LESS "11.0")
     set(CUDA_NVCC_FLAGS "${CUDA_NVCC_FLAGS} -gencode arch=compute_30,code=sm_30")
 ENDIF()
@@ -35,6 +29,7 @@ IF ((CUDA_VERSION VERSION_GREATER "11.0") OR (CUDA_VERSION VERSION_EQUAL "11.0")
     set(CUDA_NVCC_FLAGS "${CUDA_NVCC_FLAGS} -gencode arch=compute_80,code=sm_80")
 ENDIF()
 
+set(CMAKE_CXX_STANDARD 17)
 
 set(MODULE_SOURCE "${PROJECT_SOURCE_DIR}/src/faceswap_func_cuda")
 set(INCLUDES "${PROJECT_SOURCE_DIR}/includes")
@@ -46,28 +41,32 @@ add_subdirectory(${INCLUDES}/pybind11)
 
 # cuda library
 add_library (
-    cuda_lib
+    cuda_lib 
     ${MODULE_SOURCE}/pybind_cuda.cu
 )
-target_link_libraries(cuda_lib cudart)
+
 target_include_directories (
     cuda_lib
     PRIVATE ${MODULE_SOURCE}
 )
 
-set_target_properties( cuda_lib
-                       PROPERTIES CUDA_SEPARABLE_COMPILATION OFF
-                                  CUDA_ARCHITECTURES "70;")
+#set_target_properties(cuda_lib PROPERTIES
+    #CUDA_SEPARABLE_COMPILATION ON
+    #CUDA_ARCHITECTURES "80; 70;"
+#    )
 
-pybind11_add_module (
-    faceswap_func_cuda
+#pybind module
+pybind11_add_module( 
+    faceswap_func_cuda MODULE
     ${MODULE_SOURCE}/faceswap_func_cuda.cpp
     ${MODULE_SOURCE}/wrapper.cpp
 )
-target_link_libraries(faceswap_func_cuda PRIVATE cuda_lib)
+target_link_libraries(faceswap_func_cuda PUBLIC cuda_lib)
+
 target_include_directories (
     faceswap_func_cuda
     PRIVATE ${MODULE_SOURCE}
 )
+
 
 

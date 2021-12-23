@@ -1,7 +1,7 @@
 import sys
-sys.path.insert(0, "./cpp/build/Debug")
+#sys.path.insert(0, "./cpp/build/Debug")
 
-import faceswap_func as fs
+#import faceswap_func as fs
 import dlib 
 import cv2 
 import numpy as np 

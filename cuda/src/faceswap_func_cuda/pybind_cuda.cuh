@@ -2,7 +2,7 @@
 #define _PYBIND_CUDA_H_
 
 extern "C"{
-void gpu_square_main(int * v_in, int size, int * v_out);    
+    void gpu_square_main(int * v_in, int size, int * v_out); 
 }
 
  

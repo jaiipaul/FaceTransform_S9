@@ -8,4 +8,5 @@ namespace py = pybind11;
 
 py::array_t<int> CUDA_Sqr(py::array_t<int> img, int width, int height);
 
+
 #endif
