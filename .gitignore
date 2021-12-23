@@ -16,10 +16,6 @@
 *.dylib
 *.dll
 
-# Fortran module files
-*.mod
-*.smod
-
 # Compiled Static libraries
 *.lai
 *.la
@@ -39,6 +35,7 @@ cpp/build/CMakeFiles
 cuda/build
 cuda/build/CMakeFiles
 
+# library binaries
 lib/cpp
 lib/cuda
 
