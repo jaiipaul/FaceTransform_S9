@@ -36,8 +36,8 @@ FaceSwap app using python/c++/cuda
     ```
 
 ### Solution 1 :
-2) Dans `build/`, la solution pour la librairie cpp à été créée. Pour compiler ouvrir la solution `.sln` dans Visual Studio 2019.
-3) Génerer avec la configuration Release.
+2) Dans `build/`, la solution pour la librairie cpp a été créée. Pour compiler ouvrir la solution `.sln` dans Visual Studio 2019.
+3) Générer avec la configuration Release.
 
 ### Solution 2 : 
 2) Exécuter dans `build/` : 
