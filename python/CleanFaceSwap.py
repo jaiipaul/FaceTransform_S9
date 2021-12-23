@@ -102,7 +102,7 @@ def color_display_timer(Told, Tnew, chain):
 
 os.system('color')
 t0 = time.perf_counter()
-imgSrc = cv2.imread("./img/willsmith.jpg")
+imgSrc = cv2.imread("../img/willsmith.jpg")
 # Le pentagone dont la forme ressemple à ça
 """
                     ______________

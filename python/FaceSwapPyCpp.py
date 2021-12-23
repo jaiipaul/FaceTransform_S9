@@ -46,7 +46,7 @@ def set_quadranglesA():
     q[10] =  np.array([12,13,14,55])
     q[11] =  np.array([14,15,47,55])
     q[12] =  np.array([15,16,46,47])
-    q[13] =  np.array([16,17,27,46])
+    q[13] =  np.array([17,16,46,27])
     q[14] =  np.array([27,26,45,46])
     q[15] =  np.array([26,25,24,45])
     q[16] =  np.array([24,23,44,45])
@@ -167,7 +167,7 @@ height_CAM = np.int32(len(temp[:,1,1]))
 
 ## FIRST FACE TREATEMENT // THE ALGORITHM WILL PUT THIS FACE ON THE ONE CAPTURE BY THE CAMERA
 ## Find the face
-face_to_add = cv2.imread("./img/willsmith.jpg")
+face_to_add = cv2.imread("../img/macron.jpg")
 width_FTA = np.int32(len(face_to_add[1,:,1]))
 height_FTA = np.int32(len(face_to_add[:,1,1]))
 face_to_add_gray, faces = get_faces(face_to_add)

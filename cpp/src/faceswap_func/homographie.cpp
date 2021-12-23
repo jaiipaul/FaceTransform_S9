@@ -187,7 +187,8 @@ void Find_Homography(double* src, double* dst, double *h){
     SystemeTriangulaireSuperieur(8,A,B,h);
     h[8] = 1.0;
     //printMat(h, 8, 1);
-    free(A);     
+    free(A);
+    free(B);   
 }
 
 void ApplyPointHomography(double * h, double *m, double *p)

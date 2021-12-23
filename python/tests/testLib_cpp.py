@@ -45,7 +45,7 @@ def set_quadranglesA():
     q[10] =  np.array([12,13,14,55])
     q[11] =  np.array([14,15,47,55])
     q[12] =  np.array([15,16,46,47])
-    q[13] =  np.array([16,17,27,46])
+    q[13] =  np.array([17,27,46,16])
     q[14] =  np.array([27,26,45,46])
     q[15] =  np.array([26,25,24,45])
     q[16] =  np.array([24,23,44,45])
@@ -158,20 +158,20 @@ def set_quadranglesB():
     return q
 
 ## Find the face
-face_to_add1_arr = cv2.imread("../img/macron.jpg")
+face_to_add1_arr = cv2.imread("../../img/willsmith.jpg")
 face_to_add1 = face_to_add1_arr.flatten(order='C')
-cv2.imwrite("FTA.jpg", face_to_add1_arr)
-faceswapped2_arr = cv2.imread("../img/willsmith.jpg")
+
+faceswapped2_arr = cv2.imread("../../img/singe.jpg")
 faceswapped2 = faceswapped2_arr.flatten(order='C')
-cv2.imwrite("FSD.jpg", faceswapped2_arr)
-face_to_add_gray1, faces1 = get_faces(face_to_add1_arr)
-faceswapped2_gray2, faces2 = get_faces(faceswapped2_arr)
 
 width_FTA = np.int32(len(face_to_add1_arr[1,:,1]))
 height_FTA = np.int32(len(face_to_add1_arr[:,1,1]))
 
 width_FSD = np.int32(len(faceswapped2_arr[1,:,1]))
 height_FSD = np.int32(len(faceswapped2_arr[:,1,1]))
+
+face_to_add_gray1, faces1 = get_faces(face_to_add1_arr)
+faceswapped2_gray2, faces2 = get_faces(faceswapped2_arr)
 
 ## Get landmarks/Face features
 for face in faces1:
@@ -191,14 +191,15 @@ img_Out_line = faceswapped2;
 n_quadrangles = np.int32(len(Quadrangles_arr))
 img_Out_line = fs.FaceSwap(img_Out_line, face_to_add1, width_FSD, height_FSD, width_FTA, height_FTA, n_quadrangles, Quadrangles, landmarks_FSD2, landmarks_FTA1)
 img_Out = np.uint8(np.reshape(img_Out_line, (height_FSD, width_FSD, 3), order='C'))
-           
-#fs.loadImage(img_CAM, wid  th_CAM, height_CA
-#img_Out = camera_img_arr;
-#for i in range(n_quadrangles):
-#    for j in range(4):
-#        point1 = (landmarks_FSD2[2*Quadrangles_arr[i,j]], landmarks_FSD2[2*Quadrangles_arr[i,j] + 1])
-#        point2 = (landmarks_FSD2[2*Quadrangles_arr[i,(j+1)%4]], landmarks_FSD2[2*Quadrangles_arr[i,(j+1)%4] + 1])
-#        img_Out = cv2.line(img_Out, point1, point2, (0, 255, 0), 1)
+
+for i in range(n_quadrangles):
+    for j in range(4):
+        point1 = (landmarks_FSD2[2*Quadrangles_arr[i,j]], landmarks_FSD2[2*Quadrangles_arr[i,j] + 1])
+        point2 = (landmarks_FSD2[2*Quadrangles_arr[i,(j+1)%4]], landmarks_FSD2[2*Quadrangles_arr[i,(j+1)%4] + 1])
+        
+        img_Out = cv2.line(img_Out, point1, point2, (0, 255, 0), 1)       
+
 
 #result = cv2.flip(img_Out, 1)
-cv2.imwrite("faceswap.jpg", img_Out)
+cv2.imshow("faceswap.jpg", img_Out)
+cv2.waitKey(0)

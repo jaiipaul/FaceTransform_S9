@@ -112,7 +112,7 @@ height_CAM = len(temp[:,1,1])
 
 ## FIRST FACE TREATEMENT // THE ALGORITHM WILL PUT THIS FACE ON THE ONE CAPTURE BY THE CAMERA
 ## Find the face
-face_to_add = cv2.imread("./img/singe.jpg")
+face_to_add = cv2.imread("../img/singe.jpg")
 
 face_to_add_gray, faces = get_faces(face_to_add)
 mask = np.zeros_like(face_to_add_gray)

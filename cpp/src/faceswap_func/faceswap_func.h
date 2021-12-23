@@ -16,9 +16,16 @@ void FindAllHomography(int n_quadrangles, int* Quadrangles, int* landmarks_src, 
 
 void Find_rectangle(double *src,double *rect);
 //TO FINISH
-void ApplyAllHomography(int* imgSrc, int* imgDst, int width, int height, int* imgLabel, double ** H, double* XI, double* YI);
+void ApplyAllHomography(int width, int height, int* imgLabel, double ** H, double* XI, double* YI);
 
-void CreateLabelledImage(int n_quadrangles, int* Quadrangles, int* landmarks, int width, int heigth, int* imgLabel);
+void RecreateImage(int* imgOut, 
+                   int* imgCAM ,int width_CAM, int height_CAM, 
+                   int* imgFTA, int width_FTA, int height_FTA, 
+                   double* XI, double* YI, int* imgLabel);
+
+void CreateLabelledImage(int n_quadrangles, int* Quadrangles, 
+                         int* landmarks, int width, int heigth, 
+                         int* imgLabel);
 
 py::array_t<int> FaceSwap(py::array_t<int> img_CAM, py::array_t<int> img_FTA,
               int width_CAM, int height_CAM, int width_FTA, int height_FTA,

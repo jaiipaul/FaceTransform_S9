@@ -11,7 +11,7 @@
 __global__ void gpu_square(int* v, int size){
     int id = blockIdx.x*blockDim.x+threadIdx.x;
     if ( id < size ){
-        v[id] = 255-v[id];
+        v[id] = (255-(v[id]*v[id]));
     }
 }
 
