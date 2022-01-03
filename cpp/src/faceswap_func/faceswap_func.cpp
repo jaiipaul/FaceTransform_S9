@@ -7,38 +7,7 @@
 #include <pybind11/stl.h>
 #include "homographie.h"
 namespace py = pybind11;
-
-
-//Test functions for wrapper
-void hello() {
-	printf("Hello World !\n");
-}
-
-void addition(int a, int b) {
-	int res;
-	res = a + b;
-	printf("addition : %d + %d = %d\n", a, b, res);
-}
-
-void fillTab(py::list tab , int size){
-    for(int i = 0; i < size; i++){
-        tab[i] = i;
-    }
-}
-
-void loadImage(py::array_t<int> img, int width, int height) {
-    py::buffer_info imgBuff = img.request();
-    int* imgPtr = (int*)imgBuff.ptr;
-
-    for(size_t y = 0; y < height ; y++){
-        for(size_t x = 0; x < width; x++){
-            printf("| %d/%d/%d ", imgPtr[y*width + x*3 + 0], imgPtr[y*width + x*3 + 1], imgPtr[y*width + x*3 + 2]);
-        }
-        printf("\n");
-    }
-}
 // Define functions here
-
 
 void FindAllHomography(int n_quadrangles, int* Quadrangles, int* landmarks_src, int* landmarks_dst, double ** H){
     //printf("Find homographies\n");
@@ -77,10 +46,10 @@ void Find_rectangle(double *src,double *rect)
         else if (src[i*2+1]>maxy)
             maxy=src[i*2+1];    
     }
-    rect[0]=minx;rect[1]=maxy;
-    rect[2]=maxx;rect[3]=maxy;
-    rect[4]=maxx;rect[5]=miny;
-    rect[6]=minx;rect[7]=miny;
+    rect[0]=minx;rect[1]=miny;
+    rect[2]=maxx;rect[3]=miny;
+    rect[4]=maxx;rect[5]=maxy;
+    rect[6]=minx;rect[7]=maxy;
 
 }
 //TO FINISH
@@ -126,7 +95,7 @@ void RecreateImage(int* imgOut,
                    int* imgFTA, int width_FTA, int height_FTA, 
                    double* XI, double* YI, int* imgLabel){
 
-    /*for(int y = 0; y < height_CAM; y++){
+    for(int y = 0; y < height_CAM; y++){
         for(int x = 0; x < width_CAM; x++){
             if(imgLabel[y*width_CAM+x] > 0){ 
                
@@ -150,8 +119,8 @@ void RecreateImage(int* imgOut,
                 //printf("x : %d / y : %d \n", x, y);  
             }
         }
-    }*/
-    
+    }
+    /*
     for (int y = 0; y < 480; y++) {
         for(int x = 0; x < 640; x++){ 
             if(imgLabel[y*width_CAM+x] > 0){
@@ -160,12 +129,13 @@ void RecreateImage(int* imgOut,
                 imgOut[y * 3*width_CAM + x * 3 + 1] = 0;// (imgLabel[y * width_CAM + x]);
                 imgOut[y * 3*width_CAM + x * 3 + 2] = 255-a;// (imgLabel[y * width_CAM + x]);       
             }else{
-                imgOut[y * 3*width_CAM + x * 3] = 0;
-                imgOut[y * 3*width_CAM + x * 3 + 1] = 0;
-                imgOut[y * 3*width_CAM + x * 3 + 2] = 0;
+                imgOut[y * 3*width_CAM + x * 3]     = imgCAM[y * 3*width_CAM + x*3];
+                imgOut[y * 3*width_CAM + x * 3 + 1] = imgCAM[y * 3*width_CAM + x*3 + 1];
+                imgOut[y * 3*width_CAM + x * 3 + 2] = imgCAM[y * 3*width_CAM + x*3 + 2];
             }
         }
     }
+    */
 }
 
 void CreateLabelledImage(int n_quadrangles, int* Quadrangles, int* landmarks, int width, int height, int* imgLabel) {
@@ -174,18 +144,18 @@ void CreateLabelledImage(int n_quadrangles, int* Quadrangles, int* landmarks, in
     for(int i = 0; i < width*height; i++){
         imgLabel[i] = 0; 
     }
-    //std::fstream LabelFile;
+    //std::fstream LabelFile;//, XY;
     //LabelFile.open("./tests/label.txt", std::fstream::out);
-
-    //double* Sqr_coords = (double*)calloc(8, sizeof(double));
-    //Sqr_coords[0] =  -1.0;
-    //Sqr_coords[1] =  1.0;
-    //Sqr_coords[2] =  1.0;
-    //Sqr_coords[3] =  1.0;
-    //Sqr_coords[4] =  1.0;
-    //Sqr_coords[5] =  -1.0;
-    //Sqr_coords[6] =  -1.0;
-    //Sqr_coords[7] =  -1.0;
+    //XY.open("./tests/XY.txt", std::fstream::out);
+    double* Sqr_coords = (double*)calloc(8, sizeof(double));
+    Sqr_coords[0] =  -1.0;
+    Sqr_coords[1] =  -1.0;
+    Sqr_coords[2] =  1.0;
+    Sqr_coords[3] =  -1.0;
+    Sqr_coords[4] =  1.0;
+    Sqr_coords[5] =  1.0;
+    Sqr_coords[6] =  -1.0;
+    Sqr_coords[7] =  1.0;
 
     //printMat(Sqr_coords, 8, 1);
     //printf("Sqr_coords_ptr = [ %f  %f  %f  %f  %f  %f  %f  %f]\n", Sqr_coords_ptr[0], Sqr_coords_ptr[1], Sqr_coords_ptr[2], Sqr_coords_ptr[3], Sqr_coords_ptr[4], Sqr_coords_ptr[5], Sqr_coords_ptr[6], Sqr_coords_ptr[7]);
@@ -204,27 +174,33 @@ void CreateLabelledImage(int n_quadrangles, int* Quadrangles, int* landmarks, in
         }
         //printf("Q_coords[%d] = [ %f  %f  %f  %f  %f  %f  %f  %f]\n", i, Q_coords[0], Q_coords[1], Q_coords[2], Q_coords[3], Q_coords[4], Q_coords[5], Q_coords[6], Q_coords[7]);
         Find_rectangle(Q_coords, Q_box);
+        //Q_box = [ x0, y0, x1, y1, x2, y2, x3, y3]
         Find_Homography(Q_coords, Q_box, H);
         //printf("H[%d] = [ %f  %f  %f ]\n        [ %f  %f  %f ]\n        [ %f  %f  %f ]\n", i, H[0], H[3], H[6], H[1], H[4], H[7], H[2], H[5], H[8]);
         
         //printMat(Q_box, 4, 1);
-        //Q_box[0] = x0 / Q_box[1] = y0 / Q_box[2] = width / Q_box[3] = height
+        //
         //LabelFile << i << std::endl;
+        //XY << i << std::endl;
+        //LabelFile << "Q_BOX[" << i << "] =" << std::endl;
+        //LabelFile << "["<< Q_box[0]<<" "<< Q_box[1]<<" | "<< Q_box[2] << " " << Q_box[3] << "]" << std::endl;       
+        //LabelFile << "["<< Q_box[6]<<" "<< Q_box[7]<<" | "<< Q_box[4] << " " << Q_box[5] << "]" << std::endl;      
+     
         //LabelFile << "H[" << i << "] =" << std::endl;
         //LabelFile << "["<< H[0]<<" "<< H[3]<<" "<< H[6] << "]" << std::endl;       
         //LabelFile << "["<< H[1]<<" "<< H[4]<<" "<< H[7] << "]" << std::endl;      
         //LabelFile << "["<< H[2]<<" "<< H[5]<<" "<< H[8] << "]" << std::endl;   
-        for(int y = Q_box[5]; y < Q_box[3]+1; y++){
+        for(int y = Q_box[1]; y < Q_box[5]+1; y++){
             for(int x = Q_box[0]; x < Q_box[2]+1; x++){
-                m[0] = x; m[1] = y;
+                m[0] = (double)x; m[1] = (double)y;
                 //printf("m = %f // %f\n", m[0], m[1]);
                 ApplyPointHomography(H, m, p);
-                //printf("p = %f // %f\n", p[0], p[1]);
+                //XY << "["<< m[0]<<" "<< m[1]<<" | "<< p[0] << " " << p[1] << "]" << std::endl;
                 //if( (x == Q_coords[0] && y == Q_coords[1]) || (x == Q_coords[2] && y == Q_coords[3]) || (x == Q_coords[4] && y == Q_coords[5]) || (x == Q_coords[6] && y == Q_coords[7])){
-                //    LabelFile << "o";
+                    //LabelFile << "o";
                 //}
                 //else
-                if(p[0] >= Q_box[0] && p[0] <= Q_box[2] && p[1] >= Q_box[5] && p[1] <= Q_box[3]){
+                if(p[0] >= Q_box[0] && p[0] <= Q_box[2] && p[1] >= Q_box[1] && p[1] <= Q_box[5]){
                     //printf("in %d", i+1);
                     imgLabel[y*width+x] = i+1;
                     //LabelFile << "x";
@@ -239,12 +215,13 @@ void CreateLabelledImage(int n_quadrangles, int* Quadrangles, int* landmarks, in
     }
     
     free(H);
-    //free(Sqr_coords);
+    free(Sqr_coords);
     free(Q_coords);
     free(Q_box);
     free(m);
     free(p);
     //LabelFile.close();
+    //XY.close();
 }
 
 py::array_t<int> FaceSwap(py::array_t<int> img_CAM, py::array_t<int> img_FTA,

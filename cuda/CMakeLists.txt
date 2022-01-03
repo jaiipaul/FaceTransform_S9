@@ -59,11 +59,11 @@ target_include_directories (
 #pybind module
 pybind11_add_module( 
     faceswap_func_cuda MODULE
+    ${MODULE_SOURCE}/homographie.cpp
     ${MODULE_SOURCE}/faceswap_func_cuda.cpp
     ${MODULE_SOURCE}/wrapper.cpp
 )
-target_link_libraries(faceswap_func_cuda PUBLIC cuda_lib)
-
+ 
 target_include_directories (
     faceswap_func_cuda
     PRIVATE ${MODULE_SOURCE}

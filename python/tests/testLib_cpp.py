@@ -158,10 +158,10 @@ def set_quadranglesB():
     return q
 
 ## Find the face
-face_to_add1_arr = cv2.imread("../../img/willsmith.jpg")
+face_to_add1_arr = cv2.imread("../../img/singe.jpg")
 face_to_add1 = face_to_add1_arr.flatten(order='C')
 
-faceswapped2_arr = cv2.imread("../../img/singe.jpg")
+faceswapped2_arr = cv2.imread("../../img/macron.jpg")
 faceswapped2 = faceswapped2_arr.flatten(order='C')
 
 width_FTA = np.int32(len(face_to_add1_arr[1,:,1]))
