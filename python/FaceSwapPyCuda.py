@@ -1,7 +1,7 @@
 import sys
-sys.path.insert(0, "../lib/cuda/Release")
+sys.path.insert(0, "../lib/Release")
 
-import faceswap_func_cuda as fs
+import faceswap_func as fs
 import dlib 
 import cv2 
 import numpy as np 
@@ -189,22 +189,23 @@ while cap.isOpened():
     ##Find faces
     _, camera_img_arr = cap.read()
     img_CAM = camera_img_arr.flatten(order='C')
-    #camera_img_gray, camera_faces = get_faces(camera_img_arr)
-    #camera_img_new_face = np.zeros_like(camera_img_arr) 
+    camera_img_gray, camera_faces = get_faces(camera_img_arr)
+    camera_img_new_face = np.zeros_like(camera_img_arr) 
 
-    img_Out = np.ndarray((height_CAM, width_CAM), dtype=np.uint8)
+    img_Out = np.ndarray((height_CAM, width_CAM, 3), dtype=np.uint8)
     img_Out_line = img_CAM;
-    #if (0 < len(camera_faces)):
-    #    for face in camera_faces:
-    #        landmarks_CAM_arr = get_landmarks(camera_img_gray, face)
-    #        landmarks_CAM = np.int32(landmarks_CAM_arr.flatten(order='C'))
-    #        points_CAM = np.array(landmarks_CAM_arr, dtype=np.int32)
+    if (0 < len(camera_faces)):
+        for face in camera_faces:
+            landmarks_CAM_arr = get_landmarks(camera_img_gray, face)
+            landmarks_CAM = np.int32(landmarks_CAM_arr.flatten(order='C'))
+            points_CAM = np.array(landmarks_CAM_arr, dtype=np.int32)
     #        hull_camera = cv2.convexHull(points_CAM)
 
             
-    #        n_quadrangles = np.int32(len(Quadrangles_arr))
-    img_Out_line = fs.CUDA_Sqr(img_Out_line, width_CAM, height_CAM)
-    img_Out = np.uint8(np.reshape(img_Out_line, (height_CAM, width_CAM), order='C'))
+            n_quadrangles = np.int32(len(Quadrangles_arr))
+            print("Trying CUDA Faceswap")
+            img_Out_line = fs.FaceSwap_CUDA(img_Out_line, img_FTA, width_CAM, height_CAM, width_FTA, height_FTA, n_quadrangles, Quadrangles, landmarks_CAM, landmarks_FTA)
+            img_Out = np.uint8(np.reshape(img_Out_line, (height_CAM, width_CAM, 3), order='C'))
             #fs.loadImage(img_CAM, wid  th_CAM, height_CAM)
 
             #img_Out = camera_img_arr;
@@ -216,11 +217,11 @@ while cap.isOpened():
             #        img_Out = cv2.line(img_Out, point1, point2, (0, 255, 0), 1)
 
         
-    result = cv2.flip(img_Out, 1)
-    cv2.imshow("CUDA", result)
-    #else:
-    #    result = cv2.flip(camera_img_arr, 1)
-    #    cv2.imshow("FaceSwap", result)
+        result = cv2.flip(img_Out, 1)
+        cv2.imshow("CUDA FaceSwap", result)
+    else:
+        result = cv2.flip(camera_img_arr, 1)
+        cv2.imshow("CUDA FaceSwap", result)
     if cv2.waitKey(1) == ord('q'):
         cv2.destroyAllWindows()
         break      

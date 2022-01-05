@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(0, "../../lib/cpp/Release")
+sys.path.insert(0, "../../lib/Release")
 import faceswap_func as fs
 import matplotlib.pyplot as plt
 import numpy as np
@@ -189,7 +189,7 @@ img_Out = np.ndarray((height_FSD, width_FSD, 3), dtype=np.uint8)
 img_Out_line = faceswapped2;
 
 n_quadrangles = np.int32(len(Quadrangles_arr))
-img_Out_line = fs.FaceSwap(img_Out_line, face_to_add1, width_FSD, height_FSD, width_FTA, height_FTA, n_quadrangles, Quadrangles, landmarks_FSD2, landmarks_FTA1)
+img_Out_line = fs.FaceSwap_CPP(img_Out_line, face_to_add1, width_FSD, height_FSD, width_FTA, height_FTA, n_quadrangles, Quadrangles, landmarks_FSD2, landmarks_FTA1)
 img_Out = np.uint8(np.reshape(img_Out_line, (height_FSD, width_FSD, 3), order='C'))
 
 for i in range(n_quadrangles):

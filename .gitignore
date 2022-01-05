@@ -27,19 +27,27 @@
 *.out
 *.app
 
-#compilation files
-cpp/build/
-cpp/build/CMakeFiles
-
 # cuda build files
-cuda/build
-cuda/build/CMakeFiles
+cpp_cuda/build
+cpp_cuda/build/CMakeFiles
 
 # library binaries
-lib/cpp
-lib/cuda
+lib/
 
 *.log
 *.bin
 .vscode/
 __pycache__/
+
+#Cmake files
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Testing
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps
