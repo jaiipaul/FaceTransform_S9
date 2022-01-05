@@ -107,11 +107,11 @@ void Find_Homography(double* src, double* dst, double *h){
     double* A =(double*)calloc(64,sizeof(double));
     double* B =(double*)calloc(8, sizeof(double));
     for(int i = 0; i < 8; i++){
-        B[i] = dst[i];
+        B[i] = src[i];
     }
     //printMat(src, 8, 1);
     //printMat(dst, 8, 1);
-    create_A(8,A,dst,src);
+    create_A(8,A,src,dst);
     pivotdeGauss(8,A,B);
     SystemeTriangulaireSuperieur(8,A,B,h);
     h[8] = 1.0f;

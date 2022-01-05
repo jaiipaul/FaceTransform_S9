@@ -75,10 +75,10 @@ py::array_t<int> FaceSwap_CUDA(py::array_t<int> img_CAM, py::array_t<int> img_FT
         
     FindAllHomography(n_quadrangles, Quadrangles_Ptr, landmarksFTA_Ptr, landmarksCAM_Ptr, H);
     //3) Apply homographies and create interpolation grids
-    int *XI = NULL, *YI = NULL;
+    double *XI = NULL, *YI = NULL;
     double *H_flat = NULL;
-    XI = (int*)calloc(width_CAM*height_CAM, sizeof(int));
-    YI = (int*)calloc(width_CAM*height_CAM, sizeof(int));
+    XI = (double*)calloc(width_CAM*height_CAM, sizeof(double));
+    YI = (double*)calloc(width_CAM*height_CAM, sizeof(double));
 
     H_flat = (double*)calloc(9*n_quadrangles, sizeof(double));
     Flatten(H, 9, n_quadrangles, H_flat);
@@ -92,7 +92,7 @@ py::array_t<int> FaceSwap_CUDA(py::array_t<int> img_CAM, py::array_t<int> img_FT
     
     
     printf("Try to Recreate image\n");
-    RecreateImage_CUDA(imgOut_Ptr, 
+    RecreateImage(imgOut_Ptr, 
                        imgCAM_Ptr, width_CAM, height_CAM, 
                        imgFTA_Ptr, width_FTA, height_FTA, 
                        XI, YI, imgLabel);

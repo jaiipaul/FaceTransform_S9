@@ -25,7 +25,7 @@ void FindAllHomography(int n_quadrangles, int* Quadrangles, int* landmarks_src, 
             Q_coords_dst[2*j]   = (double)landmarks_dst[2*Quadrangles[i*4+j]];
             Q_coords_dst[2*j+1] = (double)landmarks_dst[2*Quadrangles[i*4+j]+1];
         }
-        Find_Homography(Q_coords_dst, Q_coords_src, H[i]);
+        Find_Homography(Q_coords_src, Q_coords_dst, H[i]);
         //printf("H[%d] = [ %f  %f  %f ]\n        [ %f  %f  %f ]\n        [ %f  %f  %f ]\n", i, H[i][0], H[i][3], H[i][6], H[i][1], H[i][4], H[i][7], H[i][2], H[i][5], H[i][8]);
     }
     free(Q_coords_dst);
@@ -145,18 +145,18 @@ void CreateLabelledImage(int n_quadrangles, int* Quadrangles, int* landmarks, in
     for(int i = 0; i < width*height; i++){
         imgLabel[i] = 0; 
     }
-    //std::fstream LabelFile;//, XY;
-    //LabelFile.open("./tests/label.txt", std::fstream::out);
+    std::fstream LabelFile;//, XY;
+    LabelFile.open("./tests/label.txt", std::fstream::out);
     //XY.open("./tests/XY.txt", std::fstream::out);
     double* Sqr_coords = (double*)calloc(8, sizeof(double));
-    Sqr_coords[0] =  -1.0;
-    Sqr_coords[1] =  -1.0;
-    Sqr_coords[2] =  1.0;
-    Sqr_coords[3] =  -1.0;
-    Sqr_coords[4] =  1.0;
-    Sqr_coords[5] =  1.0;
-    Sqr_coords[6] =  -1.0;
-    Sqr_coords[7] =  1.0;
+    Sqr_coords[0] =  -100.0;
+    Sqr_coords[1] =  -100.0;
+    Sqr_coords[2] =  100.0;
+    Sqr_coords[3] =  -100.0;
+    Sqr_coords[4] =  100.0;
+    Sqr_coords[5] =  100.0;
+    Sqr_coords[6] =  -100.0;
+    Sqr_coords[7] =  100.0;
 
     //printMat(Sqr_coords, 8, 1);
     //printf("Sqr_coords_ptr = [ %f  %f  %f  %f  %f  %f  %f  %f]\n", Sqr_coords_ptr[0], Sqr_coords_ptr[1], Sqr_coords_ptr[2], Sqr_coords_ptr[3], Sqr_coords_ptr[4], Sqr_coords_ptr[5], Sqr_coords_ptr[6], Sqr_coords_ptr[7]);
@@ -176,43 +176,44 @@ void CreateLabelledImage(int n_quadrangles, int* Quadrangles, int* landmarks, in
         //printf("Q_coords[%d] = [ %f  %f  %f  %f  %f  %f  %f  %f]\n", i, Q_coords[0], Q_coords[1], Q_coords[2], Q_coords[3], Q_coords[4], Q_coords[5], Q_coords[6], Q_coords[7]);
         Find_rectangle(Q_coords, Q_box);
         //Q_box = [ x0, y0, x1, y1, x2, y2, x3, y3]
-        Find_Homography(Q_coords, Q_box, H);
+        Find_Homography(Sqr_coords, Q_coords, H);
         //printf("H[%d] = [ %f  %f  %f ]\n        [ %f  %f  %f ]\n        [ %f  %f  %f ]\n", i, H[0], H[3], H[6], H[1], H[4], H[7], H[2], H[5], H[8]);
         
         //printMat(Q_box, 4, 1);
         //
-        //LabelFile << i << std::endl;
+        LabelFile << i << std::endl;
         //XY << i << std::endl;
         //LabelFile << "Q_BOX[" << i << "] =" << std::endl;
         //LabelFile << "["<< Q_box[0]<<" "<< Q_box[1]<<" | "<< Q_box[2] << " " << Q_box[3] << "]" << std::endl;       
         //LabelFile << "["<< Q_box[6]<<" "<< Q_box[7]<<" | "<< Q_box[4] << " " << Q_box[5] << "]" << std::endl;      
      
-        //LabelFile << "H[" << i << "] =" << std::endl;
-        //LabelFile << "["<< H[0]<<" "<< H[3]<<" "<< H[6] << "]" << std::endl;       
-        //LabelFile << "["<< H[1]<<" "<< H[4]<<" "<< H[7] << "]" << std::endl;      
-        //LabelFile << "["<< H[2]<<" "<< H[5]<<" "<< H[8] << "]" << std::endl;   
+        LabelFile << "H[" << i << "] =" << std::endl;
+        LabelFile << "["<< H[0]<<" "<< H[3]<<" "<< H[6] << "]" << std::endl;       
+        LabelFile << "["<< H[1]<<" "<< H[4]<<" "<< H[7] << "]" << std::endl;      
+        LabelFile << "["<< H[2]<<" "<< H[5]<<" "<< H[8] << "]" << std::endl;   
         for(int y = Q_box[1]; y < Q_box[5]+1; y++){
             for(int x = Q_box[0]; x < Q_box[2]+1; x++){
                 m[0] = (double)x; m[1] = (double)y;
                 //printf("m = %f // %f\n", m[0], m[1]);
                 ApplyPointHomography(H, m, p);
                 //XY << "["<< m[0]<<" "<< m[1]<<" | "<< p[0] << " " << p[1] << "]" << std::endl;
-                //if( (x == Q_coords[0] && y == Q_coords[1]) || (x == Q_coords[2] && y == Q_coords[3]) || (x == Q_coords[4] && y == Q_coords[5]) || (x == Q_coords[6] && y == Q_coords[7])){
-                    //LabelFile << "o";
-                //}
-                //else
-                if(p[0] >= Q_box[0] && p[0] <= Q_box[2] && p[1] >= Q_box[1] && p[1] <= Q_box[5]){
+                if( (x == Q_coords[0] && y == Q_coords[1]) || (x == Q_coords[2] && y == Q_coords[3]) || (x == Q_coords[4] && y == Q_coords[5]) || (x == Q_coords[6] && y == Q_coords[7])){
+                    LabelFile << "o";
+                }
+                else
+                /*if(p[0] >= Q_box[0] && p[0] <= Q_box[2] && p[1] >= Q_box[1] && p[1] <= Q_box[5]){*/
+                if(abs(p[0]) <= 100.0 && abs(p[1]) <= 100.0){ 
                     //printf("in %d", i+1);
                     imgLabel[y*width+x] = i+1;
-                    //LabelFile << "x";
+                    LabelFile << "x";
                 }else{
-                    //LabelFile << "-";
+                    LabelFile << "-";
                 }
                 
             }
-            //LabelFile << std::endl;
+            LabelFile << std::endl;
         }
-        //LabelFile << std::endl;
+        LabelFile << std::endl;
     }
     
     free(H);
@@ -221,7 +222,7 @@ void CreateLabelledImage(int n_quadrangles, int* Quadrangles, int* landmarks, in
     free(Q_box);
     free(m);
     free(p);
-    //LabelFile.close();
+    LabelFile.close();
     //XY.close();
 }
 
