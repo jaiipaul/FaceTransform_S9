@@ -11,17 +11,6 @@
 *.gch
 *.pch
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
 # Executables
 *.exe
 *.out
@@ -32,7 +21,7 @@ cpp_cuda/build
 cpp_cuda/build/CMakeFiles
 
 # library binaries
-lib/
+.lib/
 
 *.log
 *.bin
