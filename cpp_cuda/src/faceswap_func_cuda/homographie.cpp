@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <vector>
+#include <opencv2/calib3d.hpp>
+#include <iostream>
+
 
 void printMat(double* Mat, int col, int line) {
     printf("Mat = \n");
@@ -104,20 +108,37 @@ void SystemeTriangulaireSuperieur(int n,double *A,double *y,double *x)
 }
 
 void Find_Homography(double* src, double* dst, double *h){
-    double* A =(double*)calloc(64,sizeof(double));
-    double* B =(double*)calloc(8, sizeof(double));
-    for(int i = 0; i < 8; i++){
-        B[i] = src[i];
+    //std::cout << "convert to vector" << std::endl;
+    std::vector<cv::Point2f> Src;
+    std::vector<cv::Point2f> Dst;
+    for(int i = 0; i < 4; i++ ){
+        Src.push_back(cv::Point2f(src[2*i],src[2*i+1]));
+        Dst.push_back(cv::Point2f(dst[2*i],dst[2*i+1]));
     }
-    //printMat(src, 8, 1);
-    //printMat(dst, 8, 1);
-    create_A(8,A,src,dst);
-    pivotdeGauss(8,A,B);
-    SystemeTriangulaireSuperieur(8,A,B,h);
-    h[8] = 1.0f;
-    //printMat(h, 8, 1);
-    free(A);
-    free(B);   
+
+    cv::Mat H = (cv::Mat_<double>(3,3));
+    //std::cout << "Open CV homography" << std::endl;
+    H = cv::findHomography(Dst, Src);
+    
+    for( int i = 0; i < 3; i++){
+        for (int j = 0; j < 3; j++){
+            h[i*3 + j] = H.at<double>(j,i);
+        }
+    }
+    // double* A =(double*)calloc(64,sizeof(double));
+    // double* B =(double*)calloc(8, sizeof(double));
+    // for(int i = 0; i < 8; i++){
+    //     B[i] = src[i];
+    // }
+    // //printMat(src, 8, 1);
+    // //printMat(dst, 8, 1);
+    // create_A(8,A,src,dst);
+    // pivotdeGauss(8,A,B);
+    // SystemeTriangulaireSuperieur(8,A,B,h);
+    // h[8] = 1.0f;
+    // //printMat(h, 8, 1);
+    // free(A);
+    // free(B);   
 }
 
 void ApplyPointHomography(double *h, double *m, double *p)

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project("Faceswap_func" LANGUAGES CXX CUDA)
+project("faceswap_func" LANGUAGES CXX CUDA)
 find_package(CUDA REQUIRED)
 
 #IF (CUDA_VERSION VERSION_LESS "11.0")
@@ -64,12 +64,24 @@ pybind11_add_module(
     ${MODULE_SOURCE}/faceswap_func_cuda.cpp
     ${MODULE_SOURCE}/wrapper.cpp
 )
-target_link_libraries(faceswap_func PUBLIC cuda_lib)
+target_link_directories(
+    faceswap_func
+    PUBLIC ${LIB_DIR}
+    PUBLIC ${PROJECT_SOURCE_DIR}/includes/opencv/lib
+)
+target_link_libraries(faceswap_func 
+    PUBLIC cuda_lib
+    PUBLIC opencv_world455.lib)
 
 target_include_directories (
     faceswap_func
     PRIVATE ${MODULE_SOURCE}
+    PRIVATE ${PROJECT_SOURCE_DIR}/includes/opencv/include
 )
 
-
-
+#Copy Dlls
+#add_custom_command(TARGET faceswap_func POST_BUILD
+#COMMAND ${CMAKE_COMMAND} -E copy_if_different
+#    ${PROJECT_SOURCE_DIR}/includes/opencv/build/bin/opencv_core455.dll
+#    ${PROJECT_SOURCE_DIR}/includes/opencv/build/bin/opencv_calib3d455.dll
+#    $<TARGET_FILE_DIR:faceswap_func>)
