@@ -1,16 +1,15 @@
 import sys
-sys.path.insert(0, "../../lib/Release")
+sys.path.insert(0, "../lib/Release")
+
 import faceswap_func as fs
-import matplotlib.pyplot as plt
-import numpy as np
 import dlib 
 import cv2 
-import time
+import numpy as np 
 
 #Face detector
 detector = dlib.get_frontal_face_detector()
 #Landmarks model
-predictor = dlib.shape_predictor("../shape_predictor_68_face_landmarks.dat")
+predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
 
 ## FIND FACE IN THE IMAGE
 def get_faces(img):
@@ -30,8 +29,10 @@ def get_landmarks(img_gray, face):
         landmarks_point.append((x, y))
     return np.array(landmarks_point)
 ##----------------------------------------------------------------------------------------------##
+## SET QUADRANGLE BASED ON LANDMARKS INDEX
 def set_quadranglesA():
-    q    =   np.zeros((53,4))
+    n_quadrangles = 30
+    q    =   np.zeros((n_quadrangles,4))
     #CONTOUR VISAGE
     q[0] =   np.array([1,2,37,18])
     q[1] =   np.array([2,3,42,37])
@@ -46,7 +47,7 @@ def set_quadranglesA():
     q[10] =  np.array([12,13,14,55])
     q[11] =  np.array([14,15,47,55])
     q[12] =  np.array([15,16,46,47])
-    q[13] =  np.array([17,27,46,16])
+    q[13] =  np.array([17,16,46,27])
     q[14] =  np.array([27,26,45,46])
     q[15] =  np.array([26,25,24,45])
     q[16] =  np.array([24,23,44,45])
@@ -65,37 +66,38 @@ def set_quadranglesA():
     q[28] =  np.array([45,44,43,48])
     q[29] =  np.array([45,48,47,46])
     #NEZ
-    q[30] =  np.array([28,40,29,43])
-    q[31] =  np.array([29,40,32,30])
-    q[32] =  np.array([30,32,33,31])
-    q[33] =  np.array([31,33,34,35])
-    q[34] =  np.array([33,32,50,51])
-    q[35] =  np.array([43,29,30,36])
-    q[36] =  np.array([30,31,35,36])
-    q[37] =  np.array([34,52,53,35])
-    q[38] =  np.array([36,35,53,54])
-    q[39] =  np.array([33,51,52,34])
+    #q[30] =  np.array([28,40,29,43])
+    #q[31] =  np.array([29,40,32,30])
+    #q[32] =  np.array([30,32,33,31])
+    #q[33] =  np.array([31,33,34,35])
+    #q[34] =  np.array([33,32,50,51])
+    #q[35] =  np.array([43,29,30,36])
+    #q[36] =  np.array([30,31,35,36])
+    #q[37] =  np.array([34,52,53,35])
+    #q[38] =  np.array([36,35,53,54])
+    #q[39] =  np.array([33,51,52,34])
     #BOUCHE
-    q[40] =  np.array([51,50,49,61])
-    q[41] =  np.array([51,61,68,62])
-    q[42] =  np.array([52,51,62,63])
-    q[43] =  np.array([53,52,63,64])
-    q[44] =  np.array([54,53,65,55])
-    q[45] =  np.array([53,64,66,65])
-    q[46] =  np.array([62,68,67,63])
-    q[47] =  np.array([63,67,66,64])
-    q[48] =  np.array([61,49,60,68])
-    q[49] =  np.array([68,60,59,67])
-    q[50] =  np.array([67,59,58,57])
-    q[51] =  np.array([66,67,57,56])
-    q[52] =  np.array([65,66,56,55])
-    for i in range(53):
+    #q[40] =  np.array([51,50,49,61])
+    #q[41] =  np.array([51,61,68,62])
+    #q[42] =  np.array([52,51,62,63])
+    #q[43] =  np.array([53,52,63,64])
+    #q[44] =  np.array([54,53,65,55])
+    #q[45] =  np.array([53,64,66,65])
+    #q[46] =  np.array([62,68,67,63])
+    #q[47] =  np.array([63,67,66,64])
+    #q[48] =  np.array([61,49,60,68])
+    #q[49] =  np.array([68,60,59,67])
+    #q[50] =  np.array([67,59,58,57])
+    #q[51] =  np.array([66,67,57,56])
+    #q[52] =  np.array([65,66,56,55])
+    for i in range(n_quadrangles):
         for j in range(4):
             q[i][j] = q[i][j] - 1 
     return q
 
 def set_quadranglesB():
-    q    =   np.zeros((53,4))
+    n_quadrangles = 41
+    q    =   np.zeros((n_quadrangles,4))
     #CONTOUR VISAGE
     q[0] =   np.array([1,2,42,37])
     q[1] =   np.array([2,3,32,42])
@@ -141,70 +143,68 @@ def set_quadranglesB():
     q[39] =  np.array([36,35,53,54])
     q[40] =  np.array([33,51,52,34])
     #BOUCHE
-    q[41] =  np.array([51,50,49,61])
-    q[42] =  np.array([51,61,62,52])
-    q[43] =  np.array([52,62,63,64])
-    q[44] =  np.array([53,52,64,65])
-    q[45] =  np.array([54,53,65,55])
-    q[46] =  np.array([62,61,60,68])
-    q[47] =  np.array([63,62,68,67])
-    q[48] =  np.array([64,63,67,66])
-    q[49] =  np.array([65,64,66,56])
-    q[50] =  np.array([68,60,59,67])
-    q[51] =  np.array([67,59,58,57])
-    q[52] =  np.array([66,67,57,56])
-    for i in range(53):
+    #q[41] =  np.array([51,50,49,61])
+    #q[42] =  np.array([51,61,62,52])
+    #q[43] =  np.array([52,62,63,64])
+    #q[44] =  np.array([53,52,64,65])
+    #q[45] =  np.array([54,53,65,55])
+    #q[46] =  np.array([62,61,60,68])
+    #q[47] =  np.array([63,62,68,67])
+    #q[48] =  np.array([64,63,67,66])
+    #q[49] =  np.array([65,64,66,56])
+    #q[50] =  np.array([68,60,59,67])
+    #q[51] =  np.array([67,59,58,57])
+    #q[52] =  np.array([66,67,57,56])
+    for i in range(n_quadrangles):
         for j in range(4):
             q[i][j] = q[i][j] - 1 
     return q
 
-## Find the face
-face_to_add1_arr = cv2.imread("../../img/singe.jpg")
-face_to_add1 = face_to_add1_arr.flatten(order='C')
+##-------------------------------------------------------------------------------------------------##
+##FRACE SWAPPING ALGORITHM
+cap = cv2.VideoCapture(0, cv2.CAP_ANY) # ouvrir la caméra 
+_, temp = cap.read()
+width_CAM = np.int32(len(temp[1,:,1]))
+height_CAM = np.int32(len(temp[:,1,1]))
 
-faceswapped2_arr = cv2.imread("../../img/macron.jpg")
-faceswapped2 = faceswapped2_arr.flatten(order='C')
-
-width_FTA = np.int32(len(face_to_add1_arr[1,:,1]))
-height_FTA = np.int32(len(face_to_add1_arr[:,1,1]))
-
-width_FSD = np.int32(len(faceswapped2_arr[1,:,1]))
-height_FSD = np.int32(len(faceswapped2_arr[:,1,1]))
-
-face_to_add_gray1, faces1 = get_faces(face_to_add1_arr)
-faceswapped2_gray2, faces2 = get_faces(faceswapped2_arr)
-
-## Get landmarks/Face features
-for face in faces1:
-        landmarks_FTA_arr1 = get_landmarks(face_to_add_gray1, face)
-landmarks_FTA1 = np.int32(landmarks_FTA_arr1.flatten(order='K'))
-
-for face in faces2:
-        landmarks_FSD_arr2 = get_landmarks(faceswapped2_gray2, face)
-landmarks_FSD2 = np.int32(landmarks_FSD_arr2.flatten(order='K'))
-
+## Set Quadrangles for homography
 Quadrangles_arr = np.int32(set_quadranglesA())
 Quadrangles = np.int32(Quadrangles_arr.flatten(order='C'))
+## WEBCAM FACE TREATEMENT // PASTE THE FIRST FACE ON THE FACES CAPTURED BY THE CAMERA
+while cap.isOpened():   
+    ##Find faces
+    _, camera_img_arr = cap.read()
+    img_CAM = camera_img_arr.flatten(order='C')
+    camera_img_gray, camera_faces = get_faces(camera_img_arr)
+    camera_img_new_face = np.zeros_like(camera_img_arr) 
 
-img_Out = np.ndarray((height_FSD, width_FSD, 3), dtype=np.uint8)
-img_Out_line = faceswapped2;
+    img_Out = np.ndarray((height_CAM, width_CAM, 3), dtype=np.uint8)
+    img_Out_line = img_CAM;
+    if (len(camera_faces) == 2):
+        
+        landmarks_FACE1_arr = get_landmarks(camera_img_gray, camera_faces[0])
+        landmarks_FACE1 = np.int32(landmarks_FACE1_arr.flatten(order='C'))
+        points_FACE1 = np.array(landmarks_FACE1_arr, dtype=np.int32)
+        
+        landmarks_FACE2_arr = get_landmarks(camera_img_gray, camera_faces[1])
+        landmarks_FACE2 = np.int32(landmarks_FACE2_arr.flatten(order='C'))
+        points_FACE2 = np.array(landmarks_FACE2_arr, dtype=np.int32)
 
-n_quadrangles = np.int32(len(Quadrangles_arr))
+        n_quadrangles = np.int32(len(Quadrangles_arr))
 
-start = time.time()
-img_Out_line = fs.FaceSwap_CPP(img_Out_line, face_to_add1, width_FSD, height_FSD, width_FTA, height_FTA, n_quadrangles, Quadrangles, landmarks_FSD2, landmarks_FTA1)
-end = time.time()
-print(end-start)
-img_Out = np.uint8(np.reshape(img_Out_line, (height_FSD, width_FSD, 3), order='C'))
+        img_Out_line1 = fs.FaceSwap_CPP(img_Out_line, img_Out_line, width_CAM, height_CAM, width_CAM, height_CAM, n_quadrangles, Quadrangles, landmarks_FACE1, landmarks_FACE2)
+        img_Out_line2 = fs.FaceSwap_CPP(img_Out_line1, img_Out_line, width_CAM, height_CAM, width_CAM, height_CAM, n_quadrangles, Quadrangles, landmarks_FACE2, landmarks_FACE1)
+        img_Out = np.uint8(np.reshape(img_Out_line2, (height_CAM, width_CAM, 3), order='C'))
 
-#for i in range(n_quadrangles):
-#    for j in range(4):
-#        point1 = (landmarks_FSD2[2*Quadrangles_arr[i,j]], landmarks_FSD2[2*Quadrangles_arr[i,j] + 1])
-#        point2 = (landmarks_FSD2[2*Quadrangles_arr[i,(j+1)%4]], landmarks_FSD2[2*Quadrangles_arr[i,(j+1)%4] + 1])
-#        
-#        img_Out = cv2.line(img_Out, point1, point2, (0, 255, 0), 1)       
+        
+        result = cv2.flip(img_Out, 1)
+        cv2.imshow("CUDA FaceSwap", result)
+    else:
+        result = cv2.flip(camera_img_arr, 1)
+        cv2.imshow("CUDA FaceSwap", result)
+    if cv2.waitKey(1) == ord('q'):
+        cv2.destroyAllWindows()
+        break      
 
-
-#result = cv2.flip(img_Out, 1)
-cv2.imshow("faceswap.jpg", img_Out)
-cv2.waitKey(0)
+cap.release()
+cv2.destroyAllWindows()
