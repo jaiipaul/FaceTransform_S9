@@ -82,25 +82,19 @@ py::array_t<int> FaceSwap_CUDA(py::array_t<int> img_CAM, py::array_t<int> img_FT
 
     H_flat = (double*)calloc(9*n_quadrangles, sizeof(double));
     Flatten(H, 9, n_quadrangles, H_flat);
-    printf("Try to apply all homographies\n");
+
     ApplyAllHomography_CUDA(width_CAM, height_CAM, imgLabel, H_flat, XI, YI, n_quadrangles);
-    printf("Applied all homographies\n");
     //4) Recreate new image
     auto imgOut = py::array_t<int>(width_CAM*height_CAM*3);
     py::buffer_info imgOut_Buff = imgOut.request();
     int* imgOut_Ptr = (int*)(imgOut_Buff.ptr);
     
     
-    printf("Try to Recreate image\n");
     RecreateImage(imgOut_Ptr, 
-                       imgCAM_Ptr, width_CAM, height_CAM, 
-                       imgFTA_Ptr, width_FTA, height_FTA, 
-                       XI, YI, imgLabel);
-    printf("Recreated Image\n");
-    /*for (int i = 0; i < width_CAM * height_CAM; i++) {
-        imgOut_Ptr[i] = imgLabel[i];
-    }*/
-    //printf("CPP done");
+                  imgCAM_Ptr, width_CAM, height_CAM, 
+                  imgFTA_Ptr, width_FTA, height_FTA, 
+                  XI, YI, imgLabel);
+
 
     //Liberation mémoire
     

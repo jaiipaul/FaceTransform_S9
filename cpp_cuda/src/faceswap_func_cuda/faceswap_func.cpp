@@ -227,9 +227,9 @@ void CreateLabelledImage(int n_quadrangles, int* Quadrangles, int* landmarks, in
 }
 
 py::array_t<int> FaceSwap_CPP(py::array_t<int> img_CAM, py::array_t<int> img_FTA,
-              int width_CAM,int height_CAM, int width_FTA, int height_FTA,
-              int n_quadrangles, py::array_t<int> Quadrangles, 
-              py::array_t<int> landmarks_CAM, py::array_t<int> landmarks_FTA){
+                              int width_CAM,int height_CAM, int width_FTA, int height_FTA,
+                              int n_quadrangles, py::array_t<int> Quadrangles, 
+                              py::array_t<int> landmarks_CAM, py::array_t<int> landmarks_FTA){
     
     //Define pointers for images
     py::buffer_info imgFTA_Buff = img_FTA.request();
