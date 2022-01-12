@@ -1,7 +1,7 @@
 #include <pybind11/pybind11.h>
 #include "faceswap_func.h"
 #include "faceswap_func_cuda.h"
-#include "pybind_cuda.cuh"
+#include "cuda_func.cuh"
 
 using namespace pybind11;
 

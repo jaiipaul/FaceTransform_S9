@@ -6,24 +6,20 @@
 
 namespace py = pybind11;
 
-void hello();
-void addition(int a, int b);
-void fillTab(py::list tab , int size);
-void loadImage(py::array_t<int> img, int width, int height);
 // Define function here 
 
-void FindAllHomography(int n_quadrangles, int* Quadrangles, int* landmarks_src, int* landmarks_dst, double ** H);
+void FS_FindAllHomography(int n_quadrangles, int* Quadrangles, int* landmarks_src, int* landmarks_dst, float** H);
 
-void Find_rectangle(double *src,double *rect);
+void FS_Find_rectangle(float* src,float* rect);
 //TO FINISH
-void ApplyAllHomography(int width, int height, int* imgLabel, double ** H, double* XI, double* YI);
+void FS_ApplyAllHomography(int width, int height, int* imgLabel, float** H, float* XI, float* YI);
 
-void RecreateImage(int* imgOut, 
+void FS_RecreateImage(int* imgOut, 
                    int* imgCAM ,int width_CAM, int height_CAM, 
                    int* imgFTA, int width_FTA, int height_FTA, 
-                   double* XI, double* YI, int* imgLabel);
+                   float* XI, float* YI, int* imgLabel);
 
-void CreateLabelledImage(int n_quadrangles, int* Quadrangles, 
+void FS_CreateLabelledImage(int n_quadrangles, int* Quadrangles, 
                          int* landmarks, int width, int heigth, 
                          int* imgLabel);
 

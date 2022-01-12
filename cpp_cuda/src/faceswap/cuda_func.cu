@@ -4,10 +4,11 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "pybind_cuda.cuh"
+#include <iostream>
+#include "cuda_func.cuh"
 
-#define BLOCK_SIZE_X 32
-#define BLOCK_SIZE_Y 32
+#define BLOCK_SIZE_X 16
+#define BLOCK_SIZE_Y 16
 
 __global__ void gpu_square(int* v, int size){
     int id = blockIdx.x*blockDim.x+threadIdx.x;
@@ -18,11 +19,11 @@ __global__ void gpu_square(int* v, int size){
 
 
 __global__ void kernel_ApplyAllHomography(int width, int height, 
-                                          int* imgLabel, double* H_flat, 
-                                          double* XI,    double* YI){
+                                          int* imgLabel, float* H_flat, 
+                                          float* XI,    float* YI){
     int i = blockIdx.x*blockDim.x + threadIdx.x,
 		j = blockIdx.y*blockDim.y + threadIdx.y;
-    double den;
+    float den;
     int label;
     if (i < width  && j < height){
         //printf("%d | %d\n", i, j);
@@ -40,7 +41,7 @@ __global__ void kernel_ApplyAllHomography(int width, int height,
 __global__ void kernel_RecreateImage(int* imgOut, 
                                      int* imgCAM ,int width_CAM, int height_CAM, 
                                      int* imgFTA, int width_FTA, int height_FTA, 
-                                     double* XI, double* YI, int* imgLabel){
+                                     float* XI, float* YI, int* imgLabel){
     int x_CAM = blockIdx.x*blockDim.x + threadIdx.x,
 		y_CAM = blockIdx.y*blockDim.y + threadIdx.y;
 
@@ -78,17 +79,20 @@ void gpu_square_main(int * v_in, int size, int * v_out)
     cudaFree(v_in_cuda);
 }
 
-void ApplyAllHomography_CUDA(int width, int height, int* imgLabel, double* H_flat, double* XI, double* YI, int n_quadrangles)
+float ApplyAllHomography_CUDA(int width, int height, int* imgLabel, float* H_flat, float* XI, float* YI, int n_quadrangles)
 {   
     int size = width*height;
     int nbThreadx = BLOCK_SIZE_X, nbThready = BLOCK_SIZE_Y;
     dim3 dimBlock(nbThreadx, nbThready);
     dim3 dimGrid((width+nbThreadx-1)/nbThreadx, (height+nbThready-1)/nbThready);
 
+    cudaEvent_t start, stop;
+    float dt = 0.0f;
+
     /* Copy Homography matrix */
-    double *H_in_cuda = NULL;
-    cudaMalloc((void **)&H_in_cuda, 9*n_quadrangles*sizeof(double));
-    cudaMemcpy(H_in_cuda, H_flat, 9*n_quadrangles*sizeof(double), cudaMemcpyHostToDevice);
+    float *H_in_cuda = NULL;
+    cudaMalloc((void **)&H_in_cuda, 9*n_quadrangles*sizeof(float));
+    cudaMemcpy(H_in_cuda, H_flat, 9*n_quadrangles*sizeof(float), cudaMemcpyHostToDevice);
 
     /* Copy Label Image */
     int * ImgLabel_in_cuda = NULL;
@@ -96,35 +100,47 @@ void ApplyAllHomography_CUDA(int width, int height, int* imgLabel, double* H_fla
     cudaMemcpy(ImgLabel_in_cuda, imgLabel, size*sizeof(int), cudaMemcpyHostToDevice);
 
     /* Allocate memory for interpolation matrix */
-    double *XI_out_cuda = NULL;
-    double *YI_out_cuda = NULL;
-    cudaMalloc((void **)&XI_out_cuda, size*sizeof(double));
-    cudaMalloc((void **)&YI_out_cuda, size*sizeof(double));
+    float *XI_out_cuda = NULL;
+    float *YI_out_cuda = NULL;
+    cudaMalloc((void **)&XI_out_cuda, size*sizeof(float));
+    cudaMalloc((void **)&YI_out_cuda, size*sizeof(float));
     
+    cudaEventCreate(&start);
+	cudaEventCreate(&stop);	
+    cudaEventRecord(start, 0);
     kernel_ApplyAllHomography<<<dimGrid, dimBlock>>>(width, height, ImgLabel_in_cuda, H_in_cuda, XI_out_cuda, YI_out_cuda);
-
-    cudaThreadSynchronize();
+    cudaDeviceSynchronize();
+    cudaEventRecord(stop, 0);
+	cudaEventSynchronize(stop);	
+	cudaEventElapsedTime(&dt, start, stop);
+	cudaEventDestroy(start);
+	cudaEventDestroy(stop);
+    
+    
     /* Copy device result to host memory */
-    cudaMemcpy(XI, XI_out_cuda, size*sizeof(double), cudaMemcpyDeviceToHost);
-    cudaMemcpy(YI, YI_out_cuda, size*sizeof(double), cudaMemcpyDeviceToHost);
+    cudaMemcpy(XI, XI_out_cuda, size*sizeof(float), cudaMemcpyDeviceToHost);
+    cudaMemcpy(YI, YI_out_cuda, size*sizeof(float), cudaMemcpyDeviceToHost);
 
     /* Free device memory */
     cudaFree(ImgLabel_in_cuda);
     cudaFree(H_in_cuda);
     cudaFree(XI_out_cuda);
     cudaFree(YI_out_cuda);
+
+    //std::cout << "Time spent in kernel : " << dt << std::endl;
+    return dt;
 }
 
 void RecreateImage_CUDA(int* imgOut,
 	               int* imgCAM, int width_CAM, int height_CAM,
 	               int* imgFTA, int width_FTA, int height_FTA,
- 	               double* XI, double* YI, int* imgLabel)
+ 	               float* XI, float* YI, int* imgLabel)
 {
 	int size_CAM = width_CAM * height_CAM;
     int size_FTA = width_FTA * height_FTA;
 
 	int* imgout_cuda = NULL, *imgCAM_cuda = NULL, *imgFTA_cuda = NULL, *imgLabel_cuda = NULL;
-	double *XI_cuda = NULL, *YI_cuda = NULL;
+	float *XI_cuda = NULL, *YI_cuda = NULL;
 	
     int nbThreadx = BLOCK_SIZE_X, nbThready = BLOCK_SIZE_Y;
     dim3 dimBlock(nbThreadx, nbThready);
@@ -139,11 +155,11 @@ void RecreateImage_CUDA(int* imgOut,
 	cudaMalloc((void **)&imgout_cuda, 3*size_CAM*sizeof(int));
     cudaMemcpy(imgout_cuda, imgCAM, 3*size_CAM*sizeof(int), cudaMemcpyHostToDevice);
 
-	cudaMalloc((void**)&XI_cuda, size_CAM * sizeof(double));
-	cudaMemcpy(XI_cuda, XI, size_CAM * sizeof(double), cudaMemcpyHostToDevice);
+	cudaMalloc((void**)&XI_cuda, size_CAM * sizeof(float));
+	cudaMemcpy(XI_cuda, XI, size_CAM * sizeof(float), cudaMemcpyHostToDevice);
 
-	cudaMalloc((void**)&YI_cuda, size_CAM * sizeof(double));
-	cudaMemcpy(YI_cuda, YI, size_CAM * sizeof(double), cudaMemcpyHostToDevice);
+	cudaMalloc((void**)&YI_cuda, size_CAM * sizeof(float));
+	cudaMemcpy(YI_cuda, YI, size_CAM * sizeof(float), cudaMemcpyHostToDevice);
 
 	cudaMalloc((void**)&imgLabel_cuda, size_CAM * sizeof(int));
 	cudaMemcpy(imgLabel_cuda, imgLabel, size_CAM * sizeof(int), cudaMemcpyHostToDevice);

@@ -32,7 +32,7 @@ find_package(CUDA REQUIRED)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CUDA_FLAGS "${CMAKE_CUDA_FLAGS} -gencode arch=compute_50,code=sm_50")
 
-set(MODULE_SOURCE "${PROJECT_SOURCE_DIR}/src/faceswap_func_cuda")
+set(MODULE_SOURCE "${PROJECT_SOURCE_DIR}/src/")
 set(INCLUDES "${PROJECT_SOURCE_DIR}/includes")
 
 set(LIB_DIR "../../lib")
@@ -43,12 +43,14 @@ add_subdirectory(${INCLUDES}/pybind11)
 # cuda library
 add_library (
     cuda_lib 
-    ${MODULE_SOURCE}/pybind_cuda.cu
+    ${MODULE_SOURCE}/faceswap/cuda_func.cu
 )
 
 target_include_directories (
     cuda_lib
-    PRIVATE ${MODULE_SOURCE}
+    PRIVATE ${MODULE_SOURCE}/faceswap
+    PRIVATE ${MODULE_SOURCE}/biggerface
+    PRIVATE ${MODULE_SOURCE}/homography
 )
 
 #set_target_properties(cuda_lib PROPERTIES
@@ -59,9 +61,9 @@ target_include_directories (
 #pybind module
 pybind11_add_module( 
     faceswap_func MODULE
-    ${MODULE_SOURCE}/homographie.cpp
-    ${MODULE_SOURCE}/faceswap_func.cpp
-    ${MODULE_SOURCE}/faceswap_func_cuda.cpp
+    ${MODULE_SOURCE}/homography/homographie.cpp
+    ${MODULE_SOURCE}/faceswap/faceswap_func.cpp
+    ${MODULE_SOURCE}/faceswap/faceswap_func_cuda.cpp
     ${MODULE_SOURCE}/wrapper.cpp
 )
 target_link_directories(
@@ -75,6 +77,8 @@ target_link_libraries(faceswap_func
 
 target_include_directories (
     faceswap_func
-    PRIVATE ${MODULE_SOURCE}
+    PRIVATE ${MODULE_SOURCE}/faceswap
+    PRIVATE ${MODULE_SOURCE}/biggerface
+    PRIVATE ${MODULE_SOURCE}/homography
     PRIVATE ${PROJECT_SOURCE_DIR}/includes/opencv2/include
 )

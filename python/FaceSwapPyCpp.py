@@ -76,7 +76,7 @@ def set_quadranglesA():
     #q[37] =  np.array([34,52,53,35])
     #q[38] =  np.array([36,35,53,54])
     #q[39] =  np.array([33,51,52,34])
-    #BOUCHE
+    ##BOUCHE
     #q[40] =  np.array([51,50,49,61])
     #q[41] =  np.array([51,61,68,62])
     #q[42] =  np.array([52,51,62,63])
@@ -169,7 +169,7 @@ height_CAM = np.int32(len(temp[:,1,1]))
 
 ## FIRST FACE TREATEMENT // THE ALGORITHM WILL PUT THIS FACE ON THE ONE CAPTURE BY THE CAMERA
 ## Find the face
-face_to_add = cv2.imread("../img/macron.jpg")
+face_to_add = cv2.imread("../img/singe.jpg")
 width_FTA = np.int32(len(face_to_add[1,:,1]))
 height_FTA = np.int32(len(face_to_add[:,1,1]))
 face_to_add_gray, faces = get_faces(face_to_add)
@@ -208,12 +208,12 @@ while cap.isOpened():
             #fs.loadImage(img_CAM, wid  th_CAM, height_CAM)
 
             #img_Out = camera_img_arr;
-            for i in range(n_quadrangles):
-                for j in range(4):
-                    point1 = (landmarks_CAM[2*Quadrangles_arr[i,j]], landmarks_CAM[2*Quadrangles_arr[i,j] + 1])
-                    point2 = (landmarks_CAM[2*Quadrangles_arr[i,(j+1)%4]], landmarks_CAM[2*Quadrangles_arr[i,(j+1)%4] + 1])
-                    
-                    img_Out = cv2.line(img_Out, point1, point2, (0, 255, 0), 1)
+            #for i in range(n_quadrangles):
+            #    for j in range(4):
+            #        point1 = (landmarks_CAM[2*Quadrangles_arr[i,j]], landmarks_CAM[2*Quadrangles_arr[i,j] + 1])
+            #        point2 = (landmarks_CAM[2*Quadrangles_arr[i,(j+1)%4]], landmarks_CAM[2*Quadrangles_arr[i,(j+1)%4] + 1])
+            #        
+            #        img_Out = cv2.line(img_Out, point1, point2, (0, 255, 0), 1)
 
         
         result = cv2.flip(img_Out, 1)

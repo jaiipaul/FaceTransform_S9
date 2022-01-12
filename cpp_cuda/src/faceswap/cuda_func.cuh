@@ -4,11 +4,11 @@
 extern "C"{
     void gpu_square_main(int * v_in, int size, int * v_out);
     //void ApplyAllHomography(int width, int height, int* imgLabel, double** H, double* XI, double* YI, int n_quadrangles);
-    void ApplyAllHomography_CUDA(int width, int height, int* imgLabel, double* H_flat, double* XI, double* YI, int n_quadrangles); 
+    float ApplyAllHomography_CUDA(int width, int height, int* imgLabel, float* H_flat, float* XI, float* YI, int n_quadrangles); 
     void RecreateImage_CUDA(int* imgOut,
 	                        int* imgCAM, int width_CAM, int height_CAM,
 	                        int* imgFTA, int width_FTA, int height_FTA,
- 	                        double* XI, double* YI, int* imgLabel);
+ 	                        float* XI, float* YI, int* imgLabel);
 }
 
  

@@ -2,12 +2,13 @@
 #include <stdlib.h>
 #include <iostream>
 #include <fstream>
+#include <time.h>
 
 #include "faceswap_func.h"
 #include "faceswap_func_cuda.h"
 
 #include "homographie.h"
-#include "pybind_cuda.cuh"
+#include "cuda_func.cuh"
 
 py::array_t<int> CUDA_Sqr(py::array_t<int> img, int width, int height) {
     
@@ -26,7 +27,7 @@ py::array_t<int> CUDA_Sqr(py::array_t<int> img, int width, int height) {
 namespace py = pybind11;
 // Define functions here
  
-void Flatten(double** Tab2D, int w, int h, double* Tab1D){
+void Flatten(float** Tab2D, int w, int h, float* Tab1D){
     for(int j = 0; j < h; j++){
         for(int i = 0; i < w; i++){
             Tab1D[j*w+i] = Tab2D[j][i];
@@ -39,6 +40,8 @@ py::array_t<int> FaceSwap_CUDA(py::array_t<int> img_CAM, py::array_t<int> img_FT
                                int n_quadrangles, py::array_t<int> Quadrangles, 
                                py::array_t<int> landmarks_CAM, py::array_t<int> landmarks_FTA){
     
+    clock_t time;
+    time = clock();
     //Define pointers for images
     py::buffer_info imgFTA_Buff = img_FTA.request();
     py::buffer_info imgCAM_Buff = img_CAM.request();
@@ -63,37 +66,39 @@ py::array_t<int> FaceSwap_CUDA(py::array_t<int> img_CAM, py::array_t<int> img_FT
     //1) Create Labelled image to know wich homographt to apply
     int* imgLabel =NULL;
     imgLabel = (int*)calloc(width_CAM*height_CAM, sizeof(int));
-    CreateLabelledImage(n_quadrangles, Quadrangles_Ptr, landmarksCAM_Ptr, width_CAM, height_CAM, imgLabel);
+    FS_CreateLabelledImage(n_quadrangles, Quadrangles_Ptr, landmarksCAM_Ptr, width_CAM, height_CAM, imgLabel);
 
     //2) Determine all homographies
-    double** H = NULL;
-    H = (double**)calloc(n_quadrangles, sizeof(double*));
-    H[0] = (double*)calloc(9*n_quadrangles, sizeof(double));
+    float** H = NULL;
+    H = (float**)calloc(n_quadrangles, sizeof(float*));
+    H[0] = (float*)calloc(9*n_quadrangles, sizeof(float));
     for(int i = 0; i < n_quadrangles; i++){
         H[i] = H[0] + (i*9);
     }
         
-    FindAllHomography(n_quadrangles, Quadrangles_Ptr, landmarksFTA_Ptr, landmarksCAM_Ptr, H);
+    FS_FindAllHomography(n_quadrangles, Quadrangles_Ptr, landmarksFTA_Ptr, landmarksCAM_Ptr, H);
     //3) Apply homographies and create interpolation grids
-    double *XI = NULL, *YI = NULL;
-    double *H_flat = NULL;
-    XI = (double*)calloc(width_CAM*height_CAM, sizeof(double));
-    YI = (double*)calloc(width_CAM*height_CAM, sizeof(double));
+    float *XI = NULL, *YI = NULL;
+    float *H_flat = NULL;
+    XI = (float*)calloc(width_CAM*height_CAM, sizeof(float));
+    YI = (float*)calloc(width_CAM*height_CAM, sizeof(float));
 
-    H_flat = (double*)calloc(9*n_quadrangles, sizeof(double));
+    H_flat = (float*)calloc(9*n_quadrangles, sizeof(float));
     Flatten(H, 9, n_quadrangles, H_flat);
 
-    ApplyAllHomography_CUDA(width_CAM, height_CAM, imgLabel, H_flat, XI, YI, n_quadrangles);
+    float kernel_time = 0.f;
+    kernel_time = ApplyAllHomography_CUDA(width_CAM, height_CAM, imgLabel, H_flat, XI, YI, n_quadrangles);
+    
     //4) Recreate new image
     auto imgOut = py::array_t<int>(width_CAM*height_CAM*3);
     py::buffer_info imgOut_Buff = imgOut.request();
     int* imgOut_Ptr = (int*)(imgOut_Buff.ptr);
     
     
-    RecreateImage(imgOut_Ptr, 
-                  imgCAM_Ptr, width_CAM, height_CAM, 
-                  imgFTA_Ptr, width_FTA, height_FTA, 
-                  XI, YI, imgLabel);
+    FS_RecreateImage(imgOut_Ptr, 
+                       imgCAM_Ptr, width_CAM, height_CAM, 
+                       imgFTA_Ptr, width_FTA, height_FTA, 
+                       XI, YI, imgLabel);
 
 
     //Liberation mémoire
@@ -111,6 +116,9 @@ py::array_t<int> FaceSwap_CUDA(py::array_t<int> img_CAM, py::array_t<int> img_FT
     //free(landmarksFTA_Buff.ptr);
     //free(Quadrangles_Buff.ptr);
 
+    time = clock() - time;
+
+    //std::cout << "Swapping faces took : " << ((float)time)/CLOCKS_PER_SEC << " seconds with CUDA" << std::endl;
     return(imgOut);
 }
 

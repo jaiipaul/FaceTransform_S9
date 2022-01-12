@@ -8,7 +8,7 @@ namespace py = pybind11;
 
 py::array_t<int> CUDA_Sqr(py::array_t<int> img, int width, int height);
 
-void Flatten(double** Tab2D, int w, int h, double* Tab1D);
+void Flatten(float** Tab2D, int w, int h, float* Tab1D);
 
 py::array_t<int> FaceSwap_CUDA(py::array_t<int> img_CAM, py::array_t<int> img_FTA,
                                int width_CAM, int height_CAM, int width_FTA, int height_FTA,
