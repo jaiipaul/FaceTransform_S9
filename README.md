@@ -25,7 +25,7 @@ FaceSwap app using python/c++/cuda
 4) Pour la librairie CUDA, installer le [CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit)
 
 ## Compilation librairie cpp/python ou cuda/python :
-1) Se placer dans le dossier `cpp/` et créer un dossier `build/`, puis lancer les config cmake :
+1) Se placer dans le dossier `cpp_cuda/` et créer un dossier `build/`, puis lancer les config cmake :
 
     ```Powershell
     cd cpp && mkdir build && cd build
@@ -47,17 +47,12 @@ FaceSwap app using python/c++/cuda
     ```
 
 ## Importation des librairies dans les codes python
-Les librairies sont générées dans `lib/cpp/Release` ou `lib/cuda/Release`.
+La librairie est générées dans `lib/Release`.
 Le code python se trouvant dans `python/` devra donc commencer par :
 
 ```Python
 import sys
-sys.path.insert(0, "../lib/cpp/Release")
+sys.path.insert(0, "../lib/Release")
 import faceswap_func as fs 
 ```
-ou
-```Python
-import sys
-sys.path.insert(0, "../lib/cuda/Release")
-import faceswap_func_cuda as fs 
-```
+
