@@ -169,7 +169,7 @@ height_CAM = np.int32(len(temp[:,1,1]))
 
 ## FIRST FACE TREATEMENT // THE ALGORITHM WILL PUT THIS FACE ON THE ONE CAPTURE BY THE CAMERA
 ## Find the face
-face_to_add = cv2.imread("../img/singe.jpg")
+face_to_add = cv2.imread("../img/macron.jpg")
 width_FTA = np.int32(len(face_to_add[1,:,1]))
 height_FTA = np.int32(len(face_to_add[:,1,1]))
 face_to_add_gray, faces = get_faces(face_to_add)
