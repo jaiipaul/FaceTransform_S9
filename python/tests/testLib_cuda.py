@@ -1,6 +1,6 @@
 import sys
 sys.path.insert(0, "../../lib/Release")
-import faceswap_func as fs
+import FaceTransform as FT
 import matplotlib.pyplot as plt
 import numpy as np
 import dlib 

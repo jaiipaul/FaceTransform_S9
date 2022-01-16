@@ -5,7 +5,7 @@
 
 using namespace pybind11;
 
-PYBIND11_MODULE (faceswap_func, m) {
+PYBIND11_MODULE (FaceTransform, m) {
 	m.doc() = "Librairie FaceSwap using cpp and cuda";
 
 	m.def("CUDA_Sqr", &CUDA_Sqr);

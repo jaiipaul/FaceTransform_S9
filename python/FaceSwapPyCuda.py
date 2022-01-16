@@ -1,7 +1,7 @@
 import sys
 sys.path.insert(0, "../lib/Release")
 
-import faceswap_func as fs
+import FaceTransform as FT
 import dlib 
 import cv2 
 import numpy as np 
@@ -204,7 +204,7 @@ while cap.isOpened():
             
             n_quadrangles = np.int32(len(Quadrangles_arr))
             print("Trying CUDA Faceswap")
-            img_Out_line = fs.FaceSwap_CUDA(img_Out_line, img_FTA, width_CAM, height_CAM, width_FTA, height_FTA, n_quadrangles, Quadrangles, landmarks_CAM, landmarks_FTA)
+            img_Out_line = FT.FaceSwap_CUDA(img_Out_line, img_FTA, width_CAM, height_CAM, width_FTA, height_FTA, n_quadrangles, Quadrangles, landmarks_CAM, landmarks_FTA)
             img_Out = np.uint8(np.reshape(img_Out_line, (height_CAM, width_CAM, 3), order='C'))
             #fs.loadImage(img_CAM, wid  th_CAM, height_CAM)
 

@@ -1,6 +1,6 @@
-# FaceSwapS9
-FaceSwap app using python/c++/cuda
-
+# FACE TRANSFORMATION S9
+Face Transformation app using python/c++/cuda
+(building a wrapped c++/cuda library for python for Windows)
 
 ## Setup de l'environnement
 1) Installer VS Community 2019 et Python 3.9
@@ -53,6 +53,6 @@ Le code python se trouvant dans `python/` devra donc commencer par :
 ```Python
 import sys
 sys.path.insert(0, "../lib/Release")
-import faceswap_func as fs 
+import FaceTransform as FT 
 ```
 

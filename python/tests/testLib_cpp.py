@@ -1,6 +1,6 @@
 import sys
 sys.path.insert(0, "../../lib/Release")
-import faceswap_func as fs
+import FaceTransform as FT
 import matplotlib.pyplot as plt
 import numpy as np
 import dlib 
@@ -192,17 +192,17 @@ img_Out_line = faceswapped2;
 n_quadrangles = np.int32(len(Quadrangles_arr))
 
 #start = time.time()
-img_Out_line = fs.FaceSwap_CPP(img_Out_line, face_to_add1, width_FSD, height_FSD, width_FTA, height_FTA, n_quadrangles, Quadrangles, landmarks_FSD2, landmarks_FTA1)
+img_Out_line = FT.FaceSwap_CPP(img_Out_line, face_to_add1, width_FSD, height_FSD, width_FTA, height_FTA, n_quadrangles, Quadrangles, landmarks_FSD2, landmarks_FTA1)
 #end = time.time()
 #print("Swapping faces took : "+ str(end-start)+" seconds with C++")
 img_Out = np.uint8(np.reshape(img_Out_line, (height_FSD, width_FSD, 3), order='C'))
 
-#for i in range(n_quadrangles):
-#    for j in range(4):
-#        point1 = (landmarks_FSD2[2*Quadrangles_arr[i,j]], landmarks_FSD2[2*Quadrangles_arr[i,j] + 1])
-#        point2 = (landmarks_FSD2[2*Quadrangles_arr[i,(j+1)%4]], landmarks_FSD2[2*Quadrangles_arr[i,(j+1)%4] + 1])
-#        
-#        img_Out = cv2.line(img_Out, point1, point2, (0, 255, 0), 1)       
+for i in range(n_quadrangles):
+    for j in range(4):
+        point1 = (landmarks_FSD2[2*Quadrangles_arr[i,j]], landmarks_FSD2[2*Quadrangles_arr[i,j] + 1])
+        point2 = (landmarks_FSD2[2*Quadrangles_arr[i,(j+1)%4]], landmarks_FSD2[2*Quadrangles_arr[i,(j+1)%4] + 1])
+        
+        img_Out = cv2.line(img_Out, point1, point2, (0, 255, 0), 1)       
 
 
 #result = cv2.flip(img_Out, 1)

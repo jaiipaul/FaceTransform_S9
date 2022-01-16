@@ -1,7 +1,7 @@
 import sys
 sys.path.insert(0, "../lib/Release")
 
-import faceswap_func as fs
+import FaceTransform as FT
 import dlib 
 import cv2 
 import numpy as np 
@@ -192,8 +192,8 @@ while cap.isOpened():
 
         n_quadrangles = np.int32(len(Quadrangles_arr))
 
-        img_Out_line1 = fs.FaceSwap_CPP(img_Out_line, img_Out_line, width_CAM, height_CAM, width_CAM, height_CAM, n_quadrangles, Quadrangles, landmarks_FACE1, landmarks_FACE2)
-        img_Out_line2 = fs.FaceSwap_CPP(img_Out_line1, img_Out_line, width_CAM, height_CAM, width_CAM, height_CAM, n_quadrangles, Quadrangles, landmarks_FACE2, landmarks_FACE1)
+        img_Out_line1 = FT.FaceSwap_CPP(img_Out_line, img_Out_line, width_CAM, height_CAM, width_CAM, height_CAM, n_quadrangles, Quadrangles, landmarks_FACE1, landmarks_FACE2)
+        img_Out_line2 = FT.FaceSwap_CPP(img_Out_line1, img_Out_line, width_CAM, height_CAM, width_CAM, height_CAM, n_quadrangles, Quadrangles, landmarks_FACE2, landmarks_FACE1)
         img_Out = np.uint8(np.reshape(img_Out_line2, (height_CAM, width_CAM, 3), order='C'))
 
         
