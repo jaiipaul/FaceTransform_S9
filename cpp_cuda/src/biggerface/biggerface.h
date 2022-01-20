@@ -2,6 +2,9 @@
 #define _BIGGERFACE_H_
 
 #include <pybind11/pybind11.h>
+#include <pybind11/numpy.h>
+
+namespace py = pybind11;
 
 void BF_deformation(float* input, float* output);
 

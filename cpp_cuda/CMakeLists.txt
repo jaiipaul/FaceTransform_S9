@@ -52,15 +52,21 @@ target_include_directories (
     cuda_lib
     PRIVATE ${MODULE_SOURCE}/homography
     PRIVATE ${MODULE_SOURCE}/faceswap
-    #PRIVATE ${MODULE_SOURCE}/biggerface 
 )
 
 #pybind module
 pybind11_add_module( 
     FaceTransform MODULE
+    # Homography generics
     ${MODULE_SOURCE}/homography/homographie.cpp
+    # FaceSwap Sources
     ${MODULE_SOURCE}/faceswap/faceswap_func.cpp
     ${MODULE_SOURCE}/faceswap/faceswap_func_cuda.cpp
+    # Bigger Face
+    ${MODULE_SOURCE}/biggerface/biggerface.cpp
+    # Add beard 
+    ${MODULE_SOURCE}/beard/Image.cpp
+    ${MODULE_SOURCE}/beard/addBeard_func.cpp
     ${MODULE_SOURCE}/wrapper.cpp
 )
 target_link_directories(
@@ -76,6 +82,7 @@ target_include_directories (
     FaceTransform
     PRIVATE ${MODULE_SOURCE}/faceswap
     PRIVATE ${MODULE_SOURCE}/biggerface
+    PRIVATE ${MODULE_SOURCE}/beard
     PRIVATE ${MODULE_SOURCE}/homography
     PRIVATE ${PROJECT_SOURCE_DIR}/includes/opencv2/include
 )
