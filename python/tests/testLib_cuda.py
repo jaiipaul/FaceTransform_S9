@@ -1,5 +1,8 @@
 import sys
 sys.path.insert(0, "../../lib/Release")
+sys.path.insert(0, "../../ext/dlib/build/lib")
+sys.path.insert(0, "../../ext/opencv2")
+
 import FaceTransform as FT
 import matplotlib.pyplot as plt
 import numpy as np

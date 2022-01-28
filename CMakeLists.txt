@@ -45,7 +45,7 @@ SET(LIBRARY_OUTPUT_PATH ${LIB_DIR}/)
 add_subdirectory(${EXTERNALS}/pybind11)
 
 #OpenCv
-set(OpenCV_DIR ${EXTERNALS}/opencv/)
+set(OpenCV_DIR ${EXTERNALS}/opencv2/)
 
 # Homography library
 add_library(
