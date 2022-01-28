@@ -1,9 +1,9 @@
-[submodule "cpp_cuda/includes/pybind11"]
-	path = cpp_cuda/includes/pybind11
+[submodule "ext/dlib"]
+	path = ext/dlib
+	url = https://github.com/davisking/dlib.git
+[submodule "ext/pybind11"]
+	path = ext/pybind11
 	url = https://github.com/pybind/pybind11.git
-[submodule "cpp_cuda/includes/lapack"]
-	path = cpp_cuda/includes/lapack
-	url = https://github.com/Reference-LAPACK/lapack.git
-[submodule "cpp_cuda/includes/opencv"]
-	path = cpp_cuda/includes/opencv
+[submodule "ext/opencv"]
+	path = ext/opencv
 	url = https://github.com/opencv/opencv.git
