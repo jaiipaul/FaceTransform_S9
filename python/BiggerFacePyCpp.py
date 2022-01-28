@@ -1,10 +1,13 @@
 import sys
 sys.path.insert(0, "../lib/Release")
+sys.path.insert(0, "../ext/dlib/build/lib")
+sys.path.insert(0, "../ext/opencv")
 
 import FaceTransform as FT
+import matplotlib.pyplot as plt
+import numpy as np
 import dlib 
 import cv2 
-import numpy as np 
 
 #Face detector
 detector = dlib.get_frontal_face_detector()
