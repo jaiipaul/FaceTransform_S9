@@ -4,6 +4,15 @@ Face Transformation app using python/c++/cuda
 
 ## Setup de l'environnement
 1) Installer VS Community 2019 et Python 3.9
+2) Cloner le repo et initialiser les sous modules
+
+    ```Powershell
+    git clone https://github.com/pfriteau/FaceTransform_S9.git
+
+    git submodule init
+    git submodule update
+    ```
+
 2) Ouvrir powershell et taper : 
 
      ```Powershell 
@@ -12,7 +21,23 @@ Face Transformation app using python/c++/cuda
      
     si erreur installer [CMake](https://cmake.org/download/) et ajouter le repertoire bin aux variables d'environnement
 
-3) Installer dlib et openCV :
+3) Configurer DLib et OpenCV
+
+    Les scripts Python utilisent DLib et OpenCV. 
+    
+    ### Compiler les libs dans le projet
+
+    Dlib est en sous-module du projet et peut être compiler pour python:
+
+    ```Powershell
+    cd ext/dlib
+    python setup.py install
+    ``` 
+    OpenCV est dejà build pour windows dans le projet
+
+    ## OU
+     
+    Installer dlib et openCV directement localement avec pip:
 
     ```Powershell
     pip install dlib
@@ -21,14 +46,16 @@ Face Transformation app using python/c++/cuda
     ```Powershell
     pip install opencv-python
     ```
+    
 
 4) Pour la librairie CUDA, installer le [CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit)
 
 ## Compilation librairie python :
-1) Se placer dans le dossier `cpp_cuda/` et créer un dossier `build/`, puis lancer les config cmake :
+1) Créer un dossier `build/`, puis lancer les configs cmake :
 
     ```Powershell
-    cd cpp_cuda && mkdir build && cd build
+    mkdir build
+    cd build
     ```
 
     ```Powershell
@@ -54,5 +81,16 @@ Le code python se trouvant dans `python/` devra donc commencer par :
 import sys
 sys.path.insert(0, "../lib/Release")
 import FaceTransform as FT 
+```
+
+Si DLib et OpenCV n'ont pas été installées avec pip:
+```Python
+import sys
+#Local to project DLib
+sys.path.insert(0, "../ext/dlib/build/lib")
+import dlib
+#Local to project OpenCV
+sys.path.insert(0, "../ext/opencv")
+import cv2
 ```
 

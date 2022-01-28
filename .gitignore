@@ -17,11 +17,11 @@
 *.app
 
 # cuda build files
-cpp_cuda/build
-cpp_cuda/build/CMakeFiles
+build
 
 # library binaries
-.lib/
+lib
+lib/Release
 
 *.log
 *.bin
