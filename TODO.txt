@@ -1,0 +1,15 @@
+# TO DO LIST
+
+> Global :
+    - Gui avec boutons pour switcher entre les transformations
+    - Bouton pour selectionner l'accéleration CUDA
+    - options d'affichage debug (lignes, landmarks, bounding box)
+
+> Transformations :
+    - Triangulation ? puis transformations affines au lieu d'homographie
+    - BiggerFace : traiter uniquement les parties modifiées / quadrangles concernés
+    - FaceSwap : rendre smooth les transitions
+
+> Accéleration : 
+    - Ne plus travailler avec l'image entière mais uniquement la zone ou se trouve le visage
+    - Optimisation CUDA
